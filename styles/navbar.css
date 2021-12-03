@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    background: #222;
+    font-family: 'Orbitron', serif;
+    font-weight: 300;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.icons{
+    margin-right: 2px;
+}
+
+.iconWishlist{
+    width: 23px;
+    height: 23px;
+}
+
+.iconFaq{
+    width: 22px;
+    height: 22px;
+}
+.iconShoppingcart{
+    width: 22px;
+    height: 22px;
+}
+
+header {
+    background: linear-gradient(to bottom, #0A477E, #00294A);
+}
+
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav{
+    float: right;
+    
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+     
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+nav a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:  white;
+}
+
+nav a:hover{
+    color: #FCBE30;
+}

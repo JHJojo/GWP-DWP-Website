@@ -1,6 +1,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
 
+
 <!-- HEAD -->
 <head></head>
 

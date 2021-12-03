@@ -14,6 +14,8 @@
   </div>
 </header>
 
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/navbar.php';?>
+
 <script>
   setTimeout(() => {
     // add height of footer; change to document ready event
