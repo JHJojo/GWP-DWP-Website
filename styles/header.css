@@ -3,4 +3,19 @@
   max-width: 100%;
   position: fixed;
   top: 0;
+  background: linear-gradient(to bottom, #0A477E, #00294A);
+}
+
+.header .container {
+  background-color: transparent;
+}
+
+.header .icons {
+  list-style: none;
+  display: flex;
+}
+
+.header .icon {
+  display: flex;
+  align-items: center;
 }
