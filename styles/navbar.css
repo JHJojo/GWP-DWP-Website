@@ -1,16 +1,6 @@
-body {
-    margin: 0;
-    background: #222;
-    font-family: 'Orbitron', serif;
-    font-weight: 300;
-}
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
 
-.icons{
+.icons {
     margin-right: 2px;
 }
 
@@ -28,6 +18,7 @@ body {
     height: 22px;
 }
 
+/*
 header {
     background: linear-gradient(to bottom, #0A477E, #00294A);
 }
@@ -36,7 +27,7 @@ header::after{
     content: '';
     display: table;
     clear: both;
-}
+}*/
 
 nav{
     float: right;
