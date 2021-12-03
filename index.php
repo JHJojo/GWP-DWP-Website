@@ -15,6 +15,7 @@
         north_east
       </span>
     </a>
+  </div>
 </div>
 
 <script>
