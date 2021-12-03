@@ -6,7 +6,7 @@
 <head></head>
 
 <!-- CONTAINER -->
-<div class="container asd">
+<div class="container">
   <!-- CONTENT -->
   <div class="content">
     <h1>Index</h1>
@@ -16,7 +16,18 @@
         north_east
       </span>
     </a>
-    asd
+    <a class="btn btn-info" href="/imprint.php">
+      Impressum
+      <span class="material-icons-outlined">
+        north_east
+      </span>
+    </a>
+    <a class="btn btn-secondary" href="/about-us.php">
+    about-us
+      <span class="material-icons-outlined">
+        north_east
+      </span>
+    </a>
   </div>
 </div>
 
