@@ -6,10 +6,41 @@
 <header class="header">
   <div class="container">
     <!-- CONTENT -->
-    <div>
-      <img src="https://i.imgur.com/hNFUhme.png" width="200px" alt="gehäusekönig logo">
-      
-      <nav></nav>
+    <div class="ml-auto">
+      <ul class="links">
+        <li class="mr-2">
+          <a href="/login.php" class="link btn btn-primary btn-flat py-1">
+            <i class="material-icons md-18 mr-1">
+            person
+            </i>
+            Anmelden
+          </a>
+        </li>
+        <li class="mr-2">
+          <a href="#" class="link btn btn-primary btn-flat py-1">
+            <i class="material-icons md-18 mr-1">
+            favorite
+            </i>
+            Wunschzettel
+          </a>
+        </li>
+        <li class="mr-2">
+          <a href="#" class="link btn btn-primary btn-flat py-1">
+            <i class="material-icons md-18 mr-1">
+            question_answer
+            </i>
+            FAQ / Hilfe
+          </a>
+        </li>
+        <li>
+          <a href="#" class="link btn btn-primary btn-flat py-1">
+            <i class="material-icons md-18 mr-1">
+            shopping_cart
+            </i>
+            Warenkorb
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </header>

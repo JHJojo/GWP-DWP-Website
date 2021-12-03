@@ -3,4 +3,20 @@
   max-width: 100%;
   position: fixed;
   top: 0;
+  background: linear-gradient(to bottom, #0A477E, #00294A);
+}
+
+.header .container {
+  background-color: transparent;
+}
+
+.header .links {
+  list-style: none;
+  display: flex;
+}
+
+.header .link {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
 }
