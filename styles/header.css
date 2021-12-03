@@ -10,12 +10,13 @@
   background-color: transparent;
 }
 
-.header .icons {
+.header .links {
   list-style: none;
   display: flex;
 }
 
-.header .icon {
+.header .link {
   display: flex;
   align-items: center;
+  font-size: 12px;
 }
