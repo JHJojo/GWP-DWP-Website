@@ -447,6 +447,13 @@ a.btn {
   background-color: transparent;
 }
 
+.btn.btn-outlined.btn-white {
+  box-shadow: none;
+  color: white;
+  outline: thin solid white;
+  background-color: transparent;
+}
+
 [role=button], [type=button], [type=reset], [type=submit], button, select {
   cursor: pointer;
 }

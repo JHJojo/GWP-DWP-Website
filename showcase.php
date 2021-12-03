@@ -60,19 +60,26 @@
       </i>
     </div>
 
+    <p class="body-1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta impedit similique assumenda fugiat provident minus reprehenderit, repudiandae delectus quia, earum dignissimos nisi inventore magni modi obcaecati cum! Quod quo qui pariatur est? Voluptates qui ad inventore vitae, corporis vero consequuntur explicabo quibusdam commodi expedita ab esse, dolorem praesentium pariatur saepe.
+    </p>
+    <p class="overline">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, exercitationem.
+    </p>
+
     <section>
-      <div class="display-4">Test</div>
-      <div class="display-3">Test</div>
-      <div class="display-2">Test</div>
-      <div class="display-1">Test</div>
-      <div class="headline">Test</div>
-      <div class="title">Test</div>
-      <div class="subtitle-1">Test</div>
-      <div class="subtitle-2">Test</div>
-      <div class="body-1">Test</div>
-      <div class="body-2">Test</div>
-      <div class="caption">Test</div>
-      <div class="overline">Test</div>
+      <div class="display-4">display-4</div>
+      <div class="display-3">display-3</div>
+      <div class="display-2">display-2</div>
+      <div class="display-1">display-1</div>
+      <div class="headline">headline</div>
+      <div class="title">title</div>
+      <div class="subtitle-1">subtitle-1</div>
+      <div class="subtitle-2">subtitle-2</div>
+      <div class="body-1">body-1</div>
+      <div class="body-2">body-2</div>
+      <div class="caption">caption</div>
+      <div class="overline">overline</div>
     </section>
 
     <section>
