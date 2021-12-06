@@ -26,6 +26,10 @@ Small: <992px
   .container {
     width: 1200px;
   }
+
+  .hidden-sm {
+    display: none;
+  }
 }
 
 /* mobile */
@@ -35,11 +39,18 @@ Small: <992px
 
 /* globals */
 
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
 body {
   font-family: 'Orbitron', serif;
   margin: 0;
   line-height: 1.5;
   color: rgba(0,0,0,.87);
+  background-color: rgb(248, 248, 248);
 }
 
 .container {
@@ -50,6 +61,14 @@ body {
 
 a {
   text-decoration: none;
+}
+
+img {
+  width: -webkit-fill-available;
+}
+
+hr {
+  margin: 30px 0;
 }
 
 /* actual content of page*/
@@ -164,6 +183,11 @@ a {
   text-transform: uppercase;
 }
 
+/* no text break */
+.space-nowrap {
+  white-space: nowrap;
+}
+
 small {
   font-size: 80%;
 }
@@ -239,6 +263,7 @@ code, kbd, pre, samp {
 .material-icons.md-24, .material-icons-outlined.md-24 { font-size: 24px; }
 .material-icons.md-36, .material-icons-outlined.md-36 { font-size: 36px; }
 .material-icons.md-48, .material-icons-outlined.md-48 { font-size: 48px; }
+.material-icons.md-52, .material-icons-outlined.md-52 { font-size: 52px; }
 
 /* table */
 table {
@@ -311,8 +336,8 @@ tr:nth-child(even) {
 }
 
 .text-truncate {
-  white-space: nowrap;;
-  overflow: hidden;;
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
