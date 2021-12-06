@@ -28,14 +28,14 @@
     padding: 8px;
 }
 
-.faq-link .icon-add{
+.faq-link .icon-remove{
     display: none;
 }
 
 .answer{
+    display: none;
     position: relative;
     background-color: #2a689b;
-
 }
 
 .answer::before{
@@ -72,11 +72,11 @@ input#question2{
  }
     
 input:checked ~ .answer{
-   display: none;
+   display: block;
 }
 input:checked ~ .faq-link .icon-remove{
-    display: none;
+    display: block;
 }
 input:checked ~ .faq-link .icon-add{
-    display: block;
+    display: none;
 }
