@@ -1,5 +1,6 @@
 .my-nav {
-  background-color: white;
+  margin-top: 66px;
+  background-color: rgb(248, 248, 248);
 }
 
 .my-banner{
@@ -15,7 +16,6 @@
 }
 
 .side-info{
-  display: flex;
   align-items: center;
   font-size: 20px;
 }
@@ -26,4 +26,5 @@
 
 .top-navigation {
   padding: 0;
+  width: 100%;
 }
