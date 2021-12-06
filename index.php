@@ -28,6 +28,12 @@
         north_east
       </span>
     </a>
+    <a class="btn btn-secondary" href="/homepage.php">
+    homepage
+      <span class="material-icons-outlined">
+        north_east
+      </span>
+    </a>
   </div>
 </div>
 
