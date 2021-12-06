@@ -25,7 +25,7 @@
           </a>
         </li>
         <li class="mr-2">
-          <a href="#" class="link btn btn-primary btn-flat py-1">
+          <a href="../faq-help.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             question_answer
             </i>
