@@ -43,9 +43,9 @@
       </ul>
     </div>
   </div>
+  <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/navbar.php';?>
 </header>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/navbar.php';?>
 
 <script>
   setTimeout(() => {
