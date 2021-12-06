@@ -3,53 +3,57 @@
 </head>
 
 <!-- CONTAINER -->
-<header class="header">
-  <div class="container">
-    <!-- CONTENT -->
-    <div class="ml-auto">
-      <ul class="links">
-        <li class="mr-2">
-          <a href="/login.php" class="link btn btn-primary btn-flat py-1">
-            <i class="material-icons md-18 mr-1">
-            person
-            </i>
-            Anmelden
-          </a>
-        </li>
-        <li class="mr-2">
-          <a href="#" class="link btn btn-primary btn-flat py-1">
-            <i class="material-icons md-18 mr-1">
-            favorite
-            </i>
-            Wunschzettel
-          </a>
-        </li>
-        <li class="mr-2">
-          <a href="#" class="link btn btn-primary btn-flat py-1">
-            <i class="material-icons md-18 mr-1">
-            question_answer
-            </i>
-            FAQ / Hilfe
-          </a>
-        </li>
-        <li>
-          <a href="#" class="link btn btn-primary btn-flat py-1">
-            <i class="material-icons md-18 mr-1">
-            shopping_cart
-            </i>
-            Warenkorb
-          </a>
-        </li>
-      </ul>
+<div>
+  <header class="header">
+    <div class="container">
+      <!-- CONTENT -->
+      <div class="ml-auto">
+        <ul class="links">
+          <li class="mr-2">
+            <a href="/login.php" class="link btn btn-primary btn-flat py-1">
+              <i class="material-icons md-18 mr-1">
+              person
+              </i>
+              Anmelden
+            </a>
+          </li>
+          <li class="mr-2">
+            <a href="#" class="link btn btn-primary btn-flat py-1">
+              <i class="material-icons md-18 mr-1">
+              favorite
+              </i>
+              Wunschzettel
+            </a>
+          </li>
+          <li class="mr-2">
+            <a href="#" class="link btn btn-primary btn-flat py-1">
+              <i class="material-icons md-18 mr-1">
+              question_answer
+              </i>
+              FAQ / Hilfe
+            </a>
+          </li>
+          <li>
+            <a href="#" class="link btn btn-primary btn-flat py-1">
+              <i class="material-icons md-18 mr-1">
+              shopping_cart
+              </i>
+              Warenkorb
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </header>
+  
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/navbar.php';?>
-</header>
+</div>
 
 
 <script>
   setTimeout(() => {
     // add height of footer; change to document ready event
+    document.querySelector("nav").style.marginTop = document.querySelector(".header").offsetHeight;
     document.querySelector(".content").style.marginTop = document.querySelector(".header").offsetHeight;
   }, 500);
 </script>
