@@ -56,21 +56,10 @@
     margin: 0;
 }
 
-
-
-input#question1{
+input#question1,#question2,#question3,#question4{
    display: none;
 }
-input#question2{
-    display: none;
- }
- input#question3{
-    display: none;
- }
- input#question4{
-    display: none;
- }
-    
+  
 input:checked ~ .answer{
    display: block;
 }
@@ -80,3 +69,4 @@ input:checked ~ .faq-link .icon-remove{
 input:checked ~ .faq-link .icon-add{
     display: none;
 }
+
