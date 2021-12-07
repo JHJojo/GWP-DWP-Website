@@ -3,7 +3,7 @@
 
 <!-- HEAD -->
 <head>
-<link href="/styles/faq-help.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/faq-help.css" rel="stylesheet" type="text/css" />
 </head>
 
 <!-- CONTAINER -->
@@ -13,7 +13,7 @@
     <div class="help">
         <h1 class="display-2 text-center">Hilfe</h1>
         <div class="flex-row justify-space-between">
-            <a href="" class="btn btn-outlined btn-secondary flex-grow mx-2">
+            <a href="./payment.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
                 <i class="material-icons md-52 mr-1">
                     payment
                 </i> 
@@ -56,7 +56,7 @@
                 </label>
                 <div class="answer">
                    <p>
-                    Da wir keine Bestellungen versenden können sie auch keine zurück schicken!
+                    Da wir keine Bestellungen versenden, können sie auch keine zurück schicken!
                    </p> 
                 </div>  
             </div>
@@ -97,7 +97,7 @@
             <div class="faq-item">
                 <input type="checkbox" id="question4" />
                 <label class="faq-link" for="question4">
-                    Kann ich meine Bestellung zurück schicken?
+                    Kann ich in ihrem Shop Haustiere kaufen?
                     <i class="icon-add material-icons md-36">
                         add
                     </i>
