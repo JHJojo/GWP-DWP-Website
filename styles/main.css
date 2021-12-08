@@ -13,6 +13,8 @@
   --error-color: #DD2C00;
   --success-color: #00C853;
 
+  --dark-color: #424242;
+
   --btn-color: white;
   --btn-color-outlined: rgba(0,0,0,.8);
 }
@@ -51,6 +53,9 @@ body {
   line-height: 1.5;
   color: rgba(0,0,0,.87);
   background-color: rgb(248, 248, 248);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .container {
@@ -85,6 +90,35 @@ hr {
 
 .float-right {
   float: right;
+}
+
+/* background-color */
+.white {
+  background-color: white;
+}
+.dark {
+  background-color: var(--dark-color);
+}
+.primary {
+  background-color: var(--primary-color);
+}
+.secondary {
+  background-color: var(--secondary-color);
+}
+.accent {
+  background-color: var(--accent-color);
+}
+.info {
+  background-color: var(--info-color);
+}
+.warning {
+  background-color: var(--warning-color);
+}
+.error {
+  background-color: var(--error-color);
+}
+.success {
+  background-color: var(--success-color);
 }
 
 /* text */
