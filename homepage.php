@@ -1,7 +1,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
 <?php
-  $db = new PDO("mysql:host=127.0.0.1;dbname=gk-db;charset=utf8","gk-db","123456789");
+  $db = new PDO("mysql:host=127.0.0.1;dbname=gk-db;charset=utf8","root","");
 
   $sql = "SELECT productID,description,price,photo
           FROM products";
