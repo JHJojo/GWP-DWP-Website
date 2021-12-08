@@ -26,10 +26,10 @@
   <div class="content homepage">
     <h1 class="text-center display-3">Highlights</h1>
 
-    <hr>
+<hr>
   
-    <div class="fav-products">
-      <div class="flex-row">
+   <div class="fav-products">
+   <!--    <div class="flex-row">
         <?php while($row = $result->fetch()):?>
           <div class="col-4">
             <?php include './components/card.php' ?>
@@ -42,8 +42,8 @@
             <?php include './components/card.php' ?>
           </div>
         <?php endwhile;?>
-      </div>
-<hr>
+      </div>    
+<hr>--> 
       <div class="flex-row flex-wrap justify-space-between">
         <?php while($row = $result3->fetch()):?>
           <div class="col-4 my-12">
@@ -52,6 +52,19 @@
         <?php endwhile;?>
       </div>
     </div>
+
+
+<hr>
+    <h2 class="headline text-center">Entdecke Gehäusekönig</h2>
+
+    <div class="flex-row">
+      <div class="col-2">
+          <a href="#" class="explore btn btn-primary btn-flat py-1">
+            
+          </a>
+      </div>
+    </div>
+
   </div>
 </div>
 
