@@ -4,6 +4,7 @@
   position: fixed;
   top: 0;
   background: linear-gradient(to bottom, #0A477E, #00294A);
+  z-index: 1;
 }
 
 .header .container {
