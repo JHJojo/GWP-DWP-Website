@@ -9,7 +9,7 @@
   <!-- CONTENT -->
   <div class="content aboutUs text-center">
     <h1>Über Uns</h1>
-        Das Gehäuse ost der wohl wichtigste Bestandteil eines PC's. <br>
+        Das Gehäuse ist der wohl wichtigste Bestandteil eines PC's. <br>
         Mit unserer Website versuchen wir so viele Gehäuse wie möglich auf den Markt zu bekommen. <br>
         Ausgefallene Designs, tolle Farben und atemberaubende Funktionen bei uns ist für jeden Gehäuseliebhaber was dabei. <br>
         In unserem Onlineshop finden sie unter anderem auch die Hauptkomponenten eines Computers sowie die dazugehörige Peripherie. <br>
