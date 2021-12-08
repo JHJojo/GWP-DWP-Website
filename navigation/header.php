@@ -52,6 +52,6 @@
   document.addEventListener("DOMContentLoaded", function(event) { 
     // add height of footer;
     document.querySelector("nav").style.marginTop = document.querySelector(".header").offsetHeight;
-    document.querySelector(".content").style.marginTop = document.querySelector(".header").offsetHeight;
+    //document.querySelector(".content").style.marginTop = document.querySelector(".header").offsetHeight;
   });
 </script>
