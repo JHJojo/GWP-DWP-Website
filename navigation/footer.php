@@ -14,8 +14,9 @@
 </footer>
 
 <script>
-  setTimeout(() => {
-    // add height of footer; change to document ready event
+  "use strict";
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    // add height of footer;
     document.querySelector(".content").style.marginBottom = document.querySelector(".footer").offsetHeight;
-  }, 500);
+  });
 </script>

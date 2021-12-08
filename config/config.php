@@ -18,4 +18,6 @@
   </noscript>
 </body>
 
-<script></script>
+<script>
+  "use strict";
+</script>

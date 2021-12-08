@@ -35,7 +35,7 @@
     </section>
 
     <div class="d-flex">
-      <a class="btn btn-accent" href="/showcase.php">
+      <a class="btn btn-accent" href="/">
         <i class="material-icons">
         home
         </i>
@@ -141,6 +141,7 @@
 </div>
 
 <script>
+  "use strict";
   document.title = "Showcase title by JS"
 </script>
 

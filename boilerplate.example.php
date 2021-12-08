@@ -13,6 +13,7 @@
 </div>
 
 <script>
+  "use strict";
 </script>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
