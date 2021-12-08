@@ -29,12 +29,12 @@
                     Abholung & Versand
                 </div>
             </a>
-            <a href="" class="btn btn-outlined btn-secondary flex-grow mx-2">
+            <a href="./pc-assembly.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
                 <i class="material-icons md-52 mr-1">
-                    recycling
+                    construction
                 </i> 
                 <div class="flex-grow text-center title">
-                    Recycling
+                    PC-Montage
                 </div>
             </a>
         </div>
