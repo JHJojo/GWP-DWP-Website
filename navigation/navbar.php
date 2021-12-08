@@ -99,6 +99,20 @@
             </a>
         </div>
     </div>
+
+    <div class="container">
+        <div class="search flex-row">
+            <input type="text" class="input flex-grow pl-4 ml-4 my-2" placeholder="Artikel suchen...">
+            <div class="searchbtn mr-4 my-2 px-2 py-2">
+                <i class="material-icons md-24">
+                 search
+                </i>
+            </div>
+        </div>
+    </div>
+
+
+
 </nav>
 
 <script>
