@@ -57,13 +57,6 @@
 <hr>
     <h2 class="headline text-center">Entdecke Gehäusekönig</h2>
 
-    <div class="flex-row">
-      <div class="col-2">
-          <a href="#" class="explore btn btn-primary btn-flat py-1">
-            
-          </a>
-      </div>
-    </div>
 
   </div>
 </div>
