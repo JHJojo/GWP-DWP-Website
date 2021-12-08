@@ -143,6 +143,7 @@
 </div>
 
 <script>
+  "use strict";
   document.title = "Showcase title by JS"
 </script>
 

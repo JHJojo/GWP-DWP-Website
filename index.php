@@ -38,6 +38,7 @@
 </div>
 
 <script>
+  "use strict";
 </script>
 
 

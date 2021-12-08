@@ -541,6 +541,10 @@ input:focus, select:focus, textarea:focus {
   border-color: var(--primary-color);
 }
 
+input::placeholder {
+  font-family: 'Orbitron', serif;
+}
+
 /* margins */
 .ma-0 {
   margin: 0;
