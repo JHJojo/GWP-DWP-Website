@@ -21,7 +21,7 @@
                     Bezahlung
                 </div> 
             </a>
-            <a href="" class="btn btn-outlined btn-secondary flex-grow mx-2">
+            <a href="./delivery.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
                 <i class="material-icons md-52 mr-1">
                     local_shipping
                 </i> 

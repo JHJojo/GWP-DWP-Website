@@ -1,0 +1,13 @@
+.types {
+    color: white;
+    padding: 0;
+}
+
+.type1,.type2,.type3{
+    background: #3D79A9;
+    border-radius: 5px;
+}
+
+p{
+    font-size: 19px;
+}
