@@ -2,6 +2,8 @@
   <link href="/styles/footer.css" rel="stylesheet" type="text/css" />
 </head>
 
+<!-- move footer to bottom -->
+<div class="container flex-spacer white"></div> 
 
 <!-- CONTAINER -->
 <footer class="footer">
@@ -15,8 +17,4 @@
 
 <script>
   "use strict";
-  document.addEventListener("DOMContentLoaded", function(event) { 
-    // add height of footer;
-    document.querySelector(".content").style.marginBottom = document.querySelector(".footer").offsetHeight;
-  });
 </script>
