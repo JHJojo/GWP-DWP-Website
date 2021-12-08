@@ -49,9 +49,9 @@
 
 
 <script>
-  setTimeout(() => {
-    // add height of footer; change to document ready event
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    // add height of footer;
     document.querySelector("nav").style.marginTop = document.querySelector(".header").offsetHeight;
     document.querySelector(".content").style.marginTop = document.querySelector(".header").offsetHeight;
-  }, 500);
+  });
 </script>
