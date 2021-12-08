@@ -3,7 +3,7 @@
 
 <!-- HEAD -->
 <head>
-<link href="/styles/payment.css" rel="stylesheet" type="text/css" />
+<link href="/styles/help-pages.css" rel="stylesheet" type="text/css" />
 </head>
 
 <!-- CONTAINER -->
@@ -12,8 +12,8 @@
   <div class="content payment">
     <h1 class="display-1">Zahlungsarten</h1>
 
-    <div class="paytypes flex-column">
-      <div class="paytype1 my-2">
+    <div class="types flex-column">
+      <div class="type1 my-2">
         <h2 class="headline text-center">PayPayPay</h2>
         <div class="flex-row">
           <div class="col-4 my-auto">
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="paytype2 my-2">
+      <div class="type2 my-2">
         <h2 class="headline text-center">Sofort-Insolvent</h2>
         <div class="flex-row">
           <div class="col-4 my-auto">
