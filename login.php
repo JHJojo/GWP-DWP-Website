@@ -1,7 +1,7 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
+<?php session_start();
+include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
 <?php
-session_start();
 $pdo = new PDO('mysql:host=localhost;dbname=gkdb', 'root', '');
 
 
