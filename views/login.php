@@ -37,7 +37,6 @@ if(isset($errorMessage)) {
 }
 ?>
 <!--Form for the login-->
-<section id="login-page">
     <div class="container">
         <div class="mx-auto">
             <form class="login-form" action="?login=1" method="post">
@@ -65,13 +64,12 @@ if(isset($errorMessage)) {
                 </div>
                 <div class="login-row">
                     <div class="input-group">
-                        <a class="link btn btn-primary btn-flat py-1" href="/create_account.php">Registrieren</a>
+                        <a class="link btn btn-primary btn-flat py-1" href="/views/create_account.php">Registrieren</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-</section>
 </body>
 
 
