@@ -40,6 +40,7 @@
   border-radius: 5px;
 }
 .searchbtn{
+  display: flex;
   background: #5A5A5A;
   color: white;
   border-radius: 5px;
