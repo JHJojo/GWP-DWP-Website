@@ -1,15 +1,20 @@
-<?php session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php'; ?>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php'; ?>
+<?php session_start();?>
 <?php
 //Connection for the DB
 $pdo = new PDO('mysql:host=localhost;dbname=gk-db', 'root', '');
 ?>
 
-<head>
+<!DOCTYPE html>
+<html>
+    <head>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php'; ?>
+    
+    <!-- HEAD -->
     <link href="/styles/create_account.css" rel="stylesheet" type="text/css" />
-</head>
-
+    </head>
+    
+<body>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php'; ?>
 
 <?php
 $showFormular = true; //To show the form if register=1
@@ -75,8 +80,9 @@ if (isset($_GET['register'])) {
 
 if ($showFormular) {
 ?>
-    <!--Form to create an account-->
 
+<!--Form to create an account-->
+    <!-- CONTAINER -->
     <div class="container">
         <div class="mx-auto">
             <form class="signup-form" action="?register=1" method="post">
@@ -423,3 +429,5 @@ if ($showFormular) {
 }
 ?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
+    </body>
+</html>
