@@ -47,6 +47,10 @@ Small: <992px
    box-sizing: border-box; 
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Orbitron', serif;
   margin: 0;
