@@ -3,7 +3,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
 <?php
 //Connection for the DB
-$pdo = new PDO('mysql:host=localhost;dbname=gkdb', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=gk-db', 'root', '');
 ?>
 
 <head>
@@ -76,7 +76,7 @@ if(isset($_GET['register'])) {
 if($showFormular) {
     ?>
     <!--Form to create an account-->
-    <section id="registration-page">
+
     <div class="container">
         <div class="mx-auto">
     <form class="signup-form" action="?register=1" method="post">
@@ -419,7 +419,6 @@ if($showFormular) {
     </form>
             </div>
         </div>
-    </section>
     <?php
 }
 ?>
