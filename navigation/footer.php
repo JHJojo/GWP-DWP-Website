@@ -1,5 +1,4 @@
 <head>
-  <link href="/styles/footer.css" rel="stylesheet" type="text/css" />
 </head>
 
 <!-- move footer to bottom -->

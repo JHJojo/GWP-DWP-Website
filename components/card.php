@@ -15,9 +15,13 @@
             <a href="#" class="btn btn-info btn-flat">
                 Details
             </a>
-            <a href="#" class="btn btn-accent btn-flat">
+            <form action="homepage.php" method="post">
+                <input type="hidden" name="product_id" value="<?= $row['productID']?>">
+                <button class="btn btn-primary">submit</button>
+            </form>
+            <!-- <a href="homepage.php/cart/add/<?= $row['productID']?>" class="btn btn-accent btn-flat">
                 Warenkorb
-            </a>
+            </a> -->
         </div>
     </div>
 </div>

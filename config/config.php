@@ -8,7 +8,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <link href="/styles/main.css" rel="stylesheet" type="text/css" />
   <link href="/styles/flex.css" rel="stylesheet" type="text/css" />
-
+  <link href="/styles/header.css" rel="stylesheet" type="text/css" />
+  <link href="/styles/footer.css" rel="stylesheet" type="text/css" />
+  <link href="/styles/navbar.css" rel="stylesheet" type="text/css" />
   <link href="/styles/image.css" rel="stylesheet" type="text/css" />
   <link href="/styles/card.css" rel="stylesheet" type="text/css" />
 

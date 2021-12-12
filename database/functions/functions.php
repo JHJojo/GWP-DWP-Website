@@ -1,5 +1,5 @@
 <?php
-
+//Function to get Database
 function getDB(){
     static $db;
     if ($db instanceof PDO) {

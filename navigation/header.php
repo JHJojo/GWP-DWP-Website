@@ -1,26 +1,6 @@
-<?php
-    session_start();
-    define('CONFIG_DIR','database');
-    require_once 'database/functions/functions.php';
-    
-  $accountID = 1;
-  $cartItems = 0;
 
-  if (isset($_SESSION['accountID'])) {
-    $accountID = (int) $_SESSION['accountID'];
-  }
-  if (isset($_COOKIE['accountID'])) {
-    $accountID = (int) $_COOKIE['accountID'];
-  }
-
-  $sql2 = "SELECT COUNT(cartID) FROM shoppingcart WHERE accountID =" .$accountID;
-  $cartResult = getDB()->query($sql2);
-
-  $cartItems = $cartResult->fetchColumn();
-?>
 
 <head>
-  <link href="/styles/header.css" rel="stylesheet" type="text/css" />
 </head>
 
 <!-- CONTAINER -->
@@ -42,11 +22,11 @@
             <i class="material-icons md-18 mr-1">
             favorite
             </i>
-            Wunschzettel
+            Wunschzettel 
           </a>
         </li>
         <li class="mr-2">
-          <a href="../faq-help.php" class="link btn btn-primary btn-flat py-1">
+          <a href="./faq-help.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             question_answer
             </i>

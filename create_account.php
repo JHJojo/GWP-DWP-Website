@@ -3,7 +3,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
 <?php
 //Connection for the DB
-$pdo = new PDO('mysql:host=localhost;dbname=gkdb', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=gk-db', 'root', '');
 ?>
 
 <head>
