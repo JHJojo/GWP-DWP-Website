@@ -1,7 +1,7 @@
 <?php
   session_start();
   define('CONFIG_DIR','database');
-  require_once __DIR__. '/functions/database.php';
+  require_once  '/xampp/htdocs/functions/database.php';
     
 
   $cartItems = 0;
@@ -56,7 +56,7 @@
           <div class="flex-row flex-wrap justify-space-between">
             <?php while($row = $result->fetch()):?>
               <div class="col-4 my-12">
-                <?php include './components/card.php' ?>
+                <?php include '../components/card.php' ?>
               </div>
             <?php endwhile;?>
           </div>

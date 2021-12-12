@@ -1,8 +1,4 @@
 
-
-<head>
-</head>
-
 <!-- CONTAINER -->
 <header class="header">
   <div class="container">
@@ -10,7 +6,7 @@
     <div class="ml-auto">
       <ul class="links">
         <li class="mr-2">
-          <a href="/login.php" class="link btn btn-primary btn-flat py-1">
+          <a href="/views/login.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             person
             </i>
@@ -22,11 +18,11 @@
             <i class="material-icons md-18 mr-1">
             favorite
             </i>
-            Wunschzettel 
+            Wunschzettel
           </a>
         </li>
         <li class="mr-2">
-          <a href="./faq-help.php" class="link btn btn-primary btn-flat py-1">
+          <a href="/views/faq-help.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             question_answer
             </i>

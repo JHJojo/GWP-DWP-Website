@@ -1,6 +1,7 @@
 <!-- HEAD -->
 
 <head>
+    <link href="/styles/navbar.css" rel="stylesheet" type="text/css" />
 </head>
 
 <!-- CONTAINER -->
@@ -12,7 +13,7 @@
                 <div class="my-banner py-2">
                     <div class="flex-row no-gutters align-center">
                         <div class="col-3">
-                           <a href="./homepage.php">
+                           <a href="/">
                                <img src="https://i.imgur.com/lZcL1h8.png" alt="banner">
                             </a> 
                         </div>

@@ -13,11 +13,11 @@
     <div class="card-footer">
         <div class="flex-row justify-space-around">
             <a href="#" class="btn btn-info btn-flat">
-                Details
+                Details 
             </a>
-            <form action="homepage.php" method="post">
+            <form action="index.php" method="post">
                 <input type="hidden" name="product_id" value="<?= $row['productID']?>">
-                <button class="btn btn-primary">submit</button>
+                <button class="btn btn-primary">Warenkorb</button>
             </form>
             <!-- <a href="homepage.php/cart/add/<?= $row['productID']?>" class="btn btn-accent btn-flat">
                 Warenkorb

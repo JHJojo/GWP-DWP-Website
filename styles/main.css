@@ -25,10 +25,6 @@ Small: <992px
 */
 /* desktop */
 @media (min-width: 992px) {
-  .container {
-    width: 1200px;
-  }
-
   .hidden-sm {
     display: none;
   }
@@ -47,6 +43,10 @@ Small: <992px
    box-sizing: border-box; 
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Orbitron', serif;
   margin: 0;
@@ -59,6 +59,8 @@ body {
 }
 
 .container {
+  max-width: 1200px;
+  width: 100%;
   display: flex;
   margin: 0 auto;
   background-color: white;
