@@ -25,10 +25,6 @@ Small: <992px
 */
 /* desktop */
 @media (min-width: 992px) {
-  .container {
-    width: 1200px;
-  }
-
   .hidden-sm {
     display: none;
   }
@@ -63,6 +59,7 @@ body {
 }
 
 .container {
+  max-width: 1200px;
   display: flex;
   margin: 0 auto;
   background-color: white;
