@@ -18,9 +18,9 @@ if(isset($_GET['login'])) { //Checks if the GET-parameter is not NULL (Form was 
     //Parse the password
     if ($account !== false && password_verify($password, $account['passwordHash'])) {
         $_SESSION['userid'] = $account['accountID'];
-        die('Login erfolgreich.</a>');
+        die('<div class="container">Login erfolgreich.</a></div>');
     } else {
-        $errorMessage = "Die E-Mail-Adresse oder das Passwort waren ungültig!<br>";
+        $errorMessage = "<div class='container'>Die E-Mail-Adresse oder das Passwort waren ungültig!<br></div>";
     }
 
 }
@@ -28,7 +28,7 @@ if(isset($_GET['login'])) { //Checks if the GET-parameter is not NULL (Form was 
 
 
 <head>
-    <title>Login</title>
+    <link href="/styles/login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <?php
@@ -37,15 +37,41 @@ if(isset($errorMessage)) {
 }
 ?>
 <!--Form for the login-->
-<form action="?login=1" method="post">
-    E-Mail-Adresse:<br>
-    <input type="email" size="40" maxlength="250" name="email"><br><br>
-
-    Passwort:<br>
-    <input type="password" size="40"  maxlength="250" name="password"><br>
-
-    <input type="submit" value="login">
-</form>
+<section id="login-page">
+    <div class="container">
+        <div class="mx-auto">
+            <form class="login-form" action="?login=1" method="post">
+                <div class="form-header">
+                    <h1>Login</h1>
+                </div>
+                <div class="form-body">
+                    <div class="login-row">
+                        <div class="input-group">
+                            <label>E-Mail-Adresse</label>
+                            <input type="email" size="40"  maxlength="250" name="email">
+                        </div>
+                    </div>
+                    <div class="login-row">
+                        <div class="input-group">
+                            <label>Passwort</label>
+                            <input type="password" size="40"  maxlength="250" name="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="login-row">
+                    <div class="input-group">
+                        <button class="link btn btn-primary btn-flat py-1" type="submit" value="login">Anmelden</button>
+                    </div>
+                </div>
+                <div class="login-row">
+                    <div class="input-group">
+                        <a class="link btn btn-primary btn-flat py-1" href="/create_account.php">Registrieren</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 </body>
 
 
