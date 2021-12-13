@@ -5,7 +5,7 @@
 <footer class="footer">
   <div class="container">
     <!-- CONTENT -->
-    <div>
+    <div class="flex-row">
       <h5>Footer</h5>
 
       <a class="btn btn-accent" href="/views/showcase.php">
@@ -26,12 +26,10 @@
           north_east
         </span>
       </a>
-      <a class="btn btn-secondary" href="/views/homepage.php">
-        homepage
-        <span class="material-icons-outlined">
-          north_east
-        </span>
-      </a>
+      <div class="flex-spacer"></div>
+      <div>
+        <img width="70px" height="50px" src="https://traumshop.net/wp-content/uploads/2018/02/untrusted-300x300.png">
+      </div>
     </div>
   </div>
 </footer>
