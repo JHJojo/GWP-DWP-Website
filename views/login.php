@@ -1,10 +1,18 @@
-<?php session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
+<?php session_start();?>
 <?php
 $pdo = new PDO('mysql:host=localhost;dbname=gk-db', 'root', '');
+?>
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 
+    <!-- HEAD -->
+    <link href="/styles/login.css" rel="stylesheet" type="text/css" />
+    <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
+  </head>
+<?php
 //Check if there is an account to login
 if(isset($_GET['login'])) { //Checks if the GET-parameter is not NULL (Form was send)
     $email = $_POST['email'];
@@ -26,17 +34,15 @@ if(isset($_GET['login'])) { //Checks if the GET-parameter is not NULL (Form was 
 }
 ?>
 
-
-<head>
-    <link href="/styles/login.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
 <?php
 if(isset($errorMessage)) {
     echo $errorMessage;
 }
+include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
 ?>
+
 <!--Form for the login-->
+    <!-- CONTAINER -->
     <div class="container">
         <div class="mx-auto">
             <form class="login-form" action="?login=1" method="post">
@@ -70,7 +76,13 @@ if(isset($errorMessage)) {
             </form>
         </div>
     </div>
+<<<<<<< HEAD
 </body>
 
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
+=======
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
+</body>
+</html>
+>>>>>>> main
