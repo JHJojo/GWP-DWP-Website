@@ -5,7 +5,6 @@
            FROM products LIMIT 12 ";
   
   $result = getDB()->query($sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -33,24 +32,9 @@
         <hr>
       
         <div class="fav-products">
-        <!--    <div class="flex-row">
-            <?php while($row = $result->fetch()):?>
-              <div class="col-4">
-                <?php include './components/card.php' ?>
-              </div>
-            <?php endwhile;?>
-          </div>
-          <div class="flex-row">
-            <?php while($row = $result2->fetch()):?>
-              <div class="col-4">
-                <?php include './components/card.php' ?>
-              </div>
-            <?php endwhile;?>
-          </div>    
-        <hr>--> 
           <div class="flex-row flex-wrap justify-space-between">
-            <?php while($row = $result3->fetch()):?>
-              <div class="col-4 col-sm-6 my-12">
+            <?php while($row = $result->fetch()):?>
+              <div class="col-4 my-12">
                 <?php include './components/card.php' ?>
               </div>
             <?php endwhile;?>

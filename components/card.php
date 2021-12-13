@@ -19,7 +19,7 @@
 
             <?php if ($flag) { ?>
                 <form action="/functions/delete-cart.php" method="post">
-                    <input type="hidden" name="productID" value="<?= $row['productID']?>"
+                    <input type="hidden" name="productID" value="<?= $row['productID']?>">
                     <input type="submit" class="btn btn-error" value="Warenkorb entfernen">
                 </form>
             <?php  } else { ?>
