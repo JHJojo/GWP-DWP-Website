@@ -1,31 +1,11 @@
 <?php
-  session_start();
-  define('CONFIG_DIR','database');
-  require_once __DIR__. '/functions/database.php';
-    
-
-  $cartItems = 0;
-  $accountID = 1;
-
-  if (isset($_POST['product_id'])) {
-    $productID = (int)$_POST['product_id'];
-    // TODO check if product exists
-    $sql = "INSERT INTO shoppingcart SET accountID= $accountID, prodID = $productID";
-    $statement = getDB()->prepare($sql);
-    $statement->execute();
-    header('location: index.php');
-    exit;
-  }
+  require_once 'functions/database.php';
   
-  $sql2 = "SELECT COUNT(cartID) FROM shoppingcart WHERE accountID =" .$accountID;
-  $cartResult = getDB()->query($sql2);
-
-  $cartItems = $cartResult->fetchColumn();
-
   $sql = "SELECT productID,description,price,photo
            FROM products LIMIT 12 ";
   
   $result = getDB()->query($sql);
+
 ?>
 
 <!DOCTYPE html>

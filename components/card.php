@@ -1,4 +1,5 @@
 
+
 <div class="card"> 
     <div class="card-header">
         <img class="image-homepage" src="<?= $row['photo'] ?>" alt="image">
@@ -15,13 +16,20 @@
             <a href="#" class="btn btn-info btn-flat">
                 Details 
             </a>
-            <form action="index.php" method="post">
-                <input type="hidden" name="product_id" value="<?= $row['productID']?>">
-                <button class="btn btn-primary">Warenkorb</button>
+
+            <?php if ($flag) { ?>
+                <form action="/functions/delete-cart.php" method="post">
+                    <input type="hidden" name="productID" value="<?= $row['productID']?>"
+                    <input type="submit" class="btn btn-error" value="Warenkorb entfernen">
+                </form>
+            <?php  } else { ?>
+
+            <form action="/functions/add-to-cart.php" method="post">
+                <input type="hidden" name="productID" value="<?= $row['productID']?>">
+                <input type="hidden" name="quantity" value="1">
+                <input type="submit" class="btn btn-primary" value="Warenkorb hinzufügen">
             </form>
-            <!-- <a href="homepage.php/cart/add/<?= $row['productID']?>" class="btn btn-accent btn-flat">
-                Warenkorb
-            </a> -->
+            <?php } ?>
         </div>
     </div>
 </div>

@@ -1,12 +1,14 @@
 <?php
 //Function to get Database
 function getDB(){
-    static $db;
-    if ($db instanceof PDO) {
-        return $db;
+    $DATABASE_HOST = 'localhost';
+    $DATABASE_USER = 'root';
+    $DATABASE_PASS = '';
+    $DATABASE_NAME = 'gk-db';
+    try {
+    	return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
+    } catch (PDOException $exception) {
+    	// If there is an error with the connection, stop the script and display the error.
+    	exit('Failed to connect to database!');
     }
-    require_once CONFIG_DIR.'/database.php';
-    $dsn = sprintf("mysql:host=%s;dbname=%s;charset=%s",DB_HOST,DB_DATABASE,DB_CHARSET);
-    $db = new PDO($dsn,DB_USERNAME,DB_PASSWORD);
-    return $db; 
 }
