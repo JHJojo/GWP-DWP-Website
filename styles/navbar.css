@@ -32,17 +32,38 @@
   width: 100%;
 }
 
-.search .container {
+.dynamic-search .container {
   background-color: transparent;
 }
-.search{
+.dynamic-search{
   background-color: lightgray;
   /*border-radius: 5px;*/
 }
-.searchbtn{
+.dynamic-search.lifted {
+  position: absolute;
+  z-index: 5;
+}
+.dynamic-search-searchbtn {
   display: flex;
   background: #5A5A5A;
   color: white;
   border-radius: 5px;
 }
 
+.dynamic-search-overlay {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  
+  z-index: 1;
+  background-color: rgb(33, 33, 33, 0.33);
+  transition:visibility .3s ease-in, opacity .3s ease-in;
+  visibility: visible;
+}
+.dynamic-search-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
