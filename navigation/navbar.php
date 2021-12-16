@@ -103,15 +103,19 @@
     <div class="container dynamic-search-container">
         <div class="dynamic-search w-100">
             <div class="flex-row dynamic-search-input-container">
-                <input onclick="showOverlay()" onfocus="showOverlay()" id="dynamic-search-input" type="text" class="input flex-grow pl-4 ml-4 my-2" placeholder="Artikel suchen...">
-                <div class="dynamic-search-searchbtn btn btn-flat mr-4 my-2 px-2 py-2">
-                    <i class="dynamic-search-searchbtn-icon material-icons md-24">
-                    search
-                    </i>
+                <div class="flex-grow pr-0">
+                    <input onclick="showOverlay()" onfocus="showOverlay()" id="dynamic-search-input" type="search" class="input flex-grow w-100" placeholder="Artikel suchen...">
+                </div>
+                <div class="flex-shrink">
+                    <button onclick="fetchDynamicSearch()" class="dynamic-search-searchbtn btn btn-flat">
+                        <i class="dynamic-search-searchbtn-icon material-icons md-24">
+                        search
+                        </i>
+                    </button>
                 </div>
             </div>
 
-            <section id="dynamic-search-content"></section>
+            <section id="dynamic-search-content" class="white"></section>
         </div>
     </div>
 
@@ -150,7 +154,7 @@
 
     document.getElementById("dynamic-search-input")
     .addEventListener("keyup", (ev) => {
-        if (ev.key == 'Enter')
+        if (ev.key != ' ')
             fetchDynamicSearch();
     })
 

@@ -59,11 +59,20 @@
   top: 0;
   
   z-index: 1;
-  background-color: rgb(33, 33, 33, 0.33);
-  transition:visibility .3s ease-in, opacity .3s ease-in;
+  background-color: rgb(33, 33, 33, 0.4);
+  transition:visibility .2s ease-in, opacity .2s ease-in;
   visibility: visible;
 }
 .dynamic-search-overlay.hidden {
   opacity: 0;
   visibility: hidden;
+}
+
+.dynamic-search-container input {
+  border: none;
+}
+
+#dynamic-search-content {
+  overflow: auto;
+  max-height: calc(100vh/2);
 }
