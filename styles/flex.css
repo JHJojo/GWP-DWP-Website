@@ -122,12 +122,14 @@
 }
 .flex-grow {
   flex: 1 0;
-}
-.flex-spacer {
-  flex-grow: 1 !important;
+  padding: 12px;
 }
 .flex-shrink {
   flex: 0 1;
+  padding: 12px;
+}
+.flex-spacer {
+  flex-grow: 1 !important;
 }
 
 .col-1 {
@@ -227,6 +229,13 @@
 .flex-row.no-gutters .col-12 {
   padding: 0;
 }
+.flex-row.no-gutters .flex-grow {
+  padding: 0;
+}
+.flex-row.no-gutters .flex-shrink {
+  padding: 0;
+}
+
 
 .flex-fill {
   flex: 1 1 auto;
