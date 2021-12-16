@@ -28,7 +28,7 @@
       </a>
       <div class="flex-spacer"></div>
       <div>
-        <img width="70px" height="50px" src="https://traumshop.net/wp-content/uploads/2018/02/untrusted-300x300.png">
+        <img width="70px" height="50px" src="https://traumshop.net/wp-content/uploads/2018/02/untrusted-300x300.png" alt="Untrusted Shops Icon">
       </div>
     </div>
   </div>

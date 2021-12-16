@@ -24,7 +24,7 @@
             In unserem Onlineshop finden sie unter anderem auch die Hauptkomponenten eines Computers sowie die dazugehörige Peripherie. <br>
             Hier bei GehäuseKönig wird definitiv jeder fündig, egal was sie suchen. <br>
             <div class="mt-12 pa-12">
-              <img src="https://traumshop.net/wp-content/uploads/2018/02/untrusted-300x300.png">
+              <img src="https://traumshop.net/wp-content/uploads/2018/02/untrusted-300x300.png" alt="Untrusted Shops Icon">
             </div>
       </div>
     </div>
