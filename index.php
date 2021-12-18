@@ -5,6 +5,26 @@
            FROM products LIMIT 12 ";
   
   $result = getDB()->query($sql);
+
+
+  session_start();
+if (isset($_POST['add_to_cart'])) {
+    $product_array = array(
+        'productID' => $_POST["productID"],
+        'quantity' => $_POST['productQuantity'],
+        'name' => $_POST['productName'],
+        'price' => $_POST["productPrice"]
+    );
+    $cart_data[] = $product_array;
+    $product_data = json_encode($cart_data);
+    setcookie('shopping_cart', $product_data, time() + (86400 * 30));
+    header("location:/views/shoppingcart.php?success=1");
+}
+
+if(isset($_GET["success"])) {
+    $message = '';
+}
+
 ?>
 
 <!DOCTYPE html>
