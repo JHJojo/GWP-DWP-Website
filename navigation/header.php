@@ -1,4 +1,4 @@
-
+<?php require_once '/xampp/htdocs/api/wishlist.php'; ?>
 <!-- CONTAINER -->
 <header class="header">
   <div class="container">
@@ -14,11 +14,11 @@
           </a>
         </li>
         <li class="mr-2">
-          <a href="#" class="link btn btn-primary btn-flat py-1">
+          <a href="/views/wishlist.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             favorite
             </i>
-            Wunschzettel
+            Wunschzettel (<?= $wishlistItems ?>)
           </a>
         </li>
         <li class="mr-2">
@@ -34,7 +34,7 @@
             <i class="material-icons md-18 mr-1">
             shopping_cart
             </i>
-            Warenkorb (<?=$cartItems ?>)
+            Warenkorb
           </a>
         </li>
       </ul>
@@ -43,6 +43,7 @@
 </header>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/navbar.php';?>
+
 
 
 <script>
