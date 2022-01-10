@@ -4,13 +4,13 @@
   $sql = "SELECT productID,description,price,photo
           FROM products";
 
-  $result = $db->query("SELECT productID,description,price,photo
-  FROM products LIMIT 4");
-  $result2 = $db->query("SELECT productID,description,price,photo
-  FROM products ORDER BY productID DESC LIMIT 4");
+  $result_highlights = $db->query("SELECT productID,description,price,photo
+  FROM products ORDER BY createdAt ASC LIMIT 6");
 
-  $result3 = $db->query("SELECT productID,description,price,photo
-  FROM products ORDER BY productID DESC LIMIT 16");
+  # cpu, gpu, case as discover element sorted by highest price >:)
+  $result_discover_cpu = $db->query("SELECT productID,description,price,photo FROM products WHERE productCatID=9 ORDER BY price DESC LIMIT 1");
+  $result_discover_gpu = $db->query("SELECT productID,description,price,photo FROM products WHERE productCatID=19 ORDER BY price DESC LIMIT 1");
+  $result_discover_case = $db->query("SELECT productID,description,price,photo FROM products WHERE productCatID=6 ORDER BY price DESC LIMIT 1");
 ?>
 
 <!DOCTYPE html>
@@ -19,10 +19,11 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 
     <!-- HEAD -->
+    <link href="/styles/homepage.css" rel="stylesheet" type="text/css" />
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
   </head>
 
-  <body>
+  <body class="homepage">
     <noscript>
       Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest!
     </noscript>
@@ -31,61 +32,47 @@
     <!-- CONTAINER -->
     <div class="container">
       <!-- CONTENT of my-page -->
-      <div class="content homepage">
-
-        <h1 class="text-center display-3">Highlights</h1>
+      <div class="content">
 
         <hr>
+        <h1 class="text-center display-3">Highlights</h1>
+        <hr>
       
-        <div class="fav-products">
-        <!--    <div class="flex-row">
-            <?php while($row = $result->fetch()):?>
-              <div class="col-4">
-                <?php include './components/card.php' ?>
-              </div>
-            <?php endwhile;?>
-          </div>
-          <div class="flex-row">
-            <?php while($row = $result2->fetch()):?>
-              <div class="col-4">
-                <?php include './components/card.php' ?>
-              </div>
-            <?php endwhile;?>
-          </div>    
-        <hr>--> 
-          <div class="flex-row flex-wrap justify-space-between">
-            <?php while($row = $result3->fetch()):?>
-              <div class="col-4 col-sm-6 my-12">
-                <?php include './components/card.php' ?>
-              </div>
-            <?php endwhile;?>
-          </div>
+        <div class="flex-row flex-wrap justify-space-between">
+          <?php while($row = $result_highlights->fetch()):?>
+            <div class="col-4 col-sm-6 my-12">
+              <?php include './components/card.php' ?>
+            </div>
+          <?php endwhile;?>
         </div>
         
         <hr>
-
         <h2 class="headline text-center">Entdecke Gehäusekönig</h2>
-        <!--
-        <img src="myimage">
-        <embed height="500px" src="data:application/pdf;base64,JVBERi0xLjMNCiXi48/TDQoNCjEgMCBvYmoNCjw8DQovVHlwZSAvQ2F0YWxvZw0KL091dGxpbmVzIDIgMCBSDQovUGFnZXMgMyAwIFINCj4+DQplbmRvYmoNCg0KMiAwIG9iag0KPDwNCi9UeXBlIC9PdXRsaW5lcw0KL0NvdW50IDANCj4+DQplbmRvYmoNCg0KMyAwIG9iag0KPDwNCi9UeXBlIC9QYWdlcw0KL0NvdW50IDINCi9LaWRzIFsgNCAwIFIgNiAwIFIgXSANCj4+DQplbmRvYmoNCg0KNCAwIG9iag0KPDwNCi9UeXBlIC9QYWdlDQovUGFyZW50IDMgMCBSDQovUmVzb3VyY2VzIDw8DQovRm9udCA8PA0KL0YxIDkgMCBSIA0KPj4NCi9Qcm9jU2V0IDggMCBSDQo+Pg0KL01lZGlhQm94IFswIDAgNjEyLjAwMDAgNzkyLjAwMDBdDQovQ29udGVudHMgNSAwIFINCj4+DQplbmRvYmoNCg0KNSAwIG9iag0KPDwgL0xlbmd0aCAxMDc0ID4+DQpzdHJlYW0NCjIgSg0KQlQNCjAgMCAwIHJnDQovRjEgMDAyNyBUZg0KNTcuMzc1MCA3MjIuMjgwMCBUZA0KKCBBIFNpbXBsZSBQREYgRmlsZSApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY4OC42MDgwIFRkDQooIFRoaXMgaXMgYSBzbWFsbCBkZW1vbnN0cmF0aW9uIC5wZGYgZmlsZSAtICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjY0LjcwNDAgVGQNCigganVzdCBmb3IgdXNlIGluIHRoZSBWaXJ0dWFsIE1lY2hhbmljcyB0dXRvcmlhbHMuIE1vcmUgdGV4dC4gQW5kIG1vcmUgKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NTIuNzUyMCBUZA0KKCB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDYyOC44NDgwIFRkDQooIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjE2Ljg5NjAgVGQNCiggdGV4dC4gQW5kIG1vcmUgdGV4dC4gQm9yaW5nLCB6enp6ei4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNjA0Ljk0NDAgVGQNCiggbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDU5Mi45OTIwIFRkDQooIEFuZCBtb3JlIHRleHQuIEFuZCBtb3JlIHRleHQuICkgVGoNCkVUDQpCVA0KL0YxIDAwMTAgVGYNCjY5LjI1MDAgNTY5LjA4ODAgVGQNCiggQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA1NTcuMTM2MCBUZA0KKCB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBFdmVuIG1vcmUuIENvbnRpbnVlZCBvbiBwYWdlIDIgLi4uKSBUag0KRVQNCmVuZHN0cmVhbQ0KZW5kb2JqDQoNCjYgMCBvYmoNCjw8DQovVHlwZSAvUGFnZQ0KL1BhcmVudCAzIDAgUg0KL1Jlc291cmNlcyA8PA0KL0ZvbnQgPDwNCi9GMSA5IDAgUiANCj4+DQovUHJvY1NldCA4IDAgUg0KPj4NCi9NZWRpYUJveCBbMCAwIDYxMi4wMDAwIDc5Mi4wMDAwXQ0KL0NvbnRlbnRzIDcgMCBSDQo+Pg0KZW5kb2JqDQoNCjcgMCBvYmoNCjw8IC9MZW5ndGggNjc2ID4+DQpzdHJlYW0NCjIgSg0KQlQNCjAgMCAwIHJnDQovRjEgMDAyNyBUZg0KNTcuMzc1MCA3MjIuMjgwMCBUZA0KKCBTaW1wbGUgUERGIEZpbGUgMiApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY4OC42MDgwIFRkDQooIC4uLmNvbnRpbnVlZCBmcm9tIHBhZ2UgMS4gWWV0IG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NzYuNjU2MCBUZA0KKCBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSB0ZXh0LiBBbmQgbW9yZSApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY2NC43MDQwIFRkDQooIHRleHQuIE9oLCBob3cgYm9yaW5nIHR5cGluZyB0aGlzIHN0dWZmLiBCdXQgbm90IGFzIGJvcmluZyBhcyB3YXRjaGluZyApIFRqDQpFVA0KQlQNCi9GMSAwMDEwIFRmDQo2OS4yNTAwIDY1Mi43NTIwIFRkDQooIHBhaW50IGRyeS4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gQW5kIG1vcmUgdGV4dC4gKSBUag0KRVQNCkJUDQovRjEgMDAxMCBUZg0KNjkuMjUwMCA2NDAuODAwMCBUZA0KKCBCb3JpbmcuICBNb3JlLCBhIGxpdHRsZSBtb3JlIHRleHQuIFRoZSBlbmQsIGFuZCBqdXN0IGFzIHdlbGwuICkgVGoNCkVUDQplbmRzdHJlYW0NCmVuZG9iag0KDQo4IDAgb2JqDQpbL1BERiAvVGV4dF0NCmVuZG9iag0KDQo5IDAgb2JqDQo8PA0KL1R5cGUgL0ZvbnQNCi9TdWJ0eXBlIC9UeXBlMQ0KL05hbWUgL0YxDQovQmFzZUZvbnQgL0hlbHZldGljYQ0KL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcNCj4+DQplbmRvYmoNCg0KMTAgMCBvYmoNCjw8DQovQ3JlYXRvciAoUmF2ZSBcKGh0dHA6Ly93d3cubmV2cm9uYS5jb20vcmF2ZVwpKQ0KL1Byb2R1Y2VyIChOZXZyb25hIERlc2lnbnMpDQovQ3JlYXRpb25EYXRlIChEOjIwMDYwMzAxMDcyODI2KQ0KPj4NCmVuZG9iag0KDQp4cmVmDQowIDExDQowMDAwMDAwMDAwIDY1NTM1IGYNCjAwMDAwMDAwMTkgMDAwMDAgbg0KMDAwMDAwMDA5MyAwMDAwMCBuDQowMDAwMDAwMTQ3IDAwMDAwIG4NCjAwMDAwMDAyMjIgMDAwMDAgbg0KMDAwMDAwMDM5MCAwMDAwMCBuDQowMDAwMDAxNTIyIDAwMDAwIG4NCjAwMDAwMDE2OTAgMDAwMDAgbg0KMDAwMDAwMjQyMyAwMDAwMCBuDQowMDAwMDAyNDU2IDAwMDAwIG4NCjAwMDAwMDI1NzQgMDAwMDAgbg0KDQp0cmFpbGVyDQo8PA0KL1NpemUgMTENCi9Sb290IDEgMCBSDQovSW5mbyAxMCAwIFINCj4+DQoNCnN0YXJ0eHJlZg0KMjcxNA0KJSVFT0YNCg==" type="">
-            -->
+        <hr>
+
+        <div class="flex-row flex-wrap justify-space-between">
+          <?php while($row = $result_discover_cpu->fetch()):?>
+            <div class="col-4 col-sm-6 my-12">
+              <?php include './components/card.php' ?>
+            </div>
+          <?php endwhile;?>
+          <?php while($row = $result_discover_gpu->fetch()):?>
+            <div class="col-4 col-sm-6 my-12">
+              <?php include './components/card.php' ?>
+            </div>
+          <?php endwhile;?>
+          <?php while($row = $result_discover_case->fetch()):?>
+            <div class="col-4 col-sm-6 my-12">
+              <?php include './components/card.php' ?>
+            </div>
+          <?php endwhile;?>
+        </div>
       </div>
     </div>
 
     <!-- Script for my-page -->
     <script type="text/javascript">
       "use strict";
-      /*
-      (async ()=> {
-        var res = await fetch("https://i.imgur.com/qRRfxeo.jpeg")
-        console.log(res);
-        res.blob().then((res) => {
-          console.log(res);
-          console.log(URL.createObjectURL(res));
-          document.getElementById("myimage").src = URL.createObjectURL(res)
-        })
-      })()
-      */
     </script>
 
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
