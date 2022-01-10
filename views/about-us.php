@@ -277,9 +277,8 @@
       </figure>
       <p>
         In den Jahren 2013 bis 2016 firmierten wir im Netz unter dem Namen
-        dein-shop.eu. Doch dieser Name sollte nur einer von vielen sein. Von 2016 bis
-        2018 fand man uns unter shop.draemel.de. Auch unter traumshop.net waren wir
-        schon zu finden.
+        caseking.de. Doch dieser Name sollte nur einer von vielen sein. Von 2016 bis
+        2018 fand man uns unter mindfactory.de.
       </p>
       <p>
         Das Jahr 2018 war eh das bisher Beste in unser Geschichte. Über 2,8 Millionen
