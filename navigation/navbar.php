@@ -66,35 +66,35 @@
 
     <div class="container">
         <div class="cat-buttons flex-row">
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow ">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(1,7,8,9,10,11))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow ">
                 Prozessoren
             </a>
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(12,13,14,15,16,17,18,19))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Grafikkarten
             </a>
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(44,45,46))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Arbeitsspeicher
             </a>
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(2,3,4,5,6))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Gehäuse
             </a>
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(38,39,40,41,42,43))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Netzteile
             </a>
 
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(34,35,36,37))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Monitore
             </a>
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(50,51,52,53,54))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Festplatten
             </a>
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(20,21,22,23,24))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Mainboards
             </a>
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(47,48,49))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Kühlung
             </a>
-            <a href="#" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+            <a href="/views/products?<?= http_build_query(array("productCatID"=>array(25,26,27,28,29,30,31,32,33))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
                 Andere
             </a>
         </div>
@@ -123,6 +123,11 @@
 </nav>
 
 <script>
+    console.log(new URLSearchParams({
+        productCatID: [
+            1,2,3,4,5,6,7,87,8
+        ]
+    }).toString());
     function overlayHidden() {
         return document.querySelector('.dynamic-search-overlay').classList.contains('hidden')
     }
