@@ -74,7 +74,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
                 <div class="login-row">
                     <div class="input-group">
                         <button class="link btn btn-primary btn-flat py-1" type="submit" value="login">Anmelden</button>
-                        <a class="link btn btn-primary btn-flat py-1" href="/views/homepage.php">Ausloggen</a>
                     </div>
                 </div>
                 <div class="login-row">
