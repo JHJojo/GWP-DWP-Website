@@ -13,5 +13,4 @@
 <link href="/styles/header.css" rel="stylesheet" type="text/css" />
 
 <!-- components -->
-<link href="/styles/image.css" rel="stylesheet" type="text/css" />
 <link href="/styles/card.css" rel="stylesheet" type="text/css" />

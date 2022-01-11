@@ -1,13 +1,19 @@
-.card:hover {
-  outline: 1px solid rgba(128, 128, 128, 0.575);
+.card {
+  transition-duration: 0.15s;
+  position: relative;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.card:hover {
+}
+
+.card img {
   transition-duration: 0.15s;
 }
 
 .card:hover img {
-  transform: scale(1.5);
-  transition-duration: 0.15s;
+  transform: scale(0.9);
 }
 
 .card-header {
@@ -15,9 +21,46 @@
 }
 
 .card-body {
-  padding: 16px 12px;
+  padding: 16px 24px;
+  opacity: 0.9;
 }
 
 .card-footer {
   padding: 16px 12px;
+}
+
+.card-footer .extra {
+  opacity: 0.7;
+}
+
+.card-footer .price {
+  font-weight: 500;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+
+  height: 0;
+  /*width: 0;*/
+
+  transition-duration: 0.15s;
+  background: rgba(0, 0, 0, 0.2)
+}
+
+.card:hover .card-overlay {
+  height: 100%;
+  width: 100%;
+}
+
+.card-overlay-content {
+  visibility: hidden;
+  transition: visibility .05s ease-in-out;
+}
+.card:hover .card-overlay-content {
+  visibility: visible;
 }
