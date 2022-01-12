@@ -1,45 +1,80 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
+<?php
+  $db = new PDO("mysql:host=127.0.0.1;dbname=gk-db;charset=utf8","root","");
 
+  $sql = "SELECT productID,description,price,photo
+          FROM products";
 
-<!-- HEAD -->
-<head></head>
+  $result_highlights = $db->query("SELECT productID,description,price,photo
+  FROM products ORDER BY createdAt ASC LIMIT 6");
 
-<!-- CONTAINER -->
-<div class="container">
-  <!-- CONTENT -->
-  <div class="content">
-    <h1>Index</h1>
-    <a class="btn btn-accent" href="/showcase.php">
-      To the Showcase
-      <span class="material-icons-outlined">
-        north_east
-      </span>
-    </a>
-    <a class="btn btn-info" href="/imprint.php">
-      Impressum
-      <span class="material-icons-outlined">
-        north_east
-      </span>
-    </a>
-    <a class="btn btn-secondary" href="/about-us.php">
-    about-us
-      <span class="material-icons-outlined">
-        north_east
-      </span>
-    </a>
-    <a class="btn btn-secondary" href="/homepage.php">
-    homepage
-      <span class="material-icons-outlined">
-        north_east
-      </span>
-    </a>
-  </div>
-</div>
+  # cpu, gpu, case as discover element sorted by highest price >:)
+  $result_discover_cpu = $db->query("SELECT productID,description,price,photo FROM products WHERE productCatID=9 ORDER BY price DESC LIMIT 1");
+  $result_discover_gpu = $db->query("SELECT productID,description,price,photo FROM products WHERE productCatID=19 ORDER BY price DESC LIMIT 1");
+  $result_discover_case = $db->query("SELECT productID,description,price,photo FROM products WHERE productCatID=6 ORDER BY price DESC LIMIT 1");
+?>
 
-<script>
-  "use strict";
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 
+    <!-- HEAD -->
+    <link href="/styles/homepage.css" rel="stylesheet" type="text/css" />
+    <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
+  </head>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
+  <body class="homepage">
+    <noscript>
+      Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest!
+    </noscript>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
+
+    <!-- CONTAINER -->
+    <div class="container">
+      <!-- CONTENT of my-page -->
+      <div class="content">
+
+        <hr>
+        <h1 class="text-center display-3">Highlights</h1>
+        <hr>
+      
+        <div class="flex-row flex-wrap justify-space-between">
+          <?php while($row = $result_highlights->fetch()):?>
+            <div class="col-4 col-sm-6 my-12">
+              <?php include './components/card.php' ?>
+            </div>
+          <?php endwhile;?>
+        </div>
+        
+        <hr>
+        <h2 class="headline text-center">Entdecke Gehäusekönig</h2>
+        <hr>
+
+        <div class="flex-row flex-wrap justify-space-between">
+          <?php while($row = $result_discover_cpu->fetch()):?>
+            <div class="col-4 col-sm-6 my-12">
+              <?php include './components/card.php' ?>
+            </div>
+          <?php endwhile;?>
+          <?php while($row = $result_discover_gpu->fetch()):?>
+            <div class="col-4 col-sm-6 my-12">
+              <?php include './components/card.php' ?>
+            </div>
+          <?php endwhile;?>
+          <?php while($row = $result_discover_case->fetch()):?>
+            <div class="col-4 col-sm-6 my-12">
+              <?php include './components/card.php' ?>
+            </div>
+          <?php endwhile;?>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script for my-page -->
+    <script type="text/javascript">
+      "use strict";
+    </script>
+
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
+  </body>
+</html>

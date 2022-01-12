@@ -1,9 +1,21 @@
 <?php session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
-<?php
-$pdo = new PDO('mysql:host=localhost;dbname=gk-db', 'root', '');
 
+//Connection for the DB
+require  $_SERVER['DOCUMENT_ROOT'].'\functions\database.php';
+//require  $_SERVER['DOCUMENT_ROOT'].'\functions\getPermission.php';
+getDB();
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
+
+    <!-- HEAD -->
+    <link href="/styles/login.css" rel="stylesheet" type="text/css" />
+    <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
+  </head>
+<?php
 
 //Check if there is an account to login
 if(isset($_GET['login'])) { //Checks if the GET-parameter is not NULL (Form was send)
@@ -11,33 +23,34 @@ if(isset($_GET['login'])) { //Checks if the GET-parameter is not NULL (Form was 
     $password = $_POST['password'];
 
     //Get the data of the DB
-    $statement = $pdo->prepare("SELECT * FROM accounts WHERE email = :email");
+    $statement = getDB()->prepare("SELECT * FROM accounts WHERE email = :email");
     $result = $statement->execute(array('email' => $email));
     $account = $statement->fetch();
 
+    print_r($account);
+    
     //Parse the password
     if ($account !== false && password_verify($password, $account['passwordHash'])) {
         $_SESSION['userid'] = $account['accountID'];
-        die('<div class="container">Login erfolgreich.</a></div>');
+        $_SESSION['rank'] = $account['rank'];  
+        header("Location: intern.php");
+        die();
+        
     } else {
         $errorMessage = "<div class='container'>Die E-Mail-Adresse oder das Passwort waren ungültig!<br></div>";
     }
-
 }
+
+
 ?>
 
-
-<head>
-    <link href="/styles/login.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
 <?php
-if(isset($errorMessage)) {
-    echo $errorMessage;
-}
+
+include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
 ?>
+
 <!--Form for the login-->
-<section id="login-page">
+    <!-- CONTAINER -->
     <div class="container">
         <div class="mx-auto">
             <form class="login-form" action="?login=1" method="post">
@@ -65,14 +78,18 @@ if(isset($errorMessage)) {
                 </div>
                 <div class="login-row">
                     <div class="input-group">
-                        <a class="link btn btn-primary btn-flat py-1" href="/create_account.php">Registrieren</a>
+                        <a class="link btn btn-primary btn-flat py-1" href="/views/create_account.php">Registrieren</a>
                     </div>
                 </div>
             </form>
+            <?php 
+                if(isset($errorMessage)) {
+                echo $errorMessage;}
+                ?>
         </div>
     </div>
-</section>
+
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
 </body>
-
-
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
+</html>
