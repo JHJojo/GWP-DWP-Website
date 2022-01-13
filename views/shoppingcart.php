@@ -2,6 +2,12 @@
 <html>
   <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
+    
+    <?php 
+        require_once '/xampp/htdocs/api/wishlist-api.php'; 
+        $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
+        $cart = json_decode($cart);
+    ?>
 
     <!-- HEAD -->
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
@@ -17,63 +23,16 @@
     <div class="container">
       <!-- CONTENT of my-page -->
       <div class="content shoppingcart">
-        <h1>Warenkorb</h1>
-        <table>
-            <tr>
-                <th width="40%">Name</th>
-                <th width="10%">Anzahl</th>
-                <th width="20%">Preis</th>
-                <th width="15%">Gesamt</th>
-                <th width="5%">Aktion</th>
-            </tr>
-        </table>
-        <?php if (isset($_COOKIE["shopping_cart"])) {
-            $total = 0;
-            $cookie_data = stripslashes($_COOKIE["shopping_cart"]);
-            $cart_data = json_decode($cookie_data,true);
-            foreach($cart_data as $keys => $values){ ?>
-                <tr>
-                    <td>
-                        <?php echo $values["name"]; ?>
-                    </td>
-                    <td>
-                        <?php echo $values["quantity"]; ?>
-                    </td>
-                    <td>
-                        <?php echo $values["price"]; ?>
-                    </td>
-                    <td>
-                        <?php echo number_format($values["quantity"] * $values["price"], 2); ?>
-                    </td>
-                    <td>
-                        <a href="index.php?action=delete&id= <?php echo $values["productID"] ?>">
-                            <span>
-                                Entfernen
-                            </span>
-                        </a>
-                    </td>
-                </tr>
-            <?php
-            $total = $total + ($values["quantity"] * $values["price"]);
-            }
-            ?>
-                <tr>
-                    <td>Gesamtpreis</td>
-                    <td><?php echo number_format($total, 2); ?></td>
-                </tr>
-        <?php
-        }
-        else{
-            echo '
-            <tr>
-                <td align="center">
-                    Kein Produkt im Warenkorb
-                </td>
-            </tr>
-            ';
-           
-        }
-        ?>
+        <h1 class="display-2 text-center">Warenkorb </h1>
+
+        <div class="flex-column">
+            <?php foreach( $cart as $c):?>
+            <div class="row">
+                <?php include '../components/shoppincartitem.php' ?>
+            </div>  
+            <?php endforeach;?>  
+        </div>
+        
       </div>
     </div>
 
