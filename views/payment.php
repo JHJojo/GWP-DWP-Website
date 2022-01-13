@@ -30,7 +30,7 @@
               <div class="col-8">
                 <p>
                   Mit PayPayPay können Sie problemlos online bezahlen, ohne Ihre wahre Identität preisgeben zu müssen. 
-                  Bei Retour von Produkten kann ein eine Bearbeitungsgebühr von 19 € anfallen.
+                  Bei Retour von Produkten kann eine Bearbeitungsgebühr von 19 € anfallen.
                   Die Provision von PayPayPay beträgt rund 75% und kann in Monats-Raten bequem abgezahlt werden.
                 </p>
               </div>

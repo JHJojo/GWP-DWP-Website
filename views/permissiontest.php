@@ -2,6 +2,7 @@
 //session_start(); //Important to use this every time
 
 require  $_SERVER['DOCUMENT_ROOT'] . '\functions\logout.php';
+//require  $_SERVER['DOCUMENT_ROOT'] . '\functions\getPermission.php';
 
 //Check if the user is logged in
 if (!isset($_SESSION['userid'])) {
@@ -10,11 +11,18 @@ if (!isset($_SESSION['userid'])) {
 
 $userid = $_SESSION['userid'];
 $rank = $_SESSION['rank'];
-echo "Das ist Benutzer: " . $userid;
-echo "Rang des Benutzers: " . $rank;
 
-if(isset($_GET['logout'])){
-    logout();
+var_dump($_SESSION['rank']);
+
+if($rank == "admin"){
+    echo "Das ist Benutzer: " . $userid;
+    echo "Rang des Benutzers: " . $rank;
+    echo "<br> Sie sind Admin!";
+}
+else{
+    echo "Das ist Benutzer: " . $userid;
+    echo "Rang des Benutzers: " . $rank;
+    echo "<br> Sie sind User!";
 }
 ?>
 <form action="?logout=1" method="post">
