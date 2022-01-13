@@ -4,8 +4,7 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
     
     <?php 
-        require_once '/xampp/htdocs/api/wishlist.php';
-        
+        require_once '/xampp/htdocs/api/wishlist-api.php'; 
     ?>
 
     <!-- HEAD -->

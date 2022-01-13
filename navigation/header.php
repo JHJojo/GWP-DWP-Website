@@ -1,4 +1,4 @@
-<?php require_once '/xampp/htdocs/api/wishlist.php'; ?>
+<?php require_once '/xampp/htdocs/api/wishlist-api.php'; ?>
 <!-- CONTAINER -->
 <header class="header">
   <div class="container">
@@ -30,7 +30,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="link btn btn-primary btn-flat py-1">
+          <a href="/views/shoppingcart.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             shopping_cart
             </i>
