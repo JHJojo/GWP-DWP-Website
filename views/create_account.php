@@ -3,7 +3,7 @@
 //Connection for the DB
 require  $_SERVER['DOCUMENT_ROOT'] . '\functions\database.php';
 getDB();
-require  $_SERVER['DOCUMENT_ROOT'] . '\functions\formValidation.php';
+//require  $_SERVER['DOCUMENT_ROOT'] . '\functions\formValidation.php';
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ require  $_SERVER['DOCUMENT_ROOT'] . '\functions\formValidation.php';
         //       $gender = test_input($_POST["gender"]);
         //     }
         //   }
-
+        
         //Age verfication (over 18 years old)
         if (time() < strtotime('+18 years', strtotime($birthday))) {
             echo '<div class="container">Sie müssen über 18 Jahre alt sein um sich Registrieren zu können.<br></div>';
@@ -149,7 +149,7 @@ require  $_SERVER['DOCUMENT_ROOT'] . '\functions\formValidation.php';
                         <div class="registration-row">
                             <div class="input-group">
                                 <label>Vorname</label>
-                                <input type="text" size="40" maxlength="250" name="firstname" required>
+                                <input id="firstname" type="text" size="40" maxlength="250" name="firstname" required>
                             </div>
                             <div class="input-group">
                                 <label>Nachname</label>
@@ -448,11 +448,11 @@ require  $_SERVER['DOCUMENT_ROOT'] . '\functions\formValidation.php';
                             </div>
                             <div class="input-group">
                                 <label>Hausnummer</label>
-                                <input onclick="test()" type="text" size="40" maxlength="250" name="houseNumber" required>
+                                <input type="text" size="40" maxlength="250" name="houseNumber" required>
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Jetzt erstellen!">
+                    <input id="form-input" type="submit" value="Jetzt erstellen!">
                     <div id="error-nwl"></div>
                 </form>
             </div>
@@ -469,11 +469,6 @@ require  $_SERVER['DOCUMENT_ROOT'] . '\functions\formValidation.php';
                 },
                 false
             );
-
-            // function test() {
-            //     console.log(checkPass());
-            // }
-
             function checkPass() {
                 var password = document.getElementById('password');
                 var password2 = document.getElementById('password2');
