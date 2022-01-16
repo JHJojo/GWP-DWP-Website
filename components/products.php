@@ -1,13 +1,20 @@
 <hr>
-<h1 class="text-center display-2">Products</h1>
+<h1 class="text-center display-2">Produktsuche</h1>
 <hr>
 
-Gefunden: <?=count($products)?>
+<div class="text-right title">
+  Gefunden: 
+  <b class="font-weight-black">
+    <?=count($products)?>
+  </b>
+</div>
 
 <div class="flex-row flex-wrap justify-space-between">
-  <?php while($row = $products):?>
-    <div class="col-4 col-sm-6 my-12">
-      <?php include '../components/card.php' ?>
-    </div>
-  <?php endwhile;?>
-</div>
+  <?php 
+    foreach($products as $row) {
+      echo ('<div class="col-4 col-sm-6 my-12">');
+        include '../components/card.php';
+      echo ('</div>');
+    }
+  ?>
+</div> 
