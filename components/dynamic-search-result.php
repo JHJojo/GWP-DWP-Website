@@ -1,4 +1,4 @@
-<a href="/views/products?productID=<?= $row['productID'] ?>" class="flex-row justify-center align-center dynamic-item text-color-normal btn btn-flat pa-0">
+<a href="/views/products.php?productID=<?= $row['productID'] ?>" class="flex-row justify-center align-center dynamic-item text-color-normal btn btn-flat pa-0">
   <div class="col-1 pa-4">
     <img src="<?= $row['photo'] ?>" alt="Foto von <?= $row['description'] ?>">
   </div>
