@@ -1,5 +1,7 @@
-<?php
-    
+
+<?php 
+require_once '/xampp/htdocs/functions/database.php';
+
 function addProductToWishlist(int $accountID,int $productID){
     $sql = "INSERT INTO wishlist SET accountID = :accountID, productID = :productID";
     $statement = getDB()->prepare($sql);
@@ -41,5 +43,14 @@ function deleteProductFromWishlist(int $accountID, int $productID){
         ':accountID' => $accountID, 
         ':productID' => $productID
     ]);
+}
+
+function getAccountID(){
+
+    if (isset($_SESSION['userid'])) {
+        $accountID = (int) $_SESSION['userid'];
+    } else $accountID = 0;
+
+    return $accountID;
 }
 

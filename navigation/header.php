@@ -1,4 +1,4 @@
-<?php require_once '/xampp/htdocs/api/wishlist-api.php'; ?>
+<?php require_once '/xampp/htdocs/functions/wishlist-functions.php'; ?>
 <!-- CONTAINER -->
 <header class="header">
   <div class="container">
@@ -18,7 +18,7 @@
             <i class="material-icons md-18 mr-1">
             favorite
             </i>
-            Wunschzettel (<?= $wishlistItems ?>)
+            Wunschzettel (<?php echo countProductsInWishlist(getAccountID()) ?>)
           </a>
         </li>
         <li class="mr-2">

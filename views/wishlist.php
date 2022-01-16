@@ -22,13 +22,22 @@
       <!-- CONTENT of my-page -->
       <div class="content wishlist">
         <h1 class="display-2 text-center">Wunschzettel </h1>
+        <hr>
+        
+        <?php if (getAccountID() == 0) { ?>
+          <h2 class="text-center">Melde dich an um deinen Wunschzettel zu sehen!</h2>
+        <?php } ?>
 
         <div class="flex-column">
-            <?php foreach( $cartItems as $cartItem):?>
-            <div class="row">
-                <?php include '../components/wishlistitem.php' ?>
-            </div>  
-            <?php endforeach;?>  
+            <?php 
+            if (getAccountID() != 0) {
+              foreach( $cartItems as $cartItem):?>
+                <div class="row">
+                    <?php include '../components/wishlistitem.php' ?>
+                    <hr>
+                </div>  
+                <?php endforeach;?> 
+           <?php } ?>
         </div>
         
       </div>
