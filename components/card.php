@@ -23,7 +23,7 @@
     </div>
     <div class="card-overlay">
         <div class="card-overlay-content flex-column justify-center align-center">
-            <a href="/views/products?productID=<?=$row['productID']?>" class="btn btn-flat btn-accent my-3">
+            <a href="/views/products.php?productID=<?=$row['productID']?>" class="btn btn-flat btn-accent my-3">
                 <i class="material-icons-outlined md-18 mr-2 text-white">
                 info
                 </i>
