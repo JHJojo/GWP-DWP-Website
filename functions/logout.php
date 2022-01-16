@@ -1,11 +1,10 @@
 <?php
 session_start();
-function logout(){
-if(isset($_SESSION['userid'])){
-    unset($_SESSION['userid']);
+print_r($_SESSION['userid']);
+function logout()
+{
+    if (isset($_SESSION['userid'])) {
+        unset($_SESSION['userid']);
+    }
+    header("Location: ../index.php");
 }
-header("Location: homepage.php");
-
-}
-
-?>
