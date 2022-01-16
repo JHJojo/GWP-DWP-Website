@@ -3,7 +3,7 @@
 <header class="header">
   <div class="container">
     <!-- CONTENT -->
-    <div class="ml-auto">
+    <div class="ml-auto mx-2">
       <ul class="links">
         <li class="mr-2">
           <a href="/views/login.php" class="link btn btn-primary btn-flat py-1">

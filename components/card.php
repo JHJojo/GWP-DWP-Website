@@ -15,7 +15,7 @@ foreach($cart as $c){
 
 <div class="card"> 
     <div class="card-header">
-        <img class="image-homepage" src="<?= $row['photo'] ?>" alt="Produktfoto von <?= $row['description'] ?>">
+        <img class="product-image" src="<?= $row['photo'] ?>" alt="Produktfoto von <?= $row['description'] ?>">
     </div>
     <div class="card-body text-center body-2">
         <?php 
@@ -37,7 +37,7 @@ foreach($cart as $c){
     </div>
     <div class="card-overlay">
         <div class="card-overlay-content flex-column justify-center align-center">
-            <a href="/views/products?productID=<?=$row['productID']?>" class="btn btn-flat btn-accent my-3">
+            <a href="/views/products.php?productID=<?=$row['productID']?>" class="btn btn-flat btn-accent my-3">
                 <i class="material-icons-outlined md-18 mr-2 text-white">
                 info
                 </i>
