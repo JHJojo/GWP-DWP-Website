@@ -1,5 +1,6 @@
 <?php
-    
+require_once '/xampp/htdocs/functions/database.php';
+
 function getProductImage(int $productID){
     $sql = "SELECT photo FROM products where productID = ".$productID;
     $result = getDB()->query($sql);

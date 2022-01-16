@@ -43,21 +43,18 @@ foreach($cart as $c){
                 </i>
                 Details
             </a>
-
             <?php if ($flag) { ?>
-
                 <form method="POST" action="../api/delete-shoppingcart.php">
                     <input type="hidden" name="productID" value="<?php echo $row['productID']; ?>">
                     <input type="submit" class="btn btn-flat btn-error my-3" value="Aus Warenkorb löschen">
                 </form>
             <?php } else { ?>
-
-            <form method="POST" action="../api/add-shoppingcart.php">
-                <input type="hidden" name="quantity" value="1">
-                <input type="hidden" name="productID" value="<?php echo $row['productID']; ?>">
-                <input type="submit" class="btn btn-flat btn-primary my-3" value="In den Warenkorb"> 
-            </form>
-
+                <form method="POST" action="../api/add-shoppingcart.php">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="productID" value="<?php echo $row['productID']; ?>">
+                    <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
+                    <input type="submit" class="btn btn-flat btn-primary my-3" value="In den Warenkorb"> 
+                </form>
             <?php } ?>
         </div>
     </div>
