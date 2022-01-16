@@ -5,6 +5,7 @@ require_once '/xampp/htdocs/functions/database.php';
 $quantity = $_POST["quantity"];
 $productID = $_POST["productID"];
 $price = $_POST["price"];
+$url = $_POST["url"];
 
 $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
 $cart = json_decode($cart);
@@ -16,7 +17,4 @@ array_push($cart, array(
 ));
 
 setcookie("cart", json_encode($cart), time() + (86400 * 30), "/");
-if ($_POST["redirect"] == 1) {
-    header("Location: /views/shoppingcart.php");
-}
-else header("Location: ../index.php");
+header("Location: $url");

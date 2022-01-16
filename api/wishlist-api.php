@@ -16,7 +16,7 @@ if ($accountID > 0) {
 
         addProductToWishlist($accountID,$productID);
 
-        header("Location: /index.php");
+        header("Location: /views/wishlist.php");
         exit();
     }
 

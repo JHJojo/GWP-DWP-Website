@@ -2,6 +2,7 @@
         require_once '/xampp/htdocs/functions/shopping-functions.php'; 
         $productID = (int) $c->productID;
         $quantity = (int) $c->quantity;
+        $link = $_SERVER['REQUEST_URI'];
 ?> 
 
 <div class="shoppingcart-item flex-row align-center"> 
@@ -19,6 +20,7 @@
             <form method="POST" action="/api/delete-shoppingcart.php">
                 <input type="hidden" name="productID" value="<?php echo $productID ?>">
                 <input type="hidden" name="redirect" value="1">
+                <input type="hidden" name="url" value="<?php echo $link; ?>">
                 <input type="submit" class="btn btn-flat btn-error my-3 mx-3" value="Löschen">
             </form>
         </div> 

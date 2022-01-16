@@ -11,6 +11,7 @@ foreach($cart as $c){
         }
     }
 }
+$link = $_SERVER['REQUEST_URI'];
 ?>
 
 <div class="wishlist-item flex-row"> 
@@ -32,7 +33,7 @@ foreach($cart as $c){
             <?php if ($flag) { ?>
                 <form method="POST" action="/api/delete-shoppingcart.php">
                     <input type="hidden" name="productID" value="<?php echo $cartItem['productID']; ?>">
-                    <input type="hidden" name="redirect" value="1">
+                    <input type="hidden" name="url" value="<?php echo $link; ?>">
                     <input type="submit" class="btn btn-flat btn-error my-3" value="Aus Warenkorb löschen">
                 </form>
                 <?php } else { ?>
@@ -40,7 +41,7 @@ foreach($cart as $c){
                 <form method="POST" action="/api/add-shoppingcart.php">
                     <input type="hidden" name="quantity" value="1">
                     <input type="hidden" name="productID" value="<?php echo $cartItem['productID']; ?>">
-                    <input type="hidden" name="redirect" value="1">
+                    <input type="hidden" name="url" value="<?php echo $link; ?>">
                     <input type="submit" class="btn btn-flat btn-success my-3" value="In den Warenkorb"> 
                 </form>
 
