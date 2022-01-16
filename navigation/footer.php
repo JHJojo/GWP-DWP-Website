@@ -1,5 +1,5 @@
 <!-- move footer to bottom -->
-<div class="container flex-spacer white"></div>
+<div class="container flex-spacer transparent"></div>
 
 <!-- CONTAINER -->
 <footer class="footer py-3">
