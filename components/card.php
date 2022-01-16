@@ -1,7 +1,7 @@
 
 <div class="card"> 
     <div class="card-header">
-        <img class="image-homepage" src="<?= $row['photo'] ?>" alt="Produktfoto von <?= $row['description'] ?>">
+        <img class="product-image" src="<?= $row['photo'] ?>" alt="Produktfoto von <?= $row['description'] ?>">
     </div>
     <div class="card-body text-center body-2">
         <?php 
