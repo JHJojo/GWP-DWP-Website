@@ -1,10 +1,10 @@
 <?php
-session_start();
+include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
 function logout(){
 if(isset($_SESSION['userid'])){
     unset($_SESSION['userid']);
 }
-header("Location: homepage.php");
+header("Location: /index.php");
 
 }
 

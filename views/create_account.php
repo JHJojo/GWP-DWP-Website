@@ -1,4 +1,4 @@
-<?php session_start();
+
 
 //Connection for the DB
 require  $_SERVER['DOCUMENT_ROOT'] . '\functions\database.php';

@@ -1,5 +1,5 @@
 <?php
-//session_start(); //Important to use this every time
+//include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
 
 require  $_SERVER['DOCUMENT_ROOT'] . '\functions\logout.php';
 //require  $_SERVER['DOCUMENT_ROOT'] . '\functions\getPermission.php';
