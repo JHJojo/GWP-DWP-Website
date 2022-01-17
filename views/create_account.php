@@ -62,11 +62,11 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                     <div class="registration-row">
                         <div class="input-group">
                             <label>Vorname</label>
-                            <input type="text" size="40" maxlength="250" name="firstname" required>
+                            <input id="firstname" type="text" size="40" maxlength="250" name="firstname" required>
                         </div>
                         <div class="input-group">
                             <label>Nachname</label>
-                            <input type="text" size="40" maxlength="250" name="lastname" required>
+                            <input id="lastname" type="text" size="40" maxlength="250" name="lastname" required>
                         </div>
                     </div>
                     <div class="registration-row">
@@ -80,7 +80,7 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                     <div class="registration-row">
                         <div class="input-group">
                             <label>Geburtsdatum</label>
-                            <input type="date" size="40" maxlength="250" name="birthday" required>
+                            <input id="birthday" type="date" size="40" maxlength="250" name="birthday" required>
                         </div>
                     </div>
                     <div class="registration-row">
@@ -91,7 +91,7 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                     <div class="registration-row">
                         <div class="input-group">
                             <label>E-Mail-Adresse</label>
-                            <input type="email" size="40" maxlength="250" name="email" required>
+                            <input id="email" type="email" size="40" maxlength="250" name="email" required>
                         </div>
                     </div>
                     <div class="registration-row">
@@ -375,11 +375,11 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                     <div class="registration-row">
                         <div class="input-group">
                             <label>PLZ</label>
-                            <input type="text" size="40" maxlength="250" name="zip" required>
+                            <input id="zip" type="text" size="40" maxlength="250" name="zip" required>
                         </div>
                         <div class="input-group">
                             <label>Stadt</label>
-                            <input type="text" size="40" maxlength="250" name="city" required>
+                            <input id="city" type="text" size="40" maxlength="250" name="city" required>
                         </div>
                     </div>
                     <div class="registration-row">
@@ -393,11 +393,11 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                     <div class="registration-row">
                         <div class="input-group">
                             <label>Straße</label>
-                            <input type="text" size="40" maxlength="250" name="street" required>
+                            <input id="street" type="text" size="40" maxlength="250" name="street" required>
                         </div>
                         <div class="input-group">
                             <label>Hausnummer</label>
-                            <input type="text" size="40" maxlength="250" name="houseNumber" required>
+                            <input id="houseNumber" type="text" size="40" maxlength="250" name="houseNumber" required>
                         </div>
                     </div>
                     <div class="registration-row">
@@ -409,9 +409,13 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                             </div>
                         </div>
                     </div>
+                    <div class="registration-row">
+                        <div class="input-group">
+                            <button id="form-input" class="btn" type="submit" value="Jetzt erstellen!" disabled="disabled">Jetzt erstellen!</button>
+                            <div class="info" id="success"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="info" id="success"></div>
-                <button id="form-input" class="link btn btn-primary btn-flat py-1" type="submit" value="Jetzt erstellen!">Jetzt erstellen!</button>
             </form>
         </div>
     </div>
@@ -512,7 +516,6 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
 
 
         const submitBtn = document.getElementById('form-input');
-        const gender = document.getElementById("gender");
         const firstname = document.getElementById("firstname");
         const lastname = document.getElementById("lastname");
         const birthday = document.getElementById("birthday");
@@ -526,7 +529,7 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
         const houseNumber = document.getElementById("houseNumber");
 
         function updateSubmitBtn() {
-            const genderValue = gender.value.trim();
+
             const firstnameValue = firstname.value.trim();
             const lastnameValue = lastname.value.trim();
             const birthdayValue = birthday.value.trim();
@@ -538,9 +541,8 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
             const cityValue = city.value.trim();
             const streetValue = street.value.trim();
             const houseNumberValue = houseNumber.value.trim();
-            debugger;
-            if (!((genderValue &&
-                    firstnameValue &&
+            console.log('firstname: ', firstname)
+            if (!((firstnameValue &&
                     lastnameValue &&
                     birthdayValue &&
                     emailValue &&
@@ -552,23 +554,24 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                     streetValue &&
                     houseNumberValue) == "")) {
                 submitBtn.removeAttribute('disabled');
+                submitBtn.style.background = "#005a99";
             } else {
                 submitBtn.setAttribute('disabled', 'disabled');
+                submitBtn.style.background = "#808080";
             }
         }
 
-        gender.addEventListener('change', updateSubmitBtn);
-        firstname.addEventListener('change', updateSubmitBtn);
-        lastname.addEventListener('change', updateSubmitBtn);
-        birthday.addEventListener('change', updateSubmitBtn);
-        email.addEventListener('change', updateSubmitBtn);
-        password.addEventListener('change', updateSubmitBtn);
-        password2.addEventListener('change', updateSubmitBtn);
-        country.addEventListener('change', updateSubmitBtn);
-        zip.addEventListener('change', updateSubmitBtn);
-        city.addEventListener('change', updateSubmitBtn);
-        street.addEventListener('change', updateSubmitBtn);
-        houseNumber.addEventListener('change', updateSubmitBtn);
+        firstname.addEventListener('keyup', updateSubmitBtn);
+        lastname.addEventListener('keyup', updateSubmitBtn);
+        birthday.addEventListener('keyup', updateSubmitBtn);
+        email.addEventListener('keyup', updateSubmitBtn);
+        password.addEventListener('keyup', updateSubmitBtn);
+        password2.addEventListener('keyup', updateSubmitBtn);
+        country.addEventListener('keyup', updateSubmitBtn);
+        zip.addEventListener('keyup', updateSubmitBtn);
+        city.addEventListener('keyup', updateSubmitBtn);
+        street.addEventListener('keyup', updateSubmitBtn);
+        houseNumber.addEventListener('keyup', updateSubmitBtn);
     </script>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
 </body>

@@ -36,7 +36,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
                         <input id="password" type="password" size="40" maxlength="250" name="password" required="required">
                     </div>
                 </div>
-                <div id="login-error"></div>
+                <div class="login-row">
+                    <div class="input-group">
+                        <div id="login-error"></div>
+                    </div>
+                </div>
             </div>
 
             <div class="login-row">
@@ -47,9 +51,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
                     <a id="register" class="btn" href="/views/create_account.php">Registrieren</a>
                 </div>
             </div>
-
-
-
             <div id="#error"></div>
         </form>
     </div>
@@ -109,6 +110,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
             submitBtn.style.background = "#005a99";
         } else {
             submitBtn.setAttribute('disabled', 'disabled');
+            submitBtn.style.background = "#808080";
         }
     }
     email.addEventListener('keyup', updateSubmitBtn);
