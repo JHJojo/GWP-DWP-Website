@@ -5,10 +5,11 @@
     
     <?php 
         require_once '/xampp/htdocs/api/wishlist-api.php'; 
+        require_once '/xampp/htdocs/functions/shopping-functions.php';
         $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
         $cart = json_decode($cart);
         $totalPrice = 0;
-        
+        setcookie("addressCookie", null, -1, '/'); 
     ?>
 
     <!-- HEAD -->
@@ -37,12 +38,8 @@
             </div>  
             <?php endforeach;?>
             <div class="flex-row justify-space-between">
-              <?php foreach( $cart as $c):
-                      $productID = (int) $c->productID;
-                      $totalPrice = $totalPrice + (getProductPrice($productID) * $c->quantity);
-                    endforeach; ?>
               <?php if($accountID > 0) { 
-                  if($totalPrice == 0) { ?>
+                  if(getTotalPrice() == 0) { ?>
                     <b>
                       <p>Warenkorb ist leer!</p>
                     </b> 
@@ -55,7 +52,7 @@
               <b>
                 <p class="text-right">
                   Gesamt: 
-                    <?php echo ($totalPrice); ?> €
+                    <?php echo getTotalPrice(); ?> €
                 </p>
               </b>
             </div> 

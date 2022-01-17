@@ -6,11 +6,6 @@
     <?php 
         $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
         $cart = json_decode($cart);
-        $totalPrice = 0;
-        foreach( $cart as $c):
-            $productID = (int) $c->productID;
-            $totalPrice = $totalPrice + (getProductPrice($productID) * $c->quantity);
-          endforeach;
     ?>
 
     <!-- HEAD -->
@@ -34,13 +29,13 @@
             <div>
                 <h2 class="text-center">
                      Gesamtpreis:
-                    <?php echo ($totalPrice); ?> €
+                    <?php echo getTotalPrice() ; ?> €
                 </h2>
             </div>
             <div class="flex-row justify-center">
                 <a href="/index.php" class="btn btn-flat btn-error mx-10">Abbrechen</a>
                 
-                <a href="#" class="btn btn-flat btn-success mx-10">Zahlung bestätigen</a>
+                <a href="/api/checkout-shopping.php" class="btn btn-flat btn-success mx-10">Zahlung bestätigen</a>
             </div>
       </div>
     </div>
