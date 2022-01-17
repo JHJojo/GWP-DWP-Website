@@ -27,8 +27,11 @@ $link = $_SERVER['REQUEST_URI'];
     </div>
     <div class="wishlist-button">
         <div class="flex-column justify-space-around">
-            <a href="#" class="btn btn-info btn-flat">
-                Details 
+        <a href="/views/products.php?productID=<?=$cartItem['productID']?>" class="btn btn-flat btn-accent my-3">
+                <i class="material-icons-outlined md-18 mr-2 text-white">
+                info
+                </i>
+                Details
             </a>
             <?php if ($flag) { ?>
                 <form method="POST" action="/api/delete-shoppingcart.php">
