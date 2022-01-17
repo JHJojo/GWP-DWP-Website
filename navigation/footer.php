@@ -60,7 +60,7 @@
             <img class="my-auto" height="24px" src="https://i.imgur.com/RsLrFDM.png" alt="Gehausekoenig Icon">
           </div>
           <div class="flex-grow pa-2">
-            Caseking
+            Gehäusekönig
           </div>
         </div>
         <div class="py-2">
