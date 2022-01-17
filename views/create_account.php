@@ -411,7 +411,7 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                     </div>
                 </div>
                 <div class="info" id="success"></div>
-                <input id="form-input" type="submit" value="Jetzt erstellen!">
+                <button id="form-input" class="link btn btn-primary btn-flat py-1" type="submit" value="Jetzt erstellen!">Jetzt erstellen!</button>
             </form>
         </div>
     </div>
@@ -510,26 +510,65 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
         }
 
 
-        // const submitBtn = document.getElementById('form-input');
-        // const firstName = document.getElementById('first-name')
-        // const email = document.getElementById('email')
-        // const comment = document.getElementById('comment')
 
-        // function updateSubmitBtn() {
-        //     const firstNameValue = firstName.value.trim();
-        //     const emailValue = email.value.trim();
-        //     const commentValue = comment.value.trim();
-        //     debugger;
-        //     if (firstNameValue && emailValue && commentValue) {
-        //         submitBtn.removeAttribute('disabled');
-        //     } else {
-        //         submitBtn.setAttribute('disabled', 'disabled');
-        //     }
-        // }
+        const submitBtn = document.getElementById('form-input');
+        const gender = document.getElementById("gender");
+        const firstname = document.getElementById("firstname");
+        const lastname = document.getElementById("lastname");
+        const birthday = document.getElementById("birthday");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const password2 = document.getElementById("password2");
+        const country = document.getElementById("country");
+        const zip = document.getElementById("zip");
+        const city = document.getElementById("city");
+        const street = document.getElementById("street");
+        const houseNumber = document.getElementById("houseNumber");
 
-        // firstName.addEventListener('change', updateSubmitBtn);
-        // email.addEventListener('change', updateSubmitBtn);
-        // comment.addEventListener('change', updateSubmitBtn);
+        function updateSubmitBtn() {
+            const genderValue = gender.value.trim();
+            const firstnameValue = firstname.value.trim();
+            const lastnameValue = lastname.value.trim();
+            const birthdayValue = birthday.value.trim();
+            const emailValue = email.value.trim();
+            const passwordValue = password.value.trim();
+            const password2Value = password2.value.trim();
+            const countryValue = country.value.trim();
+            const zipValue = zip.value.trim();
+            const cityValue = city.value.trim();
+            const streetValue = street.value.trim();
+            const houseNumberValue = houseNumber.value.trim();
+            debugger;
+            if (!((genderValue &&
+                    firstnameValue &&
+                    lastnameValue &&
+                    birthdayValue &&
+                    emailValue &&
+                    passwordValue &&
+                    password2Value &&
+                    countryValue &&
+                    zipValue &&
+                    cityValue &&
+                    streetValue &&
+                    houseNumberValue) == "")) {
+                submitBtn.removeAttribute('disabled');
+            } else {
+                submitBtn.setAttribute('disabled', 'disabled');
+            }
+        }
+
+        gender.addEventListener('change', updateSubmitBtn);
+        firstname.addEventListener('change', updateSubmitBtn);
+        lastname.addEventListener('change', updateSubmitBtn);
+        birthday.addEventListener('change', updateSubmitBtn);
+        email.addEventListener('change', updateSubmitBtn);
+        password.addEventListener('change', updateSubmitBtn);
+        password2.addEventListener('change', updateSubmitBtn);
+        country.addEventListener('change', updateSubmitBtn);
+        zip.addEventListener('change', updateSubmitBtn);
+        city.addEventListener('change', updateSubmitBtn);
+        street.addEventListener('change', updateSubmitBtn);
+        houseNumber.addEventListener('change', updateSubmitBtn);
     </script>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
 </body>
