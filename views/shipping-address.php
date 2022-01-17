@@ -3,6 +3,11 @@
   <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
     <link href="/styles/create_account.css" rel="stylesheet" type="text/css" />
+    <?php 
+      
+      $addressCookie = isset($_COOKIE["addressCookie"]) ? $_COOKIE["addressCookie"] : "[]";
+      $addressCookie = json_decode($addressCookie);
+    ?>
 
     <!-- HEAD -->
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
@@ -19,7 +24,15 @@
       <!-- CONTENT of my-page -->
       <div class="content shipping-address">
         <h1 class="text-center">Lieferadresse</h1>
-
+        <?php if (isset($_COOKIE["addressCookie"])) { ?>
+        <ul class="alert-box mx-10">
+          <?php foreach($addressCookie as $ac): ?>
+            <?php if (isset($ac->errorMessage)) { ?>
+              <li class="mx-2"> <?= $ac->errorMessage ?></li>
+            <?php } ?> 
+          <?php endforeach ?>
+        </ul>
+        <?php } ?> 
         <form method="POST" action="../api/add-address.php">
         <div class="registration-row">
                             <div class="input-group">
@@ -277,28 +290,26 @@
                         <div class="registration-row">
                             <div class="input-group">
                                 <label for="zipCode">PLZ</label>
-                                <input type="text" size="40" maxlength="250" name="zipCode" id="zipCode" required>
+                                <input class="<?= $addressCookie[0]->isValid ?:'is-invalid'?>" value="<?= isset($addressCookie[0]->value) ? $addressCookie[0]->value : ''?>" type="text" size="40" maxlength="250" name="zipCode" id="zipCode" >
                             </div>
                             <div class="input-group">
                                 <label>Stadt</label>
-                                <input type="text" size="40" maxlength="250" name="city" id="city" required>
+                                <input class="<?= $addressCookie[2]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[2]->value) ? $addressCookie[2]->value : ''?>" type="text" size="40" maxlength="250" name="city" id="city" >
                             </div>
                         </div>
                         <div class="registration-row">
                             <div class="input-group">
                                 <label>Straße</label>
-                                <input type="text" size="40" maxlength="250" name="street" id="street" required>
+                                <input class="<?= $addressCookie[1]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[1]->value) ? $addressCookie[1]->value : ''?>" type="text" size="40" maxlength="250" name="street" id="street" >
                             </div>
                             <div class="input-group">
                                 <label>Hausnummer</label>
-                                <input type="text" size="40" maxlength="250" name="streetNumber" id="streetNumber" required>
+                                <input class="<?= $addressCookie[3]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[3]->value) ? $addressCookie[3]->value : ''?>" type="text" size="40" maxlength="250" name="streetNumber" id="streetNumber">
                             </div>
                         </div>
                         <div class="flex-row justify-space-around">
                           <input class="btn btn-flat btn-success py-5 px-5" type="submit" value="Bezahlen">
-                        </div>
-                        
-                        
+                        </div>              
         </form>
       </div>
     </div>
@@ -307,7 +318,7 @@
     <script type="text/javascript">
       "use strict";
     </script>
-
+    
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
   </body>
 </html>
