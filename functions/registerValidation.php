@@ -89,11 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   }
   $email = strtolower($email);
   if (strlen($password) == 0) {
-    $password_error = 'Es muss ein Passwort angegeben werden.<br>';
+    $password_error = 'Es muss ein Passwort angegeben werden.';
     $error = true;
   }
   if ($password != $password2) {
-    $password2_error = 'Die Passwörter müssen übereinstimmen.<br>';
+    $password_error = 'Die Passwörter müssen übereinstimmen.';
     $error = true;
   }
   if (empty($country)) {

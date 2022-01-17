@@ -427,9 +427,9 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
 
             const formData = new FormData(e.target);
             const formProps = Object.fromEntries(formData);
-            console.log(formProps);
+            //console.log("formProps: ", formProps);
 
-            fetch("http://localhost/functions/formValidation.php", {
+            fetch("http://localhost/functions/registerValidation.php", {
                     method: "POST", // *GET, POST, PUT, DELETE, etc.
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded", // application/x-www-form-urlencoded
@@ -438,12 +438,12 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                 })
                 .then((result) => result.text())
                 .then((html) => {
-                    console.info("Ausgabe HTML:", html);
+                    //console.info("Ausgabe HTML:", html);
                     let response = JSON.parse(html);
                     // console.info("Ausgabe response:", response);
                     // console.info("Ausgabe response.firstname:", response.firstname_error);
                     // console.info("Ausgabe response.lastname:", response.lastname_error);
-                    // console.info("Ausgabe response.password2_error:", response.password2_error);
+                    //console.info("Ausgabe response.password2_error:", response.password2_error);
                     if (response.success == "success") {
                         //").innerHTML = "Sie haben sich erfolgreich Registriert."
                         window.location.href = 'http://localhost/views/login.php';
@@ -454,7 +454,6 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
                         document.getElementById("birthday_error").innerHTML = response.birthday_error;
                         document.getElementById("email_error").innerHTML = response.email_error;
                         document.getElementById("password_error").innerHTML = response.password_error;
-                        document.getElementById("password2_error").innerHTML = response.password2_error;
                         document.getElementById("country_error").innerHTML = response.country_error;
                         document.getElementById("zip_error").innerHTML = response.zip_error;
                         document.getElementById("city_error").innerHTML = response.city_error;
@@ -509,6 +508,28 @@ require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
             }
             return true;
         }
+
+
+        // const submitBtn = document.getElementById('form-input');
+        // const firstName = document.getElementById('first-name')
+        // const email = document.getElementById('email')
+        // const comment = document.getElementById('comment')
+
+        // function updateSubmitBtn() {
+        //     const firstNameValue = firstName.value.trim();
+        //     const emailValue = email.value.trim();
+        //     const commentValue = comment.value.trim();
+        //     debugger;
+        //     if (firstNameValue && emailValue && commentValue) {
+        //         submitBtn.removeAttribute('disabled');
+        //     } else {
+        //         submitBtn.setAttribute('disabled', 'disabled');
+        //     }
+        // }
+
+        // firstName.addEventListener('change', updateSubmitBtn);
+        // email.addEventListener('change', updateSubmitBtn);
+        // comment.addEventListener('change', updateSubmitBtn);
     </script>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
 </body>
