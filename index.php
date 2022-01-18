@@ -1,8 +1,5 @@
 <?php
-  require_once 'functions/database.php';
-  
   $db = new PDO("mysql:host=127.0.0.1;dbname=gk-db;charset=utf8","root","");
-
 
   $sql = "SELECT productID,description,price,photo
           FROM products";
@@ -20,7 +17,6 @@
 <html>
   <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
-    <?php require_once '/xampp/htdocs/api/wishlist-api.php';  ?>
 
     <!-- HEAD -->
     <link href="/styles/homepage.css" rel="stylesheet" type="text/css" />

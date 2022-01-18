@@ -25,7 +25,7 @@
             <h2 class="headline text-center">PayPayPay</h2>
             <div class="flex-row">
               <div class="col-4 my-auto">
-                  <img src="https://i.imgur.com/Rd8Glji.png" alt="paypaypay">
+                  <img class=""src="https://i.imgur.com/Rd8Glji.png" alt="paypaypay">
               </div>
               <div class="col-8">
                 <p>
