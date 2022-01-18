@@ -1,187 +1,44 @@
-
-
-//Connection for the DB
-require  $_SERVER['DOCUMENT_ROOT'] . '\functions\database.php';
-getDB();
-//require  $_SERVER['DOCUMENT_ROOT'] . '\functions\formValidation.php';
-?>
-
 <!DOCTYPE html>
 <html>
-
-<head>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php'; ?>
-    <!-- HEAD -->
+  <head>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
     <link href="/styles/create_account.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php'; ?>
-
-    <?php
-    $showFormular = true; //To show the form if register=1
-
-    if (isset($_GET['register'])) {
-        $error = false;
-        //$gender = $_POST['gender'];
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $birthday = $_POST['birthday'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $password2 = $_POST['password2'];
-        $land = $_POST['land'];
-        $street = $_POST['street'];
-        $zip = $_POST['zip'];
-        $houseNumber = $_POST['houseNumber'];
-        $city = $_POST['city'];
-
-
-        // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        //     if (empty($_POST["firstname"])) {
-        //       echo "Name is required";
-        //     } else {
-        //       $name = test_input($_POST["firstname"]);
-        //     }
-
-        //     if (empty($_POST["email"])) {
-        //       $emailErr = "Email is required";
-        //     } else {
-        //       $email = test_input($_POST["email"]);
-        //     }
-
-        //     if (empty($_POST["gender"])) {
-        //       $genderErr = "Gender is required";
-        //     } else {
-        //       $gender = test_input($_POST["gender"]);
-        //     }
-        //   }
-        
-        //Age verfication (over 18 years old)
-        if (time() < strtotime('+18 years', strtotime($birthday))) {
-            echo '<div class="container">Sie müssen über 18 Jahre alt sein um sich Registrieren zu können.<br></div>';
-            $error = true;
-        }
-
-        //Check if the E-Mail and passwords are correct
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo 'Email-Adresse ungültig.<br>';
-            $error = true;
-        }
-        if (strlen($password) == 0) {
-            echo 'Es muss ein Passwort angegeben werden.<br>';
-            $error = true;
-        }
-        if ($password != $password2) {
-            echo 'Die Passwörter müssen übereinstimmen.<br>';
-            $error = true;
-        }
-
-        //Check if the Email is already taken
-        if (!$error) {
-            $statement = getDB()->prepare("SELECT * FROM accounts WHERE email = :email");
-            $result = $statement->execute(array('email' => $email));
-            $user = $statement->fetch();
-
-            if ($user !== false) {
-                echo 'Diese E-Mail-Adresse ist bereits vergeben.<br>';
-                $error = true;
-            }
-        }
-
-        //Create the account
-        if (!$error) {
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-            //Attention to the MySQL Code like '' and ``
-            $statement = getDB()->prepare("INSERT INTO accounts (firstname, lastname, birthday, email, passwordHash) VALUES (:firstname, :lastname, :birthday, :email, :password)");
-            $result = $statement->execute(array('firstname' => $firstname, 'lastname' => $lastname,  'birthday' => $birthday, 'email' => $email, 'password' => $hash));
-            $id = getDB()->lastInsertId(); //Get the last inserted ID to insert the address to the corresponding account.
-            $statement = getDB()->prepare("INSERT INTO addresses (land, city, zip, street, houseNumber, addressID) VALUES (:land, :city, :zip, :street, :houseNumber, :addressID)");
-            $result = $statement->execute(array('land' => $land, 'city' => $city,  'zip' => $zip, 'street' => $street, 'houseNumber' => $houseNumber, 'addressID' => $id));
-
-            if ($result) {
-                echo '<div class="container"> Sie wurden erfolgreich registriert. <a href="login.php">Zum Login</a><br></div>';
-                $showFormular = false;
-            } else {
-                echo '<div class="container"> Es ist ein Fehler aufgetreten.<br></div>';
-            }
-        }
-    }
-
-    if ($showFormular) {
+    <?php 
+      
+      $addressCookie = isset($_COOKIE["addressCookie"]) ? $_COOKIE["addressCookie"] : "[]";
+      $addressCookie = json_decode($addressCookie);
     ?>
 
-        <!--Form to create an account-->
-        <!-- CONTAINER -->
-        <div class="container">
-            <div class="error"></div>
-            <div class="mx-auto">
-                <form id="form" class="signup-form" action="?register=1" method="post">
-                    <div class="form-header">
-                        <h1>Kundenkonto erstellen</h1>
-                    </div>
-                    <div class="form-body">
-                        <div class="registration-row">
+    <!-- HEAD -->
+    <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
+  </head>
+
+  <body>
+    <noscript>
+      Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest!
+    </noscript>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
+
+    <!-- CONTAINER -->
+    <div class="container">
+      <!-- CONTENT of my-page -->
+      <div class="content shipping-address">
+        <h1 class="text-center">Lieferadresse</h1>
+        <!-- Alter box to inform user about invalid inputs-->
+        <?php if (isset($_COOKIE["addressCookie"])) { ?>
+        <ul class="alert-box mx-10">
+          <?php foreach($addressCookie as $ac): ?>
+            <?php if (isset($ac->errorMessage)) { ?>
+              <li class="mx-2"> <?= $ac->errorMessage ?></li>
+            <?php } ?> 
+          <?php endforeach ?>
+        </ul>
+        <?php } ?> 
+        <form method="POST" action="../api/add-address.php">
+        <div class="registration-row">
                             <div class="input-group">
-                                <label>Anrede</label>
-                                <div class="registration-radio">
-                                    <div>
-                                        <label for="male">
-                                            <input type="radio" name="gender" id="male">
-                                            Herr
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label for="female">
-                                            <input type="radio" name="gender" id="female">
-                                            Frau
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label for="other">
-                                            <input type="radio" name="gender" id="other">
-                                            Divers
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="registration-row">
-                            <div class="input-group">
-                                <label>Vorname</label>
-                                <input id="firstname" type="text" size="40" maxlength="250" name="firstname" required>
-                            </div>
-                            <div class="input-group">
-                                <label>Nachname</label>
-                                <input type="text" size="40" maxlength="250" name="lastname" required>
-                            </div>
-                        </div>
-                        <div class="registration-row">
-                            <div class="input-group">
-                                <label>Geburtsdatum</label>
-                                <input type="date" size="40" maxlength="250" name="birthday" required>
-                            </div>
-                        </div>
-                        <div class="registration-row">
-                            <div class="input-group">
-                                <label>E-Mail-Adresse</label>
-                                <input type="email" size="40" maxlength="250" name="email" required>
-                            </div>
-                        </div>
-                        <div class="registration-row">
-                            <div class="input-group">
-                                <label>Passwort</label>
-                                <input id="password" onkeyup="checkPass()" type="password" size="40" maxlength="250" name="password" required>
-                            </div>
-                            <div class="input-group">
-                                <label>Passwort wiederholen</label>
-                                <input id="password2" onkeyup="checkPass()" type="password" size="40" maxlength="250" name="password2" required>
-                            </div>
-                        </div>
-                        <div class="registration-row">
-                            <div class="input-group">
-                                <label>Land</label>
-                                <select id="land" name="land">
+                                <label for="country">Land</label>
+                                <select id="country" name="country">
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -433,78 +290,37 @@ getDB();
                         </div>
                         <div class="registration-row">
                             <div class="input-group">
-                                <label>PLZ</label>
-                                <input type="text" size="40" maxlength="250" name="zip" required>
+                                <label for="zipCode">PLZ</label>
+                                <!--Changes layout if input was invalid and write previous input as value-->
+                                <input class="<?= $addressCookie[0]->isValid ?:'is-invalid'?>" value="<?= isset($addressCookie[0]->value) ? $addressCookie[0]->value : ''?>" type="text" size="40" maxlength="250" name="zipCode" id="zipCode" >
                             </div>
                             <div class="input-group">
                                 <label>Stadt</label>
-                                <input type="text" size="40" maxlength="250" name="city" required>
+                                <input class="<?= $addressCookie[2]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[2]->value) ? $addressCookie[2]->value : ''?>" type="text" size="40" maxlength="250" name="city" id="city" >
                             </div>
                         </div>
                         <div class="registration-row">
                             <div class="input-group">
                                 <label>Straße</label>
-                                <input type="text" size="40" maxlength="250" name="street" required>
+                                <input class="<?= $addressCookie[1]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[1]->value) ? $addressCookie[1]->value : ''?>" type="text" size="40" maxlength="250" name="street" id="street" >
                             </div>
                             <div class="input-group">
                                 <label>Hausnummer</label>
-                                <input type="text" size="40" maxlength="250" name="houseNumber" required>
+                                <input class="<?= $addressCookie[3]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[3]->value) ? $addressCookie[3]->value : ''?>" type="text" size="40" maxlength="250" name="streetNumber" id="streetNumber">
                             </div>
                         </div>
-                    </div>
-                    <input id="form-input" type="submit" value="Jetzt erstellen!">
-                    <div id="error-nwl"></div>
-                </form>
-            </div>
-        </div>
+                        <div class="flex-row justify-space-around">
+                          <input class="btn btn-flat btn-success py-5 px-5" type="submit" value="Bezahlen">
+                        </div>              
+        </form>
+      </div>
+    </div>
 
-        <script>
-
-            document.getElementById('form').addEventListener(
-                "submit",
-                function(event) {
-                    if (checkPass() === false) {
-                        event.preventDefault();
-                    }
-                },
-                false
-            );
-            function checkPass() {
-                var password = document.getElementById('password');
-                var password2 = document.getElementById('password2');
-                var message = document.getElementById('error-nwl');
-                var passColor = "#90de98";
-                var failColor = "#e08799";
-
-                if (password.value.length > 5) {
-                    password.style.backgroundColor = passColor;
-                    message.style.color = passColor;
-                    message.innerHTML = ""
-                } else {
-                    password.style.backgroundColor = failColor;
-                    message.style.color = failColor;
-                    message.innerHTML = "Das Passwort muss mindestens 6 Zeichen lang sein."
-                    return false;
-                }
-
-                if (password.value == password2.value) {
-                    password2.style.backgroundColor = passColor;
-                    message.style.color = passColor;
-                    message.innerHTML = ""
-                } else {
-                    password2.style.backgroundColor = failColor;
-                    message.style.color = failColor;
-                    message.innerHTML = "Die Passwörter stimmen nicht überein."
-                    return false;
-                }
-                return true;
-            }
-        </script>
-
-    <?php
-    }
-    ?>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
-</body>
-
+    <!-- Script for my-page -->
+    <script type="text/javascript">
+      "use strict";
+    </script>
+    
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
+  </body>
 </html>
