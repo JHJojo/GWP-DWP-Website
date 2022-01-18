@@ -24,6 +24,7 @@
       <!-- CONTENT of my-page -->
       <div class="content shipping-address">
         <h1 class="text-center">Lieferadresse</h1>
+        <!-- Alter box to inform user about invalid inputs-->
         <?php if (isset($_COOKIE["addressCookie"])) { ?>
         <ul class="alert-box mx-10">
           <?php foreach($addressCookie as $ac): ?>
@@ -290,6 +291,7 @@
                         <div class="registration-row">
                             <div class="input-group">
                                 <label for="zipCode">PLZ</label>
+                                <!--Changes layout if input was invalid and write previous input as value-->
                                 <input class="<?= $addressCookie[0]->isValid ?:'is-invalid'?>" value="<?= isset($addressCookie[0]->value) ? $addressCookie[0]->value : ''?>" type="text" size="40" maxlength="250" name="zipCode" id="zipCode" >
                             </div>
                             <div class="input-group">

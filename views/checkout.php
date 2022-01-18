@@ -3,11 +3,7 @@
   <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
     <?php require_once '/xampp/htdocs/functions/shopping-functions.php'; ?>
-    <?php 
-        $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
-        $cart = json_decode($cart);
-    ?>
-
+    
     <!-- HEAD -->
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
   </head>

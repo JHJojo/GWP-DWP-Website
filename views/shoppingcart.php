@@ -30,14 +30,16 @@
         
         <hr>
         <div class="flex-column">
+            <!--display products-->
             <?php foreach( $cart as $c):?>
             <div class="row">
-                
                 <?php include '../components/shoppincartitem.php' ?>
                 <hr>
             </div>  
             <?php endforeach;?>
             <div class="flex-row justify-space-between">
+              <!--display different text based of shopping cart and user login-->
+              <?php //checkout only possible if user is logged in ?>
               <?php if($accountID > 0) { 
                   if(getTotalPrice() == 0) { ?>
                     <b>
@@ -59,7 +61,7 @@
         </div>
       </div>
     </div>
-
+    
     <!-- Script for my-page -->
     <script type="text/javascript">
       "use strict";

@@ -1,7 +1,9 @@
 <?php
+//check if cart cookie exists and write into $cart variable
 $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
 $cart = json_decode($cart);
 
+//* set flag variable true for product which is already in cart
 $flag = false;
 foreach($cart as $c){
     if ($c->productID == $row['productID']){
@@ -12,7 +14,7 @@ foreach($cart as $c){
     }
 }
 
-$link = $_SERVER['REQUEST_URI'];
+$link = $_SERVER['REQUEST_URI'];    //set link variable with current url
 ?>
 
 <div class="card"> 
@@ -45,6 +47,7 @@ $link = $_SERVER['REQUEST_URI'];
                 </i>
                 Details
             </a>
+            <?php //display correct shopping cart button determined by flag variable?>
             <?php if ($flag) { ?>
                 <form method="POST" action="../api/delete-shoppingcart.php">
                     <input type="hidden" name="productID" value="<?php echo $row['productID']; ?>">

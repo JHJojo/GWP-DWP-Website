@@ -1,7 +1,12 @@
 <?php
+//include functions
+require_once '/xampp/htdocs/functions/wishlist-functions.php';
+
+//check if cart cookie exists and write into $cart variable
 $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
 $cart = json_decode($cart);
 
+//* set flag variable true for product which is already in cart
 $flag = false;
 foreach($cart as $c){
     if ($c->productID == $product['productID']){
@@ -11,7 +16,9 @@ foreach($cart as $c){
         }
     }
 }
-$link = $_SERVER['REQUEST_URI'];
+
+$accountID = getAccountID();  //get account id from user
+$link = $_SERVER['REQUEST_URI'];  //set link variable with current url
 ?>
 
 <div class="product">
@@ -45,7 +52,13 @@ $link = $_SERVER['REQUEST_URI'];
       <hr>
       <div class="flex-row justify-space-around">
         <div class="flex-shrink">
-          <a href="../index.php/wishlist/add/<?= $product['productID']?>" class="btn btn-accent">
+          <a href="
+          <?php //different redirect if user is logged in or not?>
+          <?php if ($accountID > 0) { ?>
+            ../index.php/wishlist/add/<?= $product['productID']?>
+          <?php } else {?>
+            /views/login.php
+          <?php } ?>" class="btn btn-accent">
             <i class="material-icons-outlined md-18 mr-2 text-white">
             favorite
             </i>
@@ -53,7 +66,8 @@ $link = $_SERVER['REQUEST_URI'];
           </a>
         </div>
         <div class="flex-shrink">
-          <?php if ($flag) { ?>
+            <?php //display correct shopping cart button determined by flag variable?>
+            <?php if ($flag) { ?>
                 <form method="POST" action="../api/delete-shoppingcart.php">
                     <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
                     <input type="hidden" name="url" value="<?php echo $link; ?>">
@@ -71,7 +85,6 @@ $link = $_SERVER['REQUEST_URI'];
         </div>
       </div>
       <hr>
-
     </div>
   </div>
 </div>

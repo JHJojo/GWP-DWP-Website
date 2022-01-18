@@ -3,9 +3,7 @@
   <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
     
-    <?php 
-        require_once '/xampp/htdocs/api/wishlist-api.php'; 
-    ?>
+    <?php require_once '/xampp/htdocs/api/wishlist-api.php'; ?>
 
     <!-- HEAD -->
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
@@ -23,11 +21,11 @@
       <div class="content wishlist">
         <h1 class="display-2 text-center">Wunschzettel </h1>
         <hr>
-        
+        <?php //inform that wishlist is only usable if user logs in ?>
         <?php if (getAccountID() == 0) { ?>
           <h2 class="text-center">Melde dich an um deinen Wunschzettel zu sehen!</h2>
         <?php } ?>
-
+        <!--display products from wishlist-->
         <div class="flex-column">
             <?php 
             if (getAccountID() != 0) {
