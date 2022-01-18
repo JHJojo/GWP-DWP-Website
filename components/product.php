@@ -95,6 +95,7 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
         </div>
       </div>
       <hr>
+
     </div>
   </div>
 </div>

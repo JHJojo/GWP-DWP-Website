@@ -1,5 +1,5 @@
 <?php
-//include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';e
+//session_start(); //Important to use this every time
 
 require  $_SERVER['DOCUMENT_ROOT'] . '\functions\logout.php';
 
