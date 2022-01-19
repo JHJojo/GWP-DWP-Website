@@ -1,4 +1,4 @@
-<?php require_once '/xampp/htdocs/functions/wishlist-functions.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/wishlist-functions.php'; ?>
 <!-- CONTAINER -->
 <header class="header">
   <div class="container">
