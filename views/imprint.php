@@ -18,7 +18,8 @@
     <div class="container">
       <!-- CONTENT of my-page -->
       <div class="content imprint">
-        <h1 class="display-2 text-primary">
+        <a href="/views/documentation.php" class="btn btn-info btn-outlined">Dokumentation</a>
+        <h1 class="display-2">
           Impressum
         </h1>
         <p>
