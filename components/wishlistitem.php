@@ -29,7 +29,7 @@ $link = $_SERVER['REQUEST_URI'];    //set link variable with current url
     </div>
     <div class="wishlist-button">
         <div class="flex-column justify-space-around">
-        <a href="/views/products.php?productID=<?=$cartItem['productID']?>" class="btn btn-flat btn-accent my-3">
+        <a href="/views/products.php?productID=<?=$cartItem['productID']?>" class="btn btn-flat btn-accent">
                 <i class="material-icons-outlined md-18 mr-2 text-white">
                 info
                 </i>
