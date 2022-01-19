@@ -292,21 +292,21 @@
                             <div class="input-group">
                                 <label for="zipCode">PLZ</label>
                                 <!--Changes layout if input was invalid and write previous input as value-->
-                                <input class="<?= $addressCookie[0]->isValid ?:'is-invalid'?>" value="<?= isset($addressCookie[0]->value) ? $addressCookie[0]->value : ''?>" type="text" size="40" maxlength="250" name="zipCode" id="zipCode" >
+                                <input class="<?= $addressCookie[0] && $addressCookie[0]->isValid ?:'is-invalid'?>" value="<?= isset($addressCookie[0]->value) ? $addressCookie[0]->value : ''?>" type="text" size="40" maxlength="250" name="zipCode" id="zipCode" >
                             </div>
                             <div class="input-group">
                                 <label>Stadt</label>
-                                <input class="<?= $addressCookie[2]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[2]->value) ? $addressCookie[2]->value : ''?>" type="text" size="40" maxlength="250" name="city" id="city" >
+                                <input class="<?= $addressCookie[2] && $addressCookie[2]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[2]->value) ? $addressCookie[2]->value : ''?>" type="text" size="40" maxlength="250" name="city" id="city" >
                             </div>
                         </div>
                         <div class="registration-row">
                             <div class="input-group">
                                 <label>Straße</label>
-                                <input class="<?= $addressCookie[1]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[1]->value) ? $addressCookie[1]->value : ''?>" type="text" size="40" maxlength="250" name="street" id="street" >
+                                <input class="<?= $addressCookie[1] && $addressCookie[1]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[1]->value) ? $addressCookie[1]->value : ''?>" type="text" size="40" maxlength="250" name="street" id="street" >
                             </div>
                             <div class="input-group">
                                 <label>Hausnummer</label>
-                                <input class="<?= $addressCookie[3]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[3]->value) ? $addressCookie[3]->value : ''?>" type="text" size="40" maxlength="250" name="streetNumber" id="streetNumber">
+                                <input class="<?= $addressCookie[3] && $addressCookie[3]->isValid ?'':'is-invalid'?>" value="<?= isset($addressCookie[3]->value) ? $addressCookie[3]->value : ''?>" type="text" size="40" maxlength="250" name="streetNumber" id="streetNumber">
                             </div>
                         </div>
                         <div class="flex-row justify-space-around">
