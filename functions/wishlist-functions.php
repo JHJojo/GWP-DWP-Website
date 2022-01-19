@@ -2,13 +2,13 @@
 <?php 
 //include functions
 require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
-
+//* function to check if product is already in wishlist
 function getItemForAccountID(int $accountID, int $productID){
     //prepare statement
     $sql = "SELECT p.productID
         FROM products p join wishlist w on p.productID = w.productID where w.accountID = '$accountID' AND w.productID = '$productID'";
     $result = getDB()->query($sql);
-    //return empty array if no results found
+    //return 0 if product is not in wishlist else 1
     $found = $result->fetch();
     if ($found === false) {
         return 0;
