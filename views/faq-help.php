@@ -21,7 +21,7 @@
             <div class="help">
                 <h1 class="display-2 text-center">Hilfe</h1>
                 <div class="flex-row justify-space-between">
-                    <a href="./payment.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
+                    <a href="./faq-help/payment.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
                         <i class="material-icons md-52 mr-1">
                             payment
                         </i> 
@@ -29,7 +29,7 @@
                             Bezahlung
                         </div> 
                     </a>
-                    <a href="./delivery.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
+                    <a href="./faq-help/delivery.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
                         <i class="material-icons md-52 mr-1">
                             local_shipping
                         </i> 
@@ -37,7 +37,7 @@
                             Abholung & Versand
                         </div>
                     </a>
-                    <a href="./pc-assembly.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
+                    <a href="./faq-help/pc-assembly.php" class="btn btn-outlined btn-secondary flex-grow mx-2">
                         <i class="material-icons md-52 mr-1">
                             construction
                         </i> 
