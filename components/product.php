@@ -58,11 +58,11 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
             ../index.php/wishlist/add/<?= $product['productID']?>
           <?php } else {?>
             /views/login.php
-          <?php } ?>" class="btn btn-accent">
-            <i class="material-icons-outlined md-18 mr-2 text-white">
+          <?php } ?>">
+            <button class="btn btn-accent"><i class="material-icons-outlined md-18 mr-2 text-white">
             favorite
             </i>
-            Auf den Wunschzettel
+            Auf den Wunschzettel</button>
           </a>
         </div>
         <div class="flex-shrink">
@@ -71,7 +71,12 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
                 <form method="POST" action="../api/delete-shoppingcart.php">
                     <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
                     <input type="hidden" name="url" value="<?php echo $link; ?>">
-                    <input type="submit" class="btn btn-flat btn-error" value="Aus Warenkorb löschen">
+                    <button type="submit" class="btn btn-flat btn-error" value="Submit">
+                      <i class="material-icons-outlined md-18 mr-2 text-white">
+                      remove_shopping_cart
+                      </i>
+                    Aus Warenkorb löschen
+                    </button>
                 </form>
             <?php } else { ?>
                 <form method="POST" action="../api/add-shoppingcart.php">
@@ -79,7 +84,12 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
                     <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
                     <input type="hidden" name="price" value="<?php echo $product['price']; ?>">
                     <input type="hidden" name="url" value="<?php echo $link; ?>">
-                    <input type="submit" class="btn btn-flat btn-primary" value="In den Warenkorb"> 
+                    <button type="submit" class="btn btn-primary" value="Submit">
+                      <i class="material-icons-outlined md-18 mr-2 text-white">
+                      add_shopping_cart
+                      </i>
+                    In den Warenkorb
+                    </button> 
                 </form>
             <?php } ?>
         </div>
