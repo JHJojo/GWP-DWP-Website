@@ -18,7 +18,7 @@
       </li>';
         } else {
           echo '<li class="mr-2">
-          <form action="?logout=1" method="post">
+          <form action="" method="post">
           <button type="submit" value="logout" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             person
@@ -27,7 +27,7 @@
           </button>
           </form>
         </li>';
-          if (isset($_GET['logout'])) {
+          if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (isset($_SESSION['userid'])) {
               unset($_SESSION['userid']);
             }
