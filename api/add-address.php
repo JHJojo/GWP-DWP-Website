@@ -1,7 +1,7 @@
 <?php
     //include functions
-    require_once '/xampp/htdocs/functions/database.php';
-    require_once '/xampp/htdocs/functions/address-functions.php'; 
+    require_once $_SERVER['DOCUMENT_ROOT'] .'/functions/database.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] .'/functions/address-functions.php'; 
     
     //* set variables from input form
     $country = $_POST["country"];

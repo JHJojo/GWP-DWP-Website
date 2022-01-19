@@ -1,7 +1,7 @@
 
 <?php 
 //include functions
-require_once '/xampp/htdocs/functions/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
 
 //* function to add product to wishlist
 function addProductToWishlist(int $accountID,int $productID){

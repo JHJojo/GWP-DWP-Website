@@ -3,7 +3,7 @@
   <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
     
-    <?php require_once '/xampp/htdocs/api/wishlist-api.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/api/wishlist-api.php'; ?>
 
     <!-- HEAD -->
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>

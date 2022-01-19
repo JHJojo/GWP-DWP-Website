@@ -3,10 +3,10 @@
 session_start();
 
 //include functions
-require_once '/xampp/htdocs/functions/database.php';
-require_once '/xampp/htdocs/functions/wishlist-functions.php';
-require_once '/xampp/htdocs/functions/shopping-functions.php';
-require_once '/xampp/htdocs/functions/address-functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/wishlist-functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/shopping-functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/address-functions.php';
 
 //check if cart cookie exists and write into $cart variable
 $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";

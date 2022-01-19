@@ -1,6 +1,6 @@
 <?php
 //include functions
-require_once '/xampp/htdocs/functions/wishlist-functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/wishlist-functions.php';
 
 //check if cart cookie exists and write into $cart variable
 $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";

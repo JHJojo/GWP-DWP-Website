@@ -2,7 +2,7 @@
 <html>
   <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
-    <?php require_once '/xampp/htdocs/functions/shopping-functions.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/shopping-functions.php'; ?>
     
     <!-- HEAD -->
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>

@@ -1,6 +1,6 @@
 <?php
 //include functions
-require_once '/xampp/htdocs/functions/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
 
 //* function to get product image by productID
 function getProductImage(int $productID){

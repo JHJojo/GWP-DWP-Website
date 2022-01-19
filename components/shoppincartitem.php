@@ -1,5 +1,5 @@
 <?php 
-        require_once '/xampp/htdocs/functions/shopping-functions.php'; 
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/shopping-functions.php'; 
         $productID = (int) $c->productID;
         $quantity = (int) $c->quantity;
         $link = $_SERVER['REQUEST_URI'];

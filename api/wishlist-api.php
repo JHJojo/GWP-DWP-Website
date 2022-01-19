@@ -1,7 +1,7 @@
 <?php
 //include functions
-require_once '/xampp/htdocs/functions/database.php';
-require_once '/xampp/htdocs/functions/wishlist-functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/wishlist-functions.php';
 
 //get account id from user
 $accountID = getAccountID();

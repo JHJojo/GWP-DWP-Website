@@ -1,6 +1,6 @@
 <?php
 //include functions
-require_once '/xampp/htdocs/functions/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
 
 //* set variables from input form
 $quantity = $_POST["quantity"];

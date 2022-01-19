@@ -4,8 +4,8 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
     
     <?php 
-        require_once '/xampp/htdocs/api/wishlist-api.php'; 
-        require_once '/xampp/htdocs/functions/shopping-functions.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/api/wishlist-api.php'; 
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/shopping-functions.php';
         $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
         $cart = json_decode($cart);
         $totalPrice = 0;
