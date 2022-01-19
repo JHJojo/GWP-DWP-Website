@@ -3,16 +3,31 @@
 //include functions
 require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
 
+function getItemForAccountID(int $accountID, int $productID){
+    //prepare statement
+    $sql = "SELECT p.productID
+        FROM products p join wishlist w on p.productID = w.productID where w.accountID = '$accountID' AND w.productID = '$productID'";
+    $result = getDB()->query($sql);
+    //return empty array if no results found
+    $found = $result->fetch();
+    if ($found === false) {
+        return 0;
+    } else{
+        return 1;
+    }
+}
 //* function to add product to wishlist
 function addProductToWishlist(int $accountID,int $productID){
-    //prepare database entry into wishlist
+   if (getItemForAccountID($accountID,$productID) == 0) {
+      //prepare database entry into wishlist
     $sql = "INSERT INTO wishlist SET accountID = :accountID, productID = :productID";
     $statement = getDB()->prepare($sql);
     //execute statement with parameters
     $statement->execute([ 
         ':accountID'=> $accountID,
         ':productID'=> $productID
-    ]);
+    ]); 
+   }   
 }
 //* function to count products in wishlist
 function countProductsInWishlist(int $accountID){
@@ -58,4 +73,5 @@ function getAccountID(){
     } else $accountID = 0;  //if no user is logged in $accountID set to 0
     return $accountID;
 }
+
 
