@@ -114,12 +114,28 @@
                         <a href="/views/products.php?<?= http_build_query(array("type" => "operatingsystem")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
                             Betriebsysteme
                         </a>
-                        
-                        <a href="/views/showcase.php" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
-                            <code>
-                                Showcase
+
+                        <div class="btn btn-outlined btn-flat py-4 pl-3 flex-grow dropdown2 text-center">
+                            <code class="text-accent">
+                                DEBUG
                             </code>
-                        </a>
+                            <div class="dropdown-content2">
+                                <div class="flex-column no-gutters">
+                                    <a href="/views/showcase.php" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
+                                        <code class="text-info">
+                                            Showcase
+                                        </code>
+                                    </a>
+                                    
+                                    <a href="asdasdsda.php" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
+                                        <code class="text-error">
+                                            404 Error Page
+                                        </code>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
