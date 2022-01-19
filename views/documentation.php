@@ -61,7 +61,7 @@
             <img src="https://i.imgur.com/T1dGhNA.png">
             <img src="https://i.imgur.com/kUxKDmF.png">
             <li>SiteMap:</li>
-            <img src="https://i.imgur.com/WLnRseS.png">
+            <img src="https://i.imgur.com/IHlCV16.png">
         </ul>
 
         <a name="design"><h2>5. Design</h2></a>
