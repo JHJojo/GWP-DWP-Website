@@ -1,4 +1,4 @@
-
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/wishlist-functions.php'; ?>
 <!-- CONTAINER -->
 <header class="header">
   <div class="container">
@@ -14,11 +14,11 @@
           </a>
         </li>
         <li class="mr-2">
-          <a href="#" class="link btn btn-primary btn-flat py-1">
+          <a href="/views/wishlist.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             favorite
             </i>
-            Wunschzettel
+            Wunschzettel (<?php echo countProductsInWishlist(getAccountID()) ?>)
           </a>
         </li>
         <li class="mr-2">
@@ -30,7 +30,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="link btn btn-primary btn-flat py-1">
+          <a href="/views/shoppingcart.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
             shopping_cart
             </i>
@@ -43,7 +43,6 @@
 </header>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/navbar.php';?>
-
 
 <script>
   "use strict";
