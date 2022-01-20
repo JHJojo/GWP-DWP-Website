@@ -52,10 +52,6 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
       <hr>
       <div class="flex-row justify-space-around">
         <div class="flex-shrink">
-<<<<<<< HEAD
-          <a href="" class="btn btn-accent">
-            <i class="material-icons-outlined md-18 mr-2 text-white">
-=======
           <a href="
           <?php //different redirect if user is logged in or not?>
           <?php if ($accountID > 0) { ?>
@@ -64,21 +60,12 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
             /views/login.php
           <?php } ?>">
             <button class="btn btn-accent"><i class="material-icons-outlined md-18 mr-2 text-white">
->>>>>>> devJojo
             favorite
             </i>
             Auf den Wunschzettel</button>
           </a>
         </div>
         <div class="flex-shrink">
-<<<<<<< HEAD
-          <a href="" class="btn btn-primary">
-            <i class="material-icons md-18 mr-2 text-white">
-            add_shopping_cart
-            </i>
-            In den Warenkorb
-          </a>
-=======
             <?php //display correct shopping cart button determined by flag variable?>
             <?php if ($flag) { ?>
                 <form method="POST" action="../api/delete-shoppingcart.php">
@@ -105,7 +92,6 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
                     </button> 
                 </form>
             <?php } ?>
->>>>>>> devJojo
         </div>
       </div>
       <hr>
