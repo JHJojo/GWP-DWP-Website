@@ -1,0 +1,11 @@
+
+
+.product img {
+  transition-duration: .4s;
+}
+
+.product img:hover {
+  transform: scale(1.4);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition-duration: 1s;
+}

@@ -104,3 +104,14 @@
 .errorr {
   color: red;
 }
+
+.is-invalid{  
+    border: 2px solid #f53e41;
+    border-radius: 4px;
+}
+
+.alert-box{
+    border: 2px solid #f53e41;
+    border-radius: 4px;
+    display: inline-block;
+}

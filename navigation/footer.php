@@ -1,5 +1,5 @@
 <!-- move footer to bottom -->
-<div class="container flex-spacer white"></div>
+<div class="container flex-spacer transparent"></div>
 
 <!-- CONTAINER -->
 <footer class="footer py-3">
@@ -19,10 +19,10 @@
         <div class="py-2">
           <ul>
             <li class="pa-1 pl-2">
-              <a href="/views/pc-assembly.php">PC-Montage</a>
+              <a href="/views/faq-help/pc-assembly.php">PC-Montage</a>
             </li>
             <li class="pa-1 pl-2">
-              <a href="/views/delivery.php">Abholung und Versand</a>
+              <a href="/views/faq-help/delivery.php">Abholung und Versand</a>
             </li>
           </ul>
         </div>
@@ -60,7 +60,7 @@
             <img class="my-auto" height="24px" src="https://i.imgur.com/RsLrFDM.png" alt="Gehausekoenig Icon">
           </div>
           <div class="flex-grow pa-2">
-            Caseking
+            Gehäusekönig
           </div>
         </div>
         <div class="py-2">

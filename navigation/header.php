@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/wishlist-functions.php'; ?>
 <!-- CONTAINER -->
 <?php if (session_status() === PHP_SESSION_NONE) {
   session_start();
@@ -5,7 +6,7 @@
 <header class="header">
   <div class="container">
     <!-- CONTENT -->
-    <div class="ml-auto">
+    <div class="ml-auto mx-2">
       <ul class="links">
         <?php if (!isset($_SESSION['userid'])) {
           echo '<li class="mr-2">
@@ -37,11 +38,11 @@
         ?>
 
         <li class="mr-2">
-          <a href="#" class="link btn btn-primary btn-flat py-1">
+          <a href="/views/wishlist.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
               favorite
             </i>
-            Wunschzettel
+            Wunschzettel (<?php echo countProductsInWishlist(getAccountID()) ?>)
           </a>
         </li>
         <li class="mr-2">
@@ -53,7 +54,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="link btn btn-primary btn-flat py-1">
+          <a href="/views/shoppingcart.php" class="link btn btn-primary btn-flat py-1">
             <i class="material-icons md-18 mr-1">
               shopping_cart
             </i>
@@ -66,7 +67,6 @@
 </header>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/navbar.php'; ?>
-
 
 <script>
   "use strict";

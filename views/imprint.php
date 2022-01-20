@@ -9,8 +9,9 @@
   </head>
 
   <body>
-    <noscript>
-      Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest!
+    <noscript class="mt-12 ml-12 pt-12">
+      Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest.
+Die Seite ist nur eingeschränkt nutzbar.
     </noscript>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
 
@@ -18,7 +19,8 @@
     <div class="container">
       <!-- CONTENT of my-page -->
       <div class="content imprint">
-        <h1 class="display-2 text-primary">
+        <a href="/views/documentation.php" class="btn btn-info btn-outlined">Dokumentation</a>
+        <h1 class="display-2">
           Impressum
         </h1>
         <p>
