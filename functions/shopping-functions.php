@@ -51,5 +51,3 @@ function getTotalPrice(){
     endforeach;
     return $totalPrice;
 }
-
-

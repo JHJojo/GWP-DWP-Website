@@ -73,5 +73,3 @@ function getAccountID(){
     } else $accountID = 0;  //if no user is logged in $accountID set to 0
     return $accountID;
 }
-
-

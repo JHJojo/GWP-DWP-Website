@@ -44,8 +44,6 @@
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/navbar.php';?>
 
-
-
 <script>
   "use strict";
   document.addEventListener("DOMContentLoaded", function(event) { 

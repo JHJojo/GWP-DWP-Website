@@ -152,7 +152,7 @@
             <li>
                <b>Projektmanagement-Dokumentation:</b>  <br>
                 <div style="overflow:auto; font-family:Arial">
-                  <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/Jira.php';?>
+                  <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/jira.php';?>
                 </div>
             </li>
         </ul>
