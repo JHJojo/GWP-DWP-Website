@@ -16,7 +16,6 @@ $cart = json_decode($cart);
 array_push($cart, array(
     "productID" => $productID,
     "quantity" => $quantity,
-    "price" => $price,
 ));
 
 setcookie("cart", json_encode($cart), time() + (86400 * 30), "/"); //* set cart cookie with $cart variable
