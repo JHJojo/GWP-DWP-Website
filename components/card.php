@@ -1,3 +1,22 @@
+<?php
+
+//check if cart cookie exists and write into $cart variable
+$cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
+$cart = json_decode($cart);
+
+//* set flag variable true for product which is already in cart
+$flag = false;
+foreach($cart as $c){
+    if ($c->productID == $row['productID']){
+        {
+            $flag = true;
+            break;
+        }
+    }
+}
+
+$link = $_SERVER['REQUEST_URI'];    //set link variable with current url
+?>
 
 <div class="card"> 
     <div class="card-header">
