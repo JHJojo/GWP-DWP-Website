@@ -19,10 +19,10 @@
         <div class="py-2">
           <ul>
             <li class="pa-1 pl-2">
-              <a href="/views/pc-assembly.php">PC-Montage</a>
+              <a href="/views/faq-help/pc-assembly.php">PC-Montage</a>
             </li>
             <li class="pa-1 pl-2">
-              <a href="/views/delivery.php">Abholung und Versand</a>
+              <a href="/views/faq-help/delivery.php">Abholung und Versand</a>
             </li>
           </ul>
         </div>

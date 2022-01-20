@@ -77,13 +77,13 @@
   max-height: calc(100vh/2);
 }
 
-.navbar .dropdown {
+.navbar .dropdown, .navbar .dropdown2 {
   position: relative;
   display: inline-block;
   opacity: 1;
 }
 
-.navbar .dropdown .dropdown-content {
+.navbar .dropdown .dropdown-content, .navbar .dropdown .dropdown-content2 {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -92,7 +92,7 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.navbar .dropdown:hover .dropdown-content {
+.navbar .dropdown:hover .dropdown-content, .navbar .dropdown2:hover .dropdown-content2 {
   display: block;
 }
 
