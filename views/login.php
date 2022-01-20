@@ -24,13 +24,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
                 <div class="login-row">
                     <div class="input-group">
                         <label>E-Mail-Adresse</label>
-                        <input value="hallo@welt.de" id="email" type="email" size="40" maxlength="250" name="email" required="required">
+                        <input id="email" type="email" size="40" maxlength="250" name="email" required="required">
                     </div>
                 </div>
                 <div class="login-row">
                     <div class="input-group">
                         <label>Passwort</label>
-                        <input value="123456" id="password" type="password" size="40" maxlength="250" name="password" required="required">
+                        <input id="password" type="password" size="40" maxlength="250" name="password" required="required">
                     </div>
                 </div>
                 <div class="login-row">
