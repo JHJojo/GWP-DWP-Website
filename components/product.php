@@ -29,60 +29,20 @@
       <hr>
       <div class="flex-row justify-space-around">
         <div class="flex-shrink">
-<<<<<<< HEAD
-          <a href="
-          <?php //different redirect if user is logged in or not?>
-          <?php if ($accountID > 0) { ?>
-            ../index.php/wishlist/add/<?= $product['productID']?>
-          <?php } else {?>
-            /views/login.php
-          <?php } ?>">
-            <button class="btn btn-accent"><i class="material-icons-outlined md-18 mr-2 text-white">
-=======
           <a href="" class="btn btn-accent">
             <i class="material-icons-outlined md-18 mr-2 text-white">
->>>>>>> parent of 7c8035e (Merge branch 'devJojo' into main)
             favorite
             </i>
             Auf den Wunschzettel
           </a>
         </div>
         <div class="flex-shrink">
-<<<<<<< HEAD
-            <?php //display correct shopping cart button determined by flag variable?>
-            <?php if ($flag) { ?>
-                <form method="POST" action="../api/delete-shoppingcart.php">
-                    <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
-                    <input type="hidden" name="url" value="<?php echo $link; ?>">
-                    <button type="submit" class="btn btn-flat btn-error" value="Submit">
-                      <i class="material-icons-outlined md-18 mr-2 text-white">
-                      remove_shopping_cart
-                      </i>
-                    Aus Warenkorb löschen
-                    </button>
-                </form>
-            <?php } else { ?>
-                <form method="POST" action="../api/add-shoppingcart.php">
-                    <input type="hidden" name="quantity" value="1">
-                    <input type="hidden" name="productID" value="<?php echo $product['productID']; ?>">
-                    <input type="hidden" name="price" value="<?php echo $product['price']; ?>">
-                    <input type="hidden" name="url" value="<?php echo $link; ?>">
-                    <button type="submit" class="btn btn-primary" value="Submit">
-                      <i class="material-icons-outlined md-18 mr-2 text-white">
-                      add_shopping_cart
-                      </i>
-                    In den Warenkorb
-                    </button> 
-                </form>
-            <?php } ?>
-=======
           <a href="" class="btn btn-primary">
             <i class="material-icons md-18 mr-2 text-white">
             add_shopping_cart
             </i>
             In den Warenkorb
           </a>
->>>>>>> parent of 7c8035e (Merge branch 'devJojo' into main)
         </div>
       </div>
       <hr>
