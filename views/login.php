@@ -75,7 +75,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
                 echo '<meta http-equiv="refresh" content="2; URL=../index.php">';
                 die();
             } else {
-                $errorMessage = "<div class='container'><div class='mx-auto'>Die E-Mail-Adresse oder das Passwort waren ungültig! </div></div>";
+                $errorMessage = "<div class='container'><div class='mx-auto'><div class='errorr'>Die E-Mail-Adresse oder das Passwort waren ungültig!</div></div></div>";
                 echo $errorMessage;
             }
         }
