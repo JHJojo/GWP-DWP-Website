@@ -29,32 +29,13 @@
                 </i>
                 Details
             </a>
-            <?php //display correct shopping cart button determined by flag variable?>
-            <?php if ($flag) { ?>
-                <form method="POST" action="../api/delete-shoppingcart.php">
-                    <input type="hidden" name="productID" value="<?php echo $row['productID']; ?>">
-                    <input type="hidden" name="url" value="<?php echo $link; ?>">
-                    <button type="submit" class="btn btn-flat btn-error" value="Submit">
-                      <i class="material-icons-outlined md-18 mr-2 text-white">
-                      remove_shopping_cart
-                      </i>
-                    Aus Warenkorb löschen
-                    </button>
-                </form>
-            <?php } else { ?>
-                <form method="POST" action="../api/add-shoppingcart.php">
-                    <input type="hidden" name="quantity" value="1">
-                    <input type="hidden" name="productID" value="<?php echo $row['productID']; ?>">
-                    <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
-                    <input type="hidden" name="url" value="<?php echo $link; ?>">
-                    <button type="submit" class="btn btn-primary" value="Submit">
-                      <i class="material-icons-outlined md-18 mr-2 text-white">
-                      add_shopping_cart
-                      </i>
-                    In den Warenkorb
-                    </button> 
-                </form>
-            <?php } ?>
+
+            <button class="btn btn-flat btn-primary my-3">
+                <i class="material-icons md-18 mr-2 text-white">
+                add_shopping_cart
+                </i>
+                In den Warenkorb
+            </button>
         </div>
     </div>
 </div>

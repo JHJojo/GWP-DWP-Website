@@ -1,26 +1,3 @@
-<?php
-//include functions
-require_once $_SERVER['DOCUMENT_ROOT'] . '/functions/wishlist-functions.php';
-
-//check if cart cookie exists and write into $cart variable
-$cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
-$cart = json_decode($cart);
-
-//* set flag variable true for product which is already in cart
-$flag = false;
-foreach($cart as $c){
-    if ($c->productID == $product['productID']){
-        {
-            $flag = true;
-            break;
-        }
-    }
-}
-
-$accountID = getAccountID();  //get account id from user
-$link = $_SERVER['REQUEST_URI'];  //set link variable with current url
-?>
-
 <div class="product">
   <div class="flex-row justify-space-between align-center">
     <div class="col-5">
@@ -52,6 +29,7 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
       <hr>
       <div class="flex-row justify-space-around">
         <div class="flex-shrink">
+<<<<<<< HEAD
           <a href="
           <?php //different redirect if user is logged in or not?>
           <?php if ($accountID > 0) { ?>
@@ -60,12 +38,17 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
             /views/login.php
           <?php } ?>">
             <button class="btn btn-accent"><i class="material-icons-outlined md-18 mr-2 text-white">
+=======
+          <a href="" class="btn btn-accent">
+            <i class="material-icons-outlined md-18 mr-2 text-white">
+>>>>>>> parent of 7c8035e (Merge branch 'devJojo' into main)
             favorite
             </i>
-            Auf den Wunschzettel</button>
+            Auf den Wunschzettel
           </a>
         </div>
         <div class="flex-shrink">
+<<<<<<< HEAD
             <?php //display correct shopping cart button determined by flag variable?>
             <?php if ($flag) { ?>
                 <form method="POST" action="../api/delete-shoppingcart.php">
@@ -92,6 +75,14 @@ $link = $_SERVER['REQUEST_URI'];  //set link variable with current url
                     </button> 
                 </form>
             <?php } ?>
+=======
+          <a href="" class="btn btn-primary">
+            <i class="material-icons md-18 mr-2 text-white">
+            add_shopping_cart
+            </i>
+            In den Warenkorb
+          </a>
+>>>>>>> parent of 7c8035e (Merge branch 'devJojo' into main)
         </div>
       </div>
       <hr>

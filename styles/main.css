@@ -549,7 +549,6 @@ a.btn {
 
 [role=button], [type=button], [type=reset], [type=submit], button, select {
   cursor: pointer;
-  font-family: 'Orbitron', serif;
 }
 
 /* input */
