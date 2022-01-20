@@ -84,6 +84,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
 </noscript>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
 <script>
+    "use strict";
     document
         .getElementById("login-form")
         .addEventListener("submit", fetchLoginForm);

@@ -123,6 +123,7 @@
 </nav>
 
 <script>
+    "use strict";
     console.log(new URLSearchParams({
         productCatID: [
             1, 2, 3, 4, 5, 6, 7, 87, 8

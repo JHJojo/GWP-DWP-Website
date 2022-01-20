@@ -420,6 +420,7 @@
     </div>
 
     <script>
+        "use strict";
         document
             .getElementById("RegisterForm")
             .addEventListener("submit", fetchRegistrationForm);
