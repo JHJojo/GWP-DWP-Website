@@ -1,91 +1,29 @@
-<?php session_start();?>
 <?php
+
 //Connection for the DB
-$pdo = new PDO('mysql:host=localhost;dbname=gk-db', 'root', '');
+// require  $_SERVER['DOCUMENT_ROOT'] . '\functions\database.php';
+// getDB();
+//require  $_SERVER['DOCUMENT_ROOT'] . '/functions/registerValidation.php';
 ?>
 
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php'; ?>
-    
     <!-- HEAD -->
     <link href="/styles/create_account.css" rel="stylesheet" type="text/css" />
-    </head>
-    
+</head>
+
 <body>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
 
-<?php
-$showFormular = true; //To show the form if register=1
-
-if (isset($_GET['register'])) {
-    $error = false;
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $birthday = $_POST['birthday'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $password2 = $_POST['password2'];
-    $land = $_POST['land'];
-    $street = $_POST['street'];
-    $zip = $_POST['zip'];
-    $houseNumber = $_POST['houseNumber'];
-    $city = $_POST['city'];
-
-    //Check if the E-Mail and passwords are correct
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo 'Email-Adresse ungültig.<br>';
-        $error = true;
-    }
-    if (strlen($password) == 0) {
-        echo 'Es muss ein Passwort angegeben werden.<br>';
-        $error = true;
-    }
-    if ($password != $password2) {
-        echo 'Die Passwörter müssen übereinstimmen.<br>';
-        $error = true;
-    }
-
-    //Check if the Email is already taken
-    if (!$error) {
-        $statement = $pdo->prepare("SELECT * FROM accounts WHERE email = :email");
-        $result = $statement->execute(array('email' => $email));
-        $user = $statement->fetch();
-
-        if ($user !== false) {
-            echo 'Diese E-Mail-Adresse ist bereits vergeben.<br>';
-            $error = true;
-        }
-    }
-
-    //Create the account
-    if (!$error) {
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        //Attention to the MySQL Code like '' and ``
-        $statement = $pdo->prepare("INSERT INTO accounts (firstname, lastname, birthday, email, passwordHash) VALUES (:firstname, :lastname, :birthday, :email, :password)");
-        $result = $statement->execute(array('firstname' => $firstname, 'lastname' => $lastname,  'birthday' => $birthday, 'email' => $email, 'password' => $hash));
-        $id = $pdo->lastInsertId(); //Get the last inserted ID to insert the address to the corresponding account.
-        $statement = $pdo->prepare("INSERT INTO addresses (land, city, zip, street, houseNumber, addressID) VALUES (:land, :city, :zip, :street, :houseNumber, :addressID)");
-        $result = $statement->execute(array('land' => $land, 'city' => $city,  'zip' => $zip, 'street' => $street, 'houseNumber' => $houseNumber, 'addressID' => $id));
-
-        if ($result) {
-            echo '<div class="container"> Sie wurden erfolgreich registriert. <a href="login.php">Zum Login</a><br></div>';
-            $showFormular = false;
-        } else {
-            echo '<div class="container"> ist ein Fehler aufgetreten.<br></div>';
-        }
-    }
-}
-
-if ($showFormular) {
-?>
-
-<!--Form to create an account-->
+    ?>
+    <!--Form to create an account-->
     <!-- CONTAINER -->
     <div class="container">
         <div class="mx-auto">
-            <form class="signup-form" action="?register=1" method="post">
+            <form id="RegisterForm" class="signup-form" method="post">
                 <div class="form-header">
                     <h1>Kundenkonto erstellen</h1>
                 </div>
@@ -96,19 +34,19 @@ if ($showFormular) {
                             <div class="registration-radio">
                                 <div>
                                     <label for="male">
-                                        <input type="radio" name="gender" id="male">
+                                        <input type="radio" name="gender" id="male" value="Herr" required>
                                         Herr
                                     </label>
                                 </div>
                                 <div>
                                     <label for="female">
-                                        <input type="radio" name="gender" id="female">
+                                        <input type="radio" name="gender" id="female" value="Frau">
                                         Frau
                                     </label>
                                 </div>
                                 <div>
                                     <label for="other">
-                                        <input type="radio" name="gender" id="other">
+                                        <input type="radio" name="gender" id="other" value="Divers">
                                         Divers
                                     </label>
                                 </div>
@@ -117,40 +55,68 @@ if ($showFormular) {
                     </div>
                     <div class="registration-row">
                         <div class="input-group">
+                            <div id="gender_error"></div>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
                             <label>Vorname</label>
-                            <input type="text" size="40" maxlength="250" name="firstname">
+                            <input id="firstname" type="text" size="40" maxlength="250" name="firstname" required>
                         </div>
                         <div class="input-group">
                             <label>Nachname</label>
-                            <input type="text" size="40" maxlength="250" name="lastname">
+                            <input id="lastname" type="text" size="40" maxlength="250" name="lastname" required>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
+                            <div id="firstname_error"></div>
+                        </div>
+                        <div class="input-group">
+                            <div id="lastname_error"></div>
                         </div>
                     </div>
                     <div class="registration-row">
                         <div class="input-group">
                             <label>Geburtsdatum</label>
-                            <input type="date" size="40" maxlength="250" name="birthday">
+                            <input id="birthday" type="date" size="40" maxlength="250" name="birthday" required>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
+                            <div id="birthday_error"></div>
                         </div>
                     </div>
                     <div class="registration-row">
                         <div class="input-group">
                             <label>E-Mail-Adresse</label>
-                            <input type="email" size="40" maxlength="250" name="email">
+                            <input id="email" type="email" size="40" maxlength="250" name="email" required>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
+                            <div id="email_error"></div>
                         </div>
                     </div>
                     <div class="registration-row">
                         <div class="input-group">
                             <label>Passwort</label>
-                            <input type="password" size="40" maxlength="250" name="password">
+                            <input id="password" onkeyup="checkPass()" type="password" size="40" maxlength="250" name="password" required>
                         </div>
                         <div class="input-group">
                             <label>Passwort wiederholen</label>
-                            <input type="password" size="40" maxlength="250" name="password2">
+                            <input id="password2" onkeyup="checkPass()" type="password" size="40" maxlength="250" name="password2" required>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
+                            <div id="password_error"></div>
                         </div>
                     </div>
                     <div class="registration-row">
                         <div class="input-group">
                             <label>Land</label>
-                            <select id="land" name="land">
+                            <select id="country" name="country">
                                 <option value="Afganistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -402,32 +368,403 @@ if ($showFormular) {
                     </div>
                     <div class="registration-row">
                         <div class="input-group">
+                            <div id="country_error"></div>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
                             <label>PLZ</label>
-                            <input type="text" size="40" maxlength="250" name="zip">
+                            <input id="zip" type="text" size="40" maxlength="250" name="zip" required>
                         </div>
                         <div class="input-group">
                             <label>Stadt</label>
-                            <input type="text" size="40" maxlength="250" name="city">
+                            <input id="city" type="text" size="40" maxlength="250" name="city" required>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
+                            <div id="zip_error"></div>
+                        </div>
+                        <div class="input-group">
+                            <div id="city_error"></div>
                         </div>
                     </div>
                     <div class="registration-row">
                         <div class="input-group">
                             <label>Straße</label>
-                            <input type="text" size="40" maxlength="250" name="street">
+                            <input id="street" type="text" size="40" maxlength="250" name="street" required>
                         </div>
                         <div class="input-group">
                             <label>Hausnummer</label>
-                            <input type="text" size="40" maxlength="250" name="houseNumber">
+                            <input id="houseNumber" type="text" size="40" maxlength="250" name="houseNumber" required>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
+                            <div id="street_error"></div>
+                        </div>
+                        <div class="input-group">
+                            <div id="houseNumber_error">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="registration-row">
+                        <div class="input-group">
+                            <button id="form-input" class="btn" type="submit" value="Jetzt erstellen!">Jetzt erstellen!</button>
+                            <div class="info" id="success"></div>
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="Jetzt erstellen!">
             </form>
         </div>
     </div>
-<?php
-}
-?>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
-    </body>
+
+    <script>
+        "use strict";
+        document
+            .getElementById("RegisterForm")
+            .addEventListener("submit", fetchRegistrationForm);
+
+        //Fetch function so the form dosent have to load new
+        async function fetchRegistrationForm(e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const formProps = Object.fromEntries(formData);
+            //console.log("formProps: ", formProps);
+
+            fetch("http://localhost/functions/registerValidation.php", {
+                    method: "POST", // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded", // application/x-www-form-urlencoded
+                    },
+                    body: new URLSearchParams(formProps), // body data type must match "Content-Type" header
+                })
+                .then((result) => result.text())
+                .then((html) => {
+
+                    let response = JSON.parse(html);
+
+                    if (response.success == "success") {
+
+                        window.location.href = 'http://localhost/views/login.php';
+                    } else {
+                        document.getElementById("gender_error").innerHTML = response.gender_error;
+                        document.getElementById("firstname_error").innerHTML = response.firstname_error;
+                        document.getElementById("lastname_error").innerHTML = response.lastname_error;
+                        document.getElementById("birthday_error").innerHTML = response.birthday_error;
+                        document.getElementById("email_error").innerHTML = response.email_error;
+                        document.getElementById("password_error").innerHTML = response.password_error;
+                        document.getElementById("country_error").innerHTML = response.country_error;
+                        document.getElementById("zip_error").innerHTML = response.zip_error;
+                        document.getElementById("city_error").innerHTML = response.city_error;
+                        document.getElementById("street_error").innerHTML = response.street_error;
+                        document.getElementById("houseNumber_error").innerHTML = response.houseNumber_error;
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+
+
+
+        document.getElementById('RegisterForm').addEventListener(
+            "submit",
+            function(event) {
+                if (checkPass() === false) {
+                    event.preventDefault();
+                }
+            },
+            false
+        );
+
+        function checkPass() {
+            let password = document.getElementById('password');
+            let password2 = document.getElementById('password2');
+            let message = document.getElementById('password_error');
+            let passColor = "#ffffff";
+            let failColor = "#e08799";
+
+            if (password.value.length > 5) {
+                password.style.backgroundColor = passColor;
+                message.style.color = passColor;
+                message.innerHTML = ""
+            } else {
+                password.style.backgroundColor = failColor;
+                message.style.color = failColor;
+                message.innerHTML = "Das Passwort muss mindestens 6 Zeichen lang sein."
+                return false;
+            }
+
+            if (password.value == password2.value) {
+                password2.style.backgroundColor = passColor;
+                message.style.color = passColor;
+                message.innerHTML = ""
+            } else {
+                password2.style.backgroundColor = failColor;
+                message.style.color = failColor;
+                message.innerHTML = "Die Passwörter stimmen nicht überein."
+                return false;
+            }
+            return true;
+        }
+
+
+
+        const submitBtn = document.getElementById('form-input');
+        const firstname = document.getElementById("firstname");
+        const lastname = document.getElementById("lastname");
+        const birthday = document.getElementById("birthday");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const password2 = document.getElementById("password2");
+        const country = document.getElementById("country");
+        const zip = document.getElementById("zip");
+        const city = document.getElementById("city");
+        const street = document.getElementById("street");
+        const houseNumber = document.getElementById("houseNumber");
+
+        function updateSubmitBtn() {
+
+            const firstnameValue = firstname.value.trim();
+            const lastnameValue = lastname.value.trim();
+            const birthdayValue = birthday.value.trim();
+            const emailValue = email.value.trim();
+            const passwordValue = password.value.trim();
+            const password2Value = password2.value.trim();
+            const countryValue = country.value.trim();
+            const zipValue = zip.value.trim();
+            const cityValue = city.value.trim();
+            const streetValue = street.value.trim();
+            const houseNumberValue = houseNumber.value.trim();
+            console.log('firstname: ', firstname)
+            if (!((firstnameValue &&
+                    lastnameValue &&
+                    birthdayValue &&
+                    emailValue &&
+                    passwordValue &&
+                    password2Value &&
+                    countryValue &&
+                    zipValue &&
+                    cityValue &&
+                    streetValue &&
+                    houseNumberValue) == "")) {
+                submitBtn.removeAttribute('disabled');
+                submitBtn.style.background = "#005a99";
+            } else {
+                submitBtn.setAttribute('disabled', 'disabled');
+                submitBtn.style.background = "#808080";
+            }
+        }
+
+        firstname.addEventListener('keyup', updateSubmitBtn);
+        lastname.addEventListener('keyup', updateSubmitBtn);
+        birthday.addEventListener('keyup', updateSubmitBtn);
+        email.addEventListener('keyup', updateSubmitBtn);
+        password.addEventListener('keyup', updateSubmitBtn);
+        password2.addEventListener('keyup', updateSubmitBtn);
+        country.addEventListener('keyup', updateSubmitBtn);
+        zip.addEventListener('keyup', updateSubmitBtn);
+        city.addEventListener('keyup', updateSubmitBtn);
+        street.addEventListener('keyup', updateSubmitBtn);
+        houseNumber.addEventListener('keyup', updateSubmitBtn);
+    </script>
+    <noscript>
+        <?php
+        //session_start();
+        require  $_SERVER['DOCUMENT_ROOT'] . '\functions\database.php';
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $respose = array();
+            $error = '';
+            $gender = '';
+            $firstname = '';
+            $lastname =    '';
+            $birthday = '';
+            $email = '';
+            $password = '';
+            $password2 = '';
+            $country = '';
+            $street = '';
+            $zip = '';
+            $houseNumber = '';
+            $city = '';
+
+            $success = '';
+            $gender_error  = '';
+            $firstname_error  = '';
+            $lastname_error  = '';
+            $birthday_error  = '';
+            $email_error  = '';
+            $password_error  = '';
+            $password2_error  = '';
+            $country_error  = '';
+            $street_error  = '';
+            $zip_error  = '';
+            $houseNumber_error  = '';
+            $city_error  = '';
+
+            $error = false;
+            $gender = $_POST['gender'];
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $birthday = $_POST['birthday'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $password2 = $_POST['password2'];
+            $country = $_POST['country'];
+            $street = $_POST['street'];
+            $zip = $_POST['zip'];
+            $houseNumber = $_POST['houseNumber'];
+            $city = $_POST['city'];
+
+            if (empty($gender)) {
+                $gender_error = 'Bitte geben Sie ein Geschlecht an.';
+                $error = true;
+            }
+
+            if (empty($firstname)) {
+                $firstname_error = 'Bitte geben Sie einen Namen ein.';
+                $error = true;
+            } else {
+                if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
+                    $firstname_error = 'Ihre Eingabe unter Name enthält ungültige Zeichen.';
+                    $error = true;
+                }
+            }
+
+            if (empty($lastname)) {
+                $lastname_error = 'Bitte geben Sie einen Namen ein.';
+                $error = true;
+            } else {
+                if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
+                    $lastname_error = 'Ihre Eingabe unter Nachname enthält ungültige Zeichen.';
+                    $error = true;
+                }
+            }
+
+            //Age verfication (over 18 years old)
+            if (time() < strtotime('+18 years', strtotime($birthday))) {
+                $birthday_error = 'Sie müssen über 18 Jahre alt sein um sich Registrieren zu können.';
+                $error = true;
+            }
+
+            //Check if the E-Mail and passwords are correct
+            if (empty($email)) {
+                $email_errorr = 'Bitte geben sie eine E-Mail-Adresse an.';
+                $error = true;
+            }
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $email_errorr = 'Email-Adresse ungültig.';
+                $error = true;
+            }
+            $email = strtolower($email);
+            if (strlen($password) < 5) {
+                $password_error = "Ihr Passwort muss mindestens 6 Zeichen lang sein.";
+            }
+            if (strlen($password) == 0) {
+                $password_error = 'Es muss ein Passwort angegeben werden.';
+                $error = true;
+            }
+            if ($password != $password2) {
+                $password_error = 'Die Passwörter müssen übereinstimmen.';
+                $error = true;
+            }
+            if (empty($country)) {
+                $country_errorr = 'Bitte geben sie ein Land an.';
+                $error = true;
+            }
+            if (empty($zip)) {
+                $zip_error = 'Bitte geben sie eine PLZ an.';
+                $error = true;
+            } else {
+                if (!is_numeric($zip)) {
+                    $zip_error = 'Ihre Eingabe enthält ungültige Zeichen.';
+                    $error = true;
+                } else {
+                }
+            }
+            if (empty($city)) {
+                $city_error = 'Bitte geben Sie eine Stadt an.';
+                $error = true;
+            } else {
+                if (!preg_match("/^[a-zA-Z-' ]*$/", $city)) {
+                    $city_error = 'Ihre Eingabe enthält ungültige Zeichen.';
+                    $error = true;
+                }
+            }
+            if (empty($street)) {
+                $street_error = 'Bitte geben Sie eine Straße an.';
+                $error = true;
+            } else {
+                if (!preg_match("/^[a-zA-Z-' ]*$/", $street)) {
+                    $street_error = 'Ihre Eingabe enthält ungültige Zeichen.';
+                    $error = true;
+                }
+            }
+            if (empty($houseNumber)) {
+                $houseNumber_error = 'Bitte geben Sie eine Hausnummer an.';
+                $error = true;
+            } else {
+                if (!preg_match("/^[1-9]\d*(?:[ -]?(?:[a-zA-Z]+|[1-9]\d*))?$/", $houseNumber)) {
+                    $houseNumber_error = 'Ihre Eingabe enthält ungültige Zeichen.';
+                    $error = true;
+                }
+            }
+            //Check if the Email is already taken
+            if (!$error) {
+                $statement = getDB()->prepare("SELECT * FROM accounts WHERE email = :email");
+                $result = $statement->execute(array('email' => $email));
+                $user = $statement->fetch();
+
+                if ($user !== false) {
+                    $email_error = 'Diese E-Mail-Adresse ist bereits vergeben.<br>';
+                    $error = true;
+                }
+            }
+            //Create the account
+            if (!$error) {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                //Attention to the MySQL Code like '' and ``
+                $statement = getDB()->prepare("INSERT INTO accounts (firstname, lastname, birthday, email, passwordHash, rank, gender) VALUES (:firstname, :lastname, :birthday, :email, :password, :rank, :gender)");
+                $result = $statement->execute(array('firstname' => $firstname, 'lastname' => $lastname,  'birthday' => $birthday, 'email' => $email, 'password' => $hash, 'rank' => "user", 'gender' => $gender));
+                $id = getDB()->lastInsertId(); //Get the last inserted ID to insert the address to the corresponding account.
+                $statement = getDB()->prepare("INSERT INTO addresses (country, city, zip, street, houseNumber, addressID) VALUES (:country, :city, :zip, :street, :houseNumber, :addressID)");
+                $result = $statement->execute(array('country' => $country, 'city' => $city,  'zip' => $zip, 'street' => $street, 'houseNumber' => $houseNumber, 'addressID' => $id));
+
+                if ($result) {
+                    echo '<meta http-equiv="refresh" content="2; URL=../index.php">';
+                    die();
+                }
+
+
+                echo "<div class='container'><div class='mx-auto'>Die E-Mail-Adresse oder das Passwort waren ungültig! </div></div>";
+                $error = true;
+            }
+        }
+
+        $response = [
+            'gender_error' => $gender_error,
+            'firstname_error' => $firstname_error,
+            'lastname_error' => $lastname_error,
+            'birthday_error' => $birthday_error,
+            'email_error' => $email_error,
+            'password_error' => $password_error,
+            'password2_error' => $password2_error,
+            'country_error' => $country_error,
+            'street_error' => $street_error,
+            'zip_error' => $zip_error,
+            'houseNumber_error' => $houseNumber_error,
+            'city_error' => $city_error
+
+        ];
+        foreach ($response as $x => $val) {
+            echo "<div class='container'><div class='mx-auto'><div class='errorr'>$val</div></div></div>";
+        }
+        ?>
+    </noscript>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
+</body>
+
 </html>

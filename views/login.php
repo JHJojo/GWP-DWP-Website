@@ -1,81 +1,151 @@
-<?php session_start();?>
-<?php
-$pdo = new PDO('mysql:host=localhost;dbname=gk-db', 'root', '');
-?>
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';?>
 
+<head>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php'; ?>
     <!-- HEAD -->
     <link href="/styles/login.css" rel="stylesheet" type="text/css" />
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
-  </head>
-<?php
-//Check if there is an account to login
-if(isset($_GET['login'])) { //Checks if the GET-parameter is not NULL (Form was send)
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    //Get the data of the DB
-    $statement = $pdo->prepare("SELECT * FROM accounts WHERE email = :email");
-    $result = $statement->execute(array('email' => $email));
-    $account = $statement->fetch();
-
-    //Parse the password
-    if ($account !== false && password_verify($password, $account['passwordHash'])) {
-        $_SESSION['userid'] = $account['accountID'];
-        die('<div class="container">Login erfolgreich.</a></div>');
-    } else {
-        $errorMessage = "<div class='container'>Die E-Mail-Adresse oder das Passwort waren ungültig!<br></div>";
-    }
-
-}
-?>
+</head>
 
 <?php
-if(isset($errorMessage)) {
-    echo $errorMessage;
-}
 include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
 ?>
 
 <!--Form for the login-->
-    <!-- CONTAINER -->
-    <div class="container">
-        <div class="mx-auto">
-            <form class="login-form" action="?login=1" method="post">
-                <div class="form-header">
-                    <h1>Login</h1>
-                </div>
-                <div class="form-body">
-                    <div class="login-row">
-                        <div class="input-group">
-                            <label>E-Mail-Adresse</label>
-                            <input type="email" size="40"  maxlength="250" name="email">
-                        </div>
-                    </div>
-                    <div class="login-row">
-                        <div class="input-group">
-                            <label>Passwort</label>
-                            <input type="password" size="40"  maxlength="250" name="password">
-                        </div>
+<!-- CONTAINER -->
+<div class="container">
+    <div class="mx-auto">
+        <form id="login-form" class="login-form" method="post">
+            <div class="form-header">
+                <h1>Login</h1>
+            </div>
+            <div class="form-body">
+                <div class="login-row">
+                    <div class="input-group">
+                        <label>E-Mail-Adresse</label>
+                        <input id="email" type="email" size="40" maxlength="250" name="email" required="required">
                     </div>
                 </div>
                 <div class="login-row">
                     <div class="input-group">
-                        <button class="link btn btn-primary btn-flat py-1" type="submit" value="login">Anmelden</button>
+                        <label>Passwort</label>
+                        <input id="password" type="password" size="40" maxlength="250" name="password" required="required">
                     </div>
                 </div>
                 <div class="login-row">
                     <div class="input-group">
-                        <a class="link btn btn-primary btn-flat py-1" href="/views/create_account.php">Registrieren</a>
+                        <div id="login-error"></div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+
+            <div class="login-row">
+                <div class="input-group">
+                    <button id="login-btn" class="btn" type="submit">Anmelden</button>
+                </div>
+                <div class="input-group">
+                    <a id="register" class="btn" href="/views/create_account.php">Registrieren</a>
+                </div>
+            </div>
+            <div id="#error"></div>
+        </form>
     </div>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php'?>
+</div>
+<noscript>
+
+    <?php
+    //session_start();
+    require  $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
+    //Check if there is an account to login
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        if (isset($_POST['email'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $email = strtolower($email);
+            //Get the data of the DB
+            $statement = getDB()->prepare("SELECT * FROM accounts WHERE email = :email");
+            $result = $statement->execute(array('email' => $email));
+            $account = $statement->fetch();
+
+            //Parse the password
+            if ($account !== false && password_verify($password, $account['passwordHash'])) {
+                $_SESSION['userid'] = $account['accountID'];
+                $_SESSION['rank'] = $account['rank'];
+                echo '<meta http-equiv="refresh" content="2; URL=../index.php">';
+                die();
+            } else {
+                $errorMessage = "<div class='container'><div class='mx-auto'><div class='errorr'>Die E-Mail-Adresse oder das Passwort waren ungültig!</div></div></div>";
+                echo $errorMessage;
+            }
+        }
+    }
+    ?>
+</noscript>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
+<script>
+    "use strict";
+    document
+        .getElementById("login-form")
+        .addEventListener("submit", fetchLoginForm);
+
+    async function fetchLoginForm(e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const formProps = Object.fromEntries(formData);
+        console.log("formProps");
+        console.log(formProps);
+
+        fetch("http://localhost/functions/loginValidation.php", {
+                method: "POST", // *GET, POST, PUT, DELETE, etc.
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded", // application/x-www-form-urlencoded
+                },
+                body: new URLSearchParams(formProps), // body data type must match "Content-Type" header
+            })
+            .then((result) => result.text())
+            .then((html) => {
+                if (html == "success") {
+                    window.location.href = 'http://localhost/index.php';
+                } else {
+                    document.querySelector("#login-error").innerHTML = html;
+                }
+            })
+            .catch((err) => {
+                console.info("Error Output: ", err)
+                //document.querySelector("#content").innerHTML = html;
+            });
+    }
+
+
+
+    const submitBtn = document.getElementById('login-btn');
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+
+
+    function updateSubmitBtn() {
+        const emailValue = email.value.trim();
+        const passwordValue = password.value.trim();
+        console.log("email", emailValue);
+        console.log("password", passwordValue);
+        if (!((emailValue && passwordValue) == "")) {
+            console.log("email", email);
+            console.log("password", password);
+            submitBtn.removeAttribute('disabled');
+            submitBtn.style.background = "#005a99";
+        } else {
+            submitBtn.setAttribute('disabled', 'disabled');
+            submitBtn.style.background = "#808080";
+        }
+    }
+    email.addEventListener('keyup', updateSubmitBtn);
+    password.addEventListener('keyup', updateSubmitBtn);
+</script>
+
+
+
 </body>
+
 </html>

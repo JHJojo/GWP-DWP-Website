@@ -1,54 +1,106 @@
-.signup-form{
-    flex:1;
-    max-width:600px;
-    margin-top: auto;
-    margin-bottom: auto;
+.signup-form {
+  flex: 1;
+  max-width: 600px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .form-header {
-    padding:15px 0;
-    border-bottom:1px solid #cccccc;
+  padding: 15px 0;
+  border-bottom: 1px solid #cccccc;
 }
 
 .form-header h1 {
-    font-size: 28px;
-    text-align:center;
-    color:#666;
+  font-size: 28px;
+  text-align: center;
+  color: #666;
 }
-.registration-row{
-    display:flex;
-    flex-direction:row;
+.registration-row {
+  display: flex;
+  flex-direction: row;
 }
 
 @media only screen and (max-width: 990px) {
-    .registration-row{
-        flex-direction:column;
-    }
+  .registration-row {
+    flex-direction: column;
+  }
 }
 
 .input-group {
-    flex:1;
-    flex-direction:column;
-    margin: 10px 5px;
+  flex: 1;
+  flex-direction: column;
+  margin: 10px 5px;
 }
-.registration-radio{
-    display: flex;
+.registration-radio {
+  display: flex;
 }
-.registration-radio div{
-    flex: 1;
+.registration-radio div {
+  flex: 1;
 }
-.input-group input[type=text]{
-    width: 100%;
+.input-group input[type="text"] {
+  width: 100%;
 }
-.input-group input[type=email]{
-    width: 100%;
+.input-group input[type="email"] {
+  width: 100%;
 }
-.input-group input[type=date]{
-    width: 100%;
+.input-group input[type="date"] {
+  width: 100%;
 }
-.input-group input[type=password]{
-    width: 100%;
+.input-group input[type="password"] {
+  width: 100%;
 }
-.input-group select{
-    width: 100%;
+.input-group select {
+  width: 100%;
+}
+#firstname_error,
+#lastname_error,
+#gender_error,
+#firstname_error,
+#lastname_error,
+#birthday_error,
+#email_error,
+#password_error,
+#password2_error,
+#country_error,
+#street_error,
+#zip_error,
+#houseNumber_error,
+#city_error {
+  color: red;
+}
+#login {
+  color: #4f8a10;
+  background-color: #dff2bf;
+}
+
+.info {
+  color: #00529b;
+  background-color: #bde5f8;
+}
+
+.input-group .btn {
+  border-radius: 4px;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.4);
+  background: #005a99;
+  color: white;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  padding: 6px;
+}
+.input-group button[type="submit"] {
+  padding: 8px;
+  border-radius: 4px;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.4);
+  background: grey;
+  color: white;
+  width: 100%;
+  justify-content: center;
+  font-family: "Orbitron", serif;
+  margin-bottom: 100px;
+}
+.errorr {
+  color: red;
 }

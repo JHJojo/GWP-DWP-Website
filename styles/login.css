@@ -1,61 +1,90 @@
-#login-page{
-    height: 100%;
-    /*background: blue;*/
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#login-page {
+  height: 100%;
+  /*background: blue;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.login-form{
-    flex:1;
-    max-width:600px;
-    margin-top: auto;
-    margin-bottom: auto;
+.login-form {
+  flex: 1;
+  max-width: 600px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .form-header {
-    padding:15px 0;
-    border-bottom:1px solid #cccccc;
+  padding: 15px 0;
+  border-bottom: 1px solid #cccccc;
 }
 
 .form-header h1 {
-    font-size: 28px;
-    text-align:center;
-    color:#666;
+  font-size: 28px;
+  text-align: center;
+  color: #666;
 }
-.login-row{
-    display:flex;
-    flex-direction:row;
+.login-row {
+  display: flex;
+  flex-direction: row;
 }
 
 @media only screen and (max-width: 990px) {
-    .login-row{
-        flex-direction:column;
-    }
+  .login-row {
+    flex-direction: column;
+  }
 }
 
 .input-group {
-    flex:1;
-    flex-direction:column;
-    margin: 10px 5px;
+  flex: 1;
+  flex-direction: column;
+  margin: 10px 5px;
 }
-.login-radio{
-    display: flex;
+.login-radio {
+  display: flex;
 }
-.login-radio div{
-    flex: 1;
+.login-radio div {
+  flex: 1;
 }
-.input-group input[type=text]{
-    width: 100%;
+.input-group input[type="text"] {
+  width: 100%;
 }
-.input-group input[type=email]{
-    width: 100%;
+.input-group input[type="email"] {
+  width: 100%;
 }
-.input-group input[type=date]{
-    width: 100%;
+.input-group input[type="date"] {
+  width: 100%;
 }
-.input-group input[type=password]{
-    width: 100%;
+.input-group input[type="password"] {
+  width: 100%;
 }
-.input-group select{
-    width: 100%;
+.input-group button[type="submit"] {
+  padding: 8px;
+  border-radius: 4px;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.4);
+  background: #808080;
+  color: white;
+  width: 100%;
+  justify-content: center;
+  font-family: "Orbitron", serif;
+}
+.input-group select {
+  width: 100%;
+}
+
+#login-error {
+  color: red;
+}
+.input-group .btn {
+  border-radius: 4px;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.4);
+  background: #005a99;
+  color: white;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  padding: 6px;
+}
+.errorr {
+  color: red;
 }
