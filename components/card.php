@@ -1,4 +1,5 @@
 <?php
+
 //check if cart cookie exists and write into $cart variable
 $cart = isset($_COOKIE["cart"]) ? $_COOKIE["cart"] : "[]";
 $cart = json_decode($cart);

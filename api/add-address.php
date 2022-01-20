@@ -126,3 +126,4 @@ if ($errors > 0) {
 
     header("Location: /views/checkout.php");    //redirect to checkout
 }
+

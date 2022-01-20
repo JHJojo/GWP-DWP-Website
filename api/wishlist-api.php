@@ -47,5 +47,3 @@ if ($accountID > 0) {
 }else
 //set $cartItems variable for wishlist page
 $cartItems = 0;
-
-
