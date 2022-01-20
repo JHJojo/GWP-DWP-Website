@@ -165,6 +165,7 @@
 </nav>
 
 <script>
+    "use strict";
     function overlayHidden() {
         return document.querySelector('.dynamic-search-overlay').classList.contains('hidden')
     }
