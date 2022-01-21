@@ -17,6 +17,9 @@
 #</Files>
 ```
 
+### Login Website
+* Email: root@root.de
+* Passwort: rootroot
 
 ## Custom Apache Settings
 * add them to the `.htaccess` file
