@@ -20,6 +20,7 @@
 ### Login Website
 * Email: root@root.de
 * Passwort: rootroot
+* oder Registrierung eines eigenen Accounts
 
 ## Custom Apache Settings
 * add them to the `.htaccess` file
