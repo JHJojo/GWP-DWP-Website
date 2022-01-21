@@ -130,6 +130,10 @@
         <a name="rollenmodell"><h2>8. Rollenmodell</h2></a>
 
         <a name="flussbild"><h2>9. Flussbild</h2></a>
+        <ul>
+          <li>Flussbild:</li>
+          <img src="https://i.imgur.com/WyvP0cc.png">
+        </ul>
 
         <a name="reflektion"><h2>10. Reflektion</h2></a>
         <ul>
