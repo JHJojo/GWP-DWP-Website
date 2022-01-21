@@ -15,7 +15,7 @@
             <form method="POST" action="/api/update-shoppingcart.php">
                 <input type="number" name="quantity" min="1" value="<?php echo $quantity ?>">
                 <input type="hidden" name="productID" value="<?php echo $productID ?>">
-                <input type="submit" class="btn btn-flat btn-success my-3" value="Update">
+                <input type="submit" class="btn btn-flat btn-success my-3" value="Anzahl ändern">
              </form>
             <form method="POST" action="/api/delete-shoppingcart.php">
                 <input type="hidden" name="productID" value="<?php echo $productID ?>">

@@ -7,7 +7,11 @@
     <link href="/styles/login.css" rel="stylesheet" type="text/css" />
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
 </head>
-
+<body>
+<noscript class="mt-12 ml-12 pt-12">
+    Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest.
+Die Seite ist nur eingeschränkt nutzbar.
+  </noscript>
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
 ?>
@@ -52,37 +56,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
         </form>
     </div>
 </div>
-<noscript>
 
-    <?php
-    //session_start();
-    require  $_SERVER['DOCUMENT_ROOT'] . '/functions/database.php';
-    //Check if there is an account to login
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        if (isset($_POST['email'])) {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $email = strtolower($email);
-            //Get the data of the DB
-            $statement = getDB()->prepare("SELECT * FROM accounts WHERE email = :email");
-            $result = $statement->execute(array('email' => $email));
-            $account = $statement->fetch();
-
-            //Parse the password
-            if ($account !== false && password_verify($password, $account['passwordHash'])) {
-                $_SESSION['userid'] = $account['accountID'];
-                $_SESSION['rank'] = $account['rank'];
-                echo '<meta http-equiv="refresh" content="2; URL=../index.php">';
-                die();
-            } else {
-                $errorMessage = "<div class='container'><div class='mx-auto'><div class='errorr'>Die E-Mail-Adresse oder das Passwort waren ungültig!</div></div></div>";
-                echo $errorMessage;
-            }
-        }
-    }
-    ?>
-</noscript>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
 <script>
     "use strict";
     document
@@ -144,6 +118,37 @@ include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
     password.addEventListener('keyup', updateSubmitBtn);
 </script>
 
+<noscript>
+
+    <?php
+    //session_start();
+    
+    //Check if there is an account to login
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        if (isset($_POST['email'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $email = strtolower($email);
+            //Get the data of the DB
+            $statement = getDB()->prepare("SELECT * FROM accounts WHERE email = :email");
+            $result = $statement->execute(array('email' => $email));
+            $account = $statement->fetch();
+
+            //Parse the password
+            if ($account !== false && password_verify($password, $account['passwordHash'])) {
+                $_SESSION['userid'] = $account['accountID'];
+                $_SESSION['rank'] = $account['rank'];
+                echo '<meta http-equiv="refresh" content="2; URL=../index.php">';
+                die();
+            } else {
+                $errorMessage = "<div class='container'><div class='mx-auto'><div class='errorr'>Die E-Mail-Adresse oder das Passwort waren ungültig!</div></div></div>";
+                echo $errorMessage;
+            }
+        }
+    }
+    ?>
+</noscript>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/footer.php' ?>
 
 
 </body>

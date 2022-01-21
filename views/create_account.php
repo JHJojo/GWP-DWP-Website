@@ -16,6 +16,10 @@
 </head>
 
 <body>
+<noscript class="mt-12 ml-12 pt-12">
+    Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest.
+Die Seite ist nur eingeschränkt nutzbar.
+  </noscript>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';
 
     ?>
@@ -573,8 +577,20 @@
     <noscript>
         <?php
         //session_start();
-        require  $_SERVER['DOCUMENT_ROOT'] . '\functions\database.php';
-
+        $success = '';
+            $gender_error  = '';
+            $firstname_error  = '';
+            $lastname_error  = '';
+            $birthday_error  = '';
+            $email_error  = '';
+            $password_error  = '';
+            $password2_error  = '';
+            $country_error  = '';
+            $street_error  = '';
+            $zip_error  = '';
+            $houseNumber_error  = '';
+            $city_error  = '';
+            
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $respose = array();
             $error = '';

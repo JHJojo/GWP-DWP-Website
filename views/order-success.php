@@ -8,8 +8,9 @@
   </head>
 
   <body>
-    <noscript>
-      Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest!
+    <noscript class="mt-12 ml-12 pt-12">
+      Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest.
+Die Seite ist nur eingeschränkt nutzbar.
     </noscript>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
 

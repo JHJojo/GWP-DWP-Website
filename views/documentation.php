@@ -8,8 +8,9 @@
   </head>
 
   <body>
-    <noscript>
-      Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest!
+    <noscript class="mt-12 ml-12 pt-12">
+      Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest.
+Die Seite ist nur eingeschränkt nutzbar.
     </noscript>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/navigation/header.php';?>
 
@@ -128,6 +129,13 @@
         </ul>
 
         <a name="rollenmodell"><h2>8. Rollenmodell</h2></a>
+        <ul>
+          <li>Rollenmodell:
+            <br> - Gast: kann Seite Besuchen und Warenkorb anlegen
+            <br> - User(eingeloggt): kann Wunschzettel benutzen und eine Bestellung abschließen
+            <br> - Admin: momentan kein Unterschied zu User , fehlende Implementierung der Administratoroberfläche 
+          </li>
+        </ul>
 
         <a name="flussbild"><h2>9. Flussbild</h2></a>
         <ul>
@@ -152,6 +160,7 @@
                 <br> - unbenutzte Tabellen in Datenbank("mobile" und "phone") -> könnte mit angepasstem Registrierungsformular implementiert werden
                 <br> - verstecke Zusatzfeatures: Showcase-Seite und 404-Seite (zu finden in Navbar -> Mehr -> Debug)
                 <br> - aus Zeitgründen häufige Nutzung von noscript -> mehrere Validierung mit Javascript jedoch implementierbar
+                <br> - bei Registrierung wird eine Adresse verlangt obwohl diese nicht mit dem Account verknüpft ist (Fehlerbehebung aus Zeitgründen nicht mehr möglich)
             </li>
             <li>
                <b>Projektmanagement-Dokumentation:</b>  <br>
