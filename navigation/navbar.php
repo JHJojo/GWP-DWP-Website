@@ -13,11 +13,11 @@
                 <div class="my-banner pa-2">
                     <div class="flex-row no-gutters align-center">
                         <div class="col-3">
-                            <a href="/">
-                                <img src="https://i.imgur.com/lZcL1h8.png" alt="banner">
-                            </a>
+                           <a href="/">
+                               <img src="https://i.imgur.com/lZcL1h8.png" alt="banner">
+                            </a> 
                         </div>
-
+                        
                         <div class="flex-spacer flex-grow"></div>
 
                         <div class="flex-shrink">
@@ -37,7 +37,7 @@
                             <div class="flex-row">
                                 <div class="flex-shrink">
                                     <i class="material-icons md-52 mr-2">
-                                        devices
+                                    devices
                                     </i>
                                 </div>
                                 <div class="flex-grow space-nowrap">
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="flex-shrink">
                             <div class="flex-row">
                                 <div class="flex-shrink">
@@ -66,112 +66,79 @@
 
     <div class="container">
         <div class="cat-buttons flex-row">
-            <<<<<<< HEAD <a href="/views/products?<?= http_build_query(array("productCatID" => array(1, 7, 8, 9, 10, 11))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow ">
+            <a href="/views/products.php?<?= http_build_query(array("type" => "cpu")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow ">
                 Prozessoren
-                </a>
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(12, 13, 14, 15, 16, 17, 18, 19))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Grafikkarten
-                </a>
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(44, 45, 46))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Arbeitsspeicher
-                </a>
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(2, 3, 4, 5, 6))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Gehäuse
-                </a>
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(38, 39, 40, 41, 42, 43))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Netzteile
-                </a>
+            </a>
+            <a href="/views/products.php?<?= http_build_query(array("type" => "gpu")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+                Grafikkarten
+            </a>
+            <a href="/views/products.php?<?= http_build_query(array("type" => "ram")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+                Arbeitsspeicher
+            </a>
+            <a href="/views/products.php?<?= http_build_query(array("type" => "case")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+                Gehäuse
+            </a>
+            <a href="/views/products.php?<?= http_build_query(array("type" => "psu")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+                Netzteile
+            </a>
 
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(34, 35, 36, 37))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Monitore
-                </a>
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(50, 51, 52, 53, 54))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Festplatten
-                </a>
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(20, 21, 22, 23, 24))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Mainboards
-                </a>
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(47, 48, 49))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Kühlung
-                </a>
-                <a href="/views/products?<?= http_build_query(array("productCatID" => array(25, 26, 27, 28, 29, 30, 31, 32, 33))) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Andere
-                </a>
-                =======
-                <a href="/views/products.php?<?= http_build_query(array("type" => "cpu")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow ">
-                    Prozessoren
-                </a>
-                <a href="/views/products.php?<?= http_build_query(array("type" => "gpu")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Grafikkarten
-                </a>
-                <a href="/views/products.php?<?= http_build_query(array("type" => "ram")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Arbeitsspeicher
-                </a>
-                <a href="/views/products.php?<?= http_build_query(array("type" => "case")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Gehäuse
-                </a>
-                <a href="/views/products.php?<?= http_build_query(array("type" => "psu")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Netzteile
-                </a>
+            <a href="/views/products.php?<?= http_build_query(array("type" => "monitor")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+                Monitore
+            </a>
+            <a href="/views/products.php?<?= http_build_query(array("type" => "storagedevice")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
+                Festplatten
+            </a>
+            <a href="/views/products.php?<?= http_build_query(array("type" => "motherboard")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow mainboards">
+                Mainboards
+            </a>
+            <a href="/views/products.php?<?= http_build_query(array("type" => "cooling")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow cooling">
+                Kühlung
+            </a>
+            
+            <div class="btn btn-outlined btn-flat py-4 pl-3 flex-grow dropdown text-center">
+                Mehr
+                <div class="dropdown-content">
+                    <div class="flex-column no-gutters">
+                        <a href="/views/products.php?<?= http_build_query(array("type" => "motherboard")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow mainboards-sm">
+                            Mainboards
+                        </a>
+                        <a href="/views/products.php?<?= http_build_query(array("type" => "cooling")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow cooling-sm">
+                            Kühlung
+                        </a>
+                        <a href="/views/products.php?<?= http_build_query(array("type" => "mouse")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
+                            Mäuse
+                        </a>
+                        <a href="/views/products.php?<?= http_build_query(array("type" => "keyboard")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
+                            Tastaturen
+                        </a>
+                        <a href="/views/products.php?<?= http_build_query(array("type" => "operatingsystem")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
+                            Betriebsysteme
+                        </a>
 
-                <a href="/views/products.php?<?= http_build_query(array("type" => "monitor")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Monitore
-                </a>
-                <a href="/views/products.php?<?= http_build_query(array("type" => "storagedevice")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow">
-                    Festplatten
-                </a>
-                <a href="/views/products.php?<?= http_build_query(array("type" => "motherboard")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow mainboards">
-                    Mainboards
-                </a>
-                <a href="/views/products.php?<?= http_build_query(array("type" => "cooling")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow cooling">
-                    Kühlung
-                </a>
-
-                <div class="btn btn-outlined btn-flat py-4 pl-3 flex-grow dropdown text-center">
-                    Mehr
-                    <div class="dropdown-content">
-                        <div class="flex-column no-gutters">
-                            <a href="/views/products.php?<?= http_build_query(array("type" => "motherboard")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow mainboards-sm">
-                                Mainboards
-                            </a>
-                            <a href="/views/products.php?<?= http_build_query(array("type" => "cooling")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 flex-grow cooling-sm">
-                                Kühlung
-                            </a>
-                            <a href="/views/products.php?<?= http_build_query(array("type" => "mouse")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
-                                Mäuse
-                            </a>
-                            <a href="/views/products.php?<?= http_build_query(array("type" => "keyboard")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
-                                Tastaturen
-                            </a>
-                            <a href="/views/products.php?<?= http_build_query(array("type" => "operatingsystem")) ?>" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
-                                Betriebsysteme
-                            </a>
-
-                            <div class="btn btn-outlined btn-flat py-4 pl-3 flex-grow dropdown2 text-center">
-                                <code class="text-accent">
-                                    DEBUG
-                                </code>
-                                <div class="dropdown-content2">
-                                    <div class="flex-column no-gutters">
-                                        <a href="/views/showcase.php" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
-                                            <code class="text-info">
-                                                Showcase
-                                            </code>
-                                        </a>
-
-                                        <a href="asdasdsda.php" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
-                                            <code class="text-error">
-                                                404 Error Page
-                                            </code>
-                                        </a>
-                                    </div>
+                        <div class="btn btn-outlined btn-flat py-4 pl-3 flex-grow dropdown2 text-center">
+                            <code class="text-accent">
+                                DEBUG
+                            </code>
+                            <div class="dropdown-content2">
+                                <div class="flex-column no-gutters">
+                                    <a href="/views/showcase.php" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
+                                        <code class="text-info">
+                                            Showcase
+                                        </code>
+                                    </a>
+                                    
+                                    <a href="asdasdsda.php" class="btn btn-outlined btn-flat py-4 pl-3 w-100">
+                                        <code class="text-error">
+                                            404 Error Page
+                                        </code>
+                                    </a>
                                 </div>
                             </div>
-
                         </div>
+                        
                     </div>
                 </div>
-                >>>>>>> f140dea34b72c7dcea6ff323419b9e06894bd642
+            </div>
         </div>
     </div>
 
@@ -184,7 +151,7 @@
                 <div class="flex-shrink">
                     <button onclick="fetchDynamicSearch()" class="dynamic-search-searchbtn btn btn-flat">
                         <i class="dynamic-search-searchbtn-icon material-icons md-24">
-                            search
+                        search
                         </i>
                     </button>
                 </div>
@@ -199,11 +166,10 @@
 
 <script>
     "use strict";
-
+    
     function overlayHidden() {
         return document.querySelector('.dynamic-search-overlay').classList.contains('hidden')
     }
-
     function showOverlay() {
         setTimeout(() => {
             document.querySelector('.dynamic-search-overlay').classList.remove('hidden');
@@ -212,7 +178,6 @@
             document.querySelector('html').style.overflow = 'hidden';
         }, 100);
     }
-
     function hideOverlay() {
         document.querySelector('.dynamic-search-overlay').classList.add('hidden');
         document.querySelector('.dynamic-search').classList.remove('lifted');
@@ -221,21 +186,21 @@
     }
 
     document.querySelector('.dynamic-search-overlay')
-        .addEventListener("click", (ev) => {
-            // dont hide when clicking input, searchbtn or icon in searchbtn
-            /*if (!overlayHidden() && (ev.path[0].id != 'dynamic-search-input') && !ev.path[0].classList.contains('dynamic-search-searchbtn') && !ev.path[0].classList.contains('dynamic-search-searchbtn-icon'))
-                hideOverlay();
-            if (ev.path[0].classList.contains('dynamic-search-searchbtn'))
-                fetchDynamicSearch();*/
-            if (!overlayHidden())
-                hideOverlay();
-        })
+    .addEventListener("click", (ev) => {
+        // dont hide when clicking input, searchbtn or icon in searchbtn
+        /*if (!overlayHidden() && (ev.path[0].id != 'dynamic-search-input') && !ev.path[0].classList.contains('dynamic-search-searchbtn') && !ev.path[0].classList.contains('dynamic-search-searchbtn-icon'))
+            hideOverlay();
+        if (ev.path[0].classList.contains('dynamic-search-searchbtn'))
+            fetchDynamicSearch();*/
+        if (!overlayHidden())
+            hideOverlay();
+    })
 
     document.getElementById("dynamic-search-input")
-        .addEventListener("keyup", (ev) => {
-            if (ev.key != ' ')
-                fetchDynamicSearch();
-        })
+    .addEventListener("keyup", (ev) => {
+        if (ev.key != ' ')
+            fetchDynamicSearch();
+    })
 
     function searchInputValue(params) {
         let val = document.getElementById('dynamic-search-input').value
