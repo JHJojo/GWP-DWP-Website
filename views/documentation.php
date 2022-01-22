@@ -7,7 +7,7 @@
     <title>PC Systeme & Komponenten online kaufen | Gehäusekönig</title>
   </head>
 
-  <body>
+  <body style="font-family:Arial">
     <noscript class="mt-12 ml-12 pt-12">
       Ihr Browser unterstützt kein Javascript oder legen Sie die Berechtigung dafür fest.
 Die Seite ist nur eingeschränkt nutzbar.
@@ -91,7 +91,7 @@ Die Seite ist nur eingeschränkt nutzbar.
             </li>
         </ul>
 
-        <a name="funktionalitäten"><h2>5. Design</h2></a>
+        <a name="funktionalitäten"><h2>6. Funktionalitäten</h2></a>
         <ul>
           <li>Landingpage:</li>
           <img src="https://i.imgur.com/ChZtavC.png">
