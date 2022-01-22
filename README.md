@@ -2,8 +2,8 @@
 
 * setup xampp server
 * Datenbankimport mittels SQL-Import Datei.
-* username: root
-* password: '' (empty)
+* db-username: `root`
+* db-password: `''` (empty)
 * clone repo into xampp folder
 * rename git repo folder to htdocs(delete old one)
 * Apache Config
@@ -21,9 +21,11 @@
 ```
 
 ### Login Website
-* Email: root@root.de
-* Passwort: rootroot
+* Email: `root@root.de`
+* Passwort: `rootroot`
 * oder Registrierung eines eigenen Accounts
+
+___
 
 ## Custom Apache Settings
 * add them to the `.htaccess` file
